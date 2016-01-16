@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_user id="1" username="admin1" password="123" 
+		nickname="admin1" email="admin1@admin.com" status="1" phone="110"
+		create_date="2010-12-12"/>
+	<t_user id="2" username="admin2" password="123" 
+		nickname="admin1" email="admin1@admin.com" status="1" phone="110"
+		create_date="2010-12-12"/>
+	<t_user id="3" username="admin3" password="123" 
+		nickname="admin1" email="admin1@admin.com" status="1" phone="110"
+		create_date="2010-12-12"/>
+	
+	<t_group id="1" name="财务处" descr="负责财务部门的网页"/>
+	<t_group id="2" name="计科系" descr="负责财务部门的网页"/>
+	<t_group id="3" name="宣传部" descr="负责财务部门的网页"/>
+	
+	<t_role id="1" name="管理员" role_type="ROLE_ADMIN"/>
+	<t_role id="2" name="文章发布人员" role_type="ROLE_PUBLISH"/>
+	<t_role id="3" name="文章审核人员" role_type="ROLE_AUDIT"/>
+	
+	<t_user_role id="1" u_id="1" r_id="1"/>
+	<t_user_role id="2" u_id="2" r_id="2"/>
+	<t_user_role id="3" u_id="2" r_id="3"/>
+	<t_user_role id="4" u_id="3" r_id="2"/>
+	
+	<t_user_group id="1" u_id="2" g_id="1"/>
+	<t_user_group id="2" u_id="2" g_id="2"/>
+	<t_user_group id="3" u_id="2" g_id="3"/>
+	<t_user_group id="4" u_id="3" g_id="1"/>
+	<t_user_group id="5" u_id="3" g_id="3"/>
+	
+	<t_group_channel id="1" g_id="1" c_id="1"/>
+	<t_group_channel id="2" g_id="1" c_id="2"/>
+	<t_group_channel id="3" g_id="1" c_id="3"/>
+	<t_group_channel id="4" g_id="1" c_id="6"/>
+	<t_group_channel id="5" g_id="1" c_id="8"/>
+	
+	<t_group_channel id="6" g_id="2" c_id="11"/>
+	<t_group_channel id="7" g_id="2" c_id="12"/>
+	<t_group_channel id="8" g_id="2" c_id="13"/>
+	<t_group_channel id="9" g_id="2" c_id="16"/>
+	<t_group_channel id="10" g_id="2" c_id="17"/>
+	<t_group_channel id="11" g_id="2" c_id="18"/>
+	
+	<t_group_channel id="12" g_id="3" c_id="7"/>
+	<t_group_channel id="13" g_id="3" c_id="6"/>
+</dataset>

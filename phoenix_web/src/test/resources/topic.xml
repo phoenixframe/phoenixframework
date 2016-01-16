@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_channel id="1" name="用户管理模块" custom_link="0" custom_link_url="#" type="0" 
+		is_index="0" is_top_nav="0" recommend="0" status="0" orders="1"/>
+		
+		<t_channel id="2" name="用户管理1" custom_link="0" custom_link_url="#" type="1" 
+			is_index="0" is_top_nav="0" recommend="0" status="1" orders="1" pid="1"/>
+		<t_channel id="3" name="用户管理2" custom_link="0" custom_link_url="#" type="2" 
+			is_index="0" is_top_nav="0" recommend="0" status="1" orders="2" pid="1"/>
+		<t_channel id="4" name="用户管理3" custom_link="0" custom_link_url="#" type="1" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="3" pid="1"/>
+		<t_channel id="5" name="用户管理4" custom_link="0" custom_link_url="#" type="2" 
+			is_index="0" is_top_nav="0" recommend="0" status="1" orders="4" pid="1"/>
+		
+	<t_channel id="6" name="文章管理模块" custom_link="0" custom_link_url="#" type="0" 
+		is_index="0" is_top_nav="0" recommend="0" status="0" orders="2"/>
+		
+		<t_channel id="7" name="文章管理1" custom_link="0" custom_link_url="#" type="1" 
+			is_index="0" is_top_nav="0" recommend="0" status="1" orders="1" pid="6"/>
+		<t_channel id="8" name="文章管理2" custom_link="0" custom_link_url="#" type="2" 
+			is_index="0" is_top_nav="0" recommend="0" status="1" orders="2" pid="6"/>
+		<t_channel id="9" name="文章管理3" custom_link="0" custom_link_url="#" type="1" 
+			is_index="0" is_top_nav="0" recommend="0" status="1" orders="3" pid="6"/>
+		<t_channel id="10" name="文章管理4" custom_link="0" custom_link_url="#" type="1" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="4" pid="6"/>
+	
+	<t_channel id="11" name="系统管理模块" custom_link="0" custom_link_url="#" type="0" 
+		is_index="0" is_top_nav="0" recommend="0" status="0" orders="3"/>
+		
+		<t_channel id="12" name="系统管理1" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="1" pid="11"/>
+		<t_channel id="13" name="系统管理2" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="2" pid="11"/>
+		<t_channel id="14" name="系统管理3" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="3" pid="11"/>
+		<t_channel id="15" name="系统管理4" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="4" pid="11"/>
+	
+	<t_channel id="16" name="招生管理模块" custom_link="0" custom_link_url="#" type="0" 
+		is_index="0" is_top_nav="0" recommend="0" status="0" orders="4"/>
+		
+		<t_channel id="17" name="招生管理1" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="1" pid="16"/>
+		<t_channel id="18" name="招生管理2" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="2" pid="16"/>
+		<t_channel id="19" name="招生管理3" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="3" pid="16"/>
+		<t_channel id="20" name="招生管理4" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="4" pid="16"/>
+			
+    <t_keyword id="1" name="ab" times="1"  name_full_py="ab" name_short_py="ab"/>
+	<t_keyword id="2" name="bc" times="2" name_full_py="bc" name_short_py="bc"/>
+	<t_keyword id="3" name="cd" times="3" name_full_py="cd" name_short_py="cd"/>
+	<t_keyword id="4" name="ef" times="4" name_full_py="ef" name_short_py="ef"/>
+	<t_keyword id="5" name="fg" times="5" name_full_py="fg" name_short_py="bc"/>
+	<t_keyword id="6" name="abc" times="6" name_full_py="abc" name_short_py="abc"/>
+	<t_keyword id="7" name="bcd" times="7" name_full_py="bcd" name_short_py="bcd"/>
+	<t_keyword id="8" name="efg" times="8" name_full_py="efg" name_short_py="efg"/>
+	<t_keyword id="9" name="aaa" times="9" name_full_py="aaa" name_short_py="aaa"/>
+	<t_keyword id="10" name="bbb" times="10" name_full_py="bbb" name_short_py="bbb"/>
+	
+	<t_user id="1" username="guanly" password="123" 
+		nickname="管理员" email="admin1@admin.com" status="1" phone="110"
+		create_date="2010-12-12"/>
+	<t_user id="2" username="admin2" password="123" 
+		nickname="文章发布人员" email="admin1@admin.com" status="1" phone="110"
+		create_date="2010-12-12"/>
+	
+	<t_topic id="1" title="abababab1" summary="abababab1" content="abababab1" keyword="aa|aaa" 
+   		 status="1" recommend="1" uid="1" author="管理员" cid="7" channel_pic_id="1" 
+   		 publish_date="2013-05-01" create_date="2013-05-01" />
+   <t_topic id="4" title="dededede1" summary="dededede1" content="dededede1" keyword="" 
+   		 status="1" recommend="1" uid="2" author="文章发布人员" cid="7" channel_pic_id="7" 
+   		 publish_date="2013-05-04" create_date="2013-05-04" />
+   	<t_topic id="5" title="efefefef1" summary="efefefef1" content="efefefef1" keyword="ef|efg|aaa" 
+   		 status="0" recommend="1" uid="2" author="文章发布人员" cid="7" channel_pic_id="6" 
+   		 publish_date="2013-05-05" create_date="2013-05-05" /> 
+   <t_topic id="2" title="bcbcbcbc1" summary="bcbcbcbc1" content="bcbcbcbc1" keyword="bc|bbb|aa" 
+   		 status="0" recommend="1" uid="1" author="管理员" cid="8" channel_pic_id="2" 
+   		 publish_date="2013-05-02" create_date="2013-05-02" />
+   	<t_topic id="3" title="cdcdcdcd1" summary="cdcdcdbbcd1" content="cdcdcdcd1" keyword="cd" 
+   		 status="1" recommend="0" uid="1" author="管理员" cid="8" channel_pic_id="4" 
+   		 publish_date="2013-05-03" create_date="2013-05-03" />
+   	<t_topic id="6" title="fffffff1" summary="fffffff1" content="fffffff1" keyword="fg" 
+   		 status="1" recommend="0" uid="2" author="文章发布人员" cid="8" channel_pic_id="8" 
+   		 publish_date="2013-05-06" create_date="2013-05-06" />
+   		 
+    <t_attachment  id="1" new_name="bb1" old_name="aa1" type="txt" suffix="txt"  size="123"
+		is_index_pic="1"  is_img="0"  tid="1"  is_attach="1" create_date="2013-05-01"/>
+		
+	<t_attachment  id="2" new_name="bb2" old_name="aa2" type="doc" suffix="doc"  size="123"
+		is_index_pic="0"  is_img="1"  tid="2"  is_attach="0" create_date="2013-05-02"/>
+	
+	<t_attachment  id="3" new_name="bb3" old_name="aa3" type="jpg" suffix="jpg"  size="123"
+		is_index_pic="1"  is_img="0"  tid="1" is_attach="0" create_date="2013-05-03"/>
+	
+	<t_attachment  id="4" new_name="bb4" old_name="aa4" type="txt" suffix="txt"  size="123"
+		is_index_pic="0"  is_img="1"  tid="3" is_attach="0" create_date="2013-05-04"/>
+	
+	<t_attachment  id="5" new_name="bb5" old_name="aa5" type="gif" suffix="gif"  size="123"
+		is_index_pic="1"  is_img="0"  is_attach="1" create_date="2013-05-05"/>
+	
+	
+	<t_attachment  id="6" new_name="bb6" old_name="aa6" type="ppt" suffix="ppt"  size="123"
+		is_index_pic="0"  is_img="0"  tid="1"  is_attach="1" create_date="2013-05-06"/>
+	
+	<t_attachment  id="7" new_name="bb7" old_name="aa7" type="gif" suffix="gif"  size="123"
+		is_index_pic="1"  is_img="1"  tid="4"  is_attach="0" create_date="2013-05-07"/>
+	
+	<t_attachment  id="8" new_name="bb8" old_name="aa8" type="ppt" suffix="ppt"  size="123"
+		is_index_pic="0"  is_img="0"  is_attach="1" create_date="2013-05-08"/>
+	
+	<t_attachment  id="9" new_name="bb9" old_name="aa9" type="jpg" suffix="jpg"  size="123"
+		is_index_pic="1"  is_img="1"  tid="2" is_attach="0" create_date="2013-05-09"/>
+	
+	<t_attachment  id="10" new_name="bb10" old_name="aa10" type="xls" suffix="xls"  size="123"
+		is_index_pic="0"  is_img="0"  tid="4" is_attach="1" create_date="2013-05-11"/>
+	
+	
+</dataset>

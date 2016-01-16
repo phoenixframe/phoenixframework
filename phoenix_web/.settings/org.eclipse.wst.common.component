@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="phoenix_web">
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <dependent-module archiveName="phoenix_db-1.4.6.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_db/phoenix_db">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="phoenix_webdriver-1.4.6.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_webdriver/phoenix_webdriver">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="phoenix_mobiledriver-1.4.6.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_mobiledriver/phoenix_mobiledriver">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="phoenix_interface-1.4.6.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_interface/phoenix_interface">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="phoenix_web"/>
+        <property name="java-output-path" value="/phoenix_web/target/classes"/>
+    </wb-module>
+</project-modules>

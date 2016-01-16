@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+html,body {
+	background: #0D1D3E;
+	font: normal 15px "Microsoft YaHei";
+}
+
+#login_area {
+	width: 100%;
+	height: 433px;
+	position: absolute;
+	top: 22%;
+}
+
+#login_box {
+	margin: 0 auto;
+	width: 812px;
+	height: 408px;
+	background: url('../Images/login/login.png') 0px 0px no-repeat;
+	position: relative;
+}
+
+#login_form {
+	width: 370px;
+	height: 320px;
+	position: absolute;
+	top: 10px;
+	right: 20px;
+}
+
+#login_tip {
+	height: 35px;
+	list-style: 35px;
+	font-weight: bold;
+	color: red;
+	padding-top: 15px;
+	margin-top: 55px;
+}
+
+#btn_area {
+	margin-top: 20px;
+	margin-left: 80px;
+}
+
+.username,.pwd {
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 20px;
+	outline: 0;
+	padding: 5px;
+	border: 1px solid;
+	border-color: #C0C0C0 #D9D9D9 #D9D9D9;
+	border-radius: 2px;
+	background: #FFF;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0
+		rgba(255, 255, 255, 0.2);
+	-webkit-transition: box-shadow, border-color .5s ease-in-out;
+	-moz-transition: box-shadow, border-color .5s ease-in-out;
+	-o-transition: box-shadow, border-color .5s ease-in-out;
+}
+
+.login_btn {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-style: none;
+	cursor: pointer;
+	font-family: "Microsoft YaHei", "微软雅黑", "sans-serif";
+	background: url('../Images/login/btn.jpg') 0px -1px no-repeat;
+}
+
+.login_btn:hover {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-style: none;
+	cursor: pointer;
+	font-family: "Microsoft YaHei", "微软雅黑", "sans-serif";
+	background: url('../Images/login/btn_hover.jpg') 0px 0px no-repeat;
+	color: #fff;
+}

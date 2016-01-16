@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.phoenixframe</groupId>
+    <artifactId>phoenix_parent</artifactId>
+    <version>1.4.6</version>
+    <relativePath>../phoenix_parent/pom.xml</relativePath>
+  </parent>
+  
+  <artifactId>phoenix_mobiledriver</artifactId>
+  <packaging>jar</packaging>
+
+  <name>phoenix_mobiledriver</name>
+  <url>http://www.cewan.la</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+		<dependency>
+			<groupId>org.httpunit</groupId>
+			<artifactId>httpunit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.selendroid</groupId>
+			<artifactId>selendroid-client</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.selendroid</groupId>
+			<artifactId>selendroid-server</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.selendroid</groupId>
+			<artifactId>selendroid-common</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.selendroid</groupId>
+			<artifactId>selendroid-server-common</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.selendroid</groupId>
+			<artifactId>selendroid-standalone</artifactId>
+			<scope>compile</scope>
+		</dependency>
+  </dependencies>
+</project>

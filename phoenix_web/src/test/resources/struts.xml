@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.action.extension" value="action,do"/>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<constant name="struts.multipart.maxSize" value="10240000"></constant>
+	<constant name="struts.custom.i18n.resources" value="Message"></constant>
+	<!-- 表示Action由Spring来进行创建，可以直接使用Spring依赖注入来注入 -->
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+	<!-- <constant name="struts.ui.theme" value="simple"></constant> -->
+    <package name="default" namespace="/" extends="struts-default">
+    	<interceptors>
+    		<interceptor name="authInterceptor" class="authInterceptor"/>
+    		<interceptor-stack name="authStack">
+    			<interceptor-ref name="defaultStack"/>
+    			<interceptor-ref name="authInterceptor"/>
+    		</interceptor-stack>
+    	</interceptors>
+    	<!-- 全局结果集就是公共的结果集，所有action只要找到相应的返回值就会来对应全局结果集 -->
+    	<global-results>
+    		<result name="error">/jsp/inc/error.jsp</result>
+    		<result name="exception">/jsp/inc/exception.jsp</result>
+    		<result name="login">/login.jsp</result>
+    	</global-results>
+    	<!-- 定义异常处理界面 -->
+    	<global-exception-mappings>
+    		<exception-mapping result="exception" exception="org.phoenix.web.exception.PhoenixException"></exception-mapping>
+    	</global-exception-mappings>
+    	
+    	<action name="login" class="loginAction">
+    		<result type="redirect" name="redirect">${url}</result>
+    	</action>
+    	
+    	
+    	<!-- 基于通配符的方式，由于整合了Spring在class中就不用再使用完成的类了
+    	而应该使用Spring所注入的对象，如果userAction就应该使用userAction来创建。
+    	此处特别注意，第一个字母是小写，文件夹就应该使用小写的 -->
+    	<action name="*_*" class="{1}Action" method="{2}">
+    	<!-- 在action中引入相应的拦截器,如果在action中引入了相应的拦截器之后，
+    	原有的继承于struts-default.xml的拦截器就不起作用了，此时需要手动引入 -->
+    		<result>/WEB-INF/jsp/{1}/{2}.jsp</result>
+    		<result name="input">/WEB-INF/jsp/{1}/{2}Input.jsp</result>
+    		<result type="redirect" name="redirect">${url}</result>
+    		<interceptor-ref name="authStack"></interceptor-ref>
+    	</action>
+    </package>
+</struts>

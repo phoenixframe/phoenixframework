@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+	    http://www.springframework.org/schema/beans 
+	    http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.directwebremoting.org/schema/spring-dwr 
+		http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
+	
+	<mvc:annotation-driven conversion-service="conversionService" validator="validator"/>
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
+<!-- 	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/case/**"/>
+			<mvc:mapping path="/user/**"/>
+			<mvc:mapping path="/locator/**"/>
+			<mvc:mapping path="/task/**"/>
+			<mvc:mapping path="/log/**"/>
+			<mvc:mapping path="/chart/**"/>
+			<mvc:mapping path="/data/**"/>
+			<mvc:mapping path="/attach/**"/>
+			<mvc:mapping path="/msg/**"/>
+			<mvc:mapping path="/tree/**"/>
+			<mvc:mapping path="/jmeter/**"/>
+			<bean class="org.phoenix.web.filter.AuthInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors> -->
+	<context:component-scan base-package="org.phoenix.web.controller"/>
+	
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="org.phoenix.web.converter.SimpleDateConverter"/>
+				<bean class="org.phoenix.web.converter.JSConverter"/>
+			</list>		
+		</property>
+	</bean>
+	<!-- 校验器 -->
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:CustomValidationMessages</value>
+			</list>
+		</property>
+		<property name="fileEncodings" value="utf-8" />
+		<property name="cacheSeconds" value="120" />
+	</bean>
+	
+	<dwr:configuration>
+	    <dwr:convert class="org.phoenix.web.dto.StatisticsDTO" type="bean"/>
+	    <dwr:convert class="org.phoenix.model.*" type="bean"/>
+	    <dwr:convert class="org.phoenix.enums.LocatorType" type="enum"/>
+	    <dwr:convert class="org.phoenix.enums.MsgSendType" type="enum"/>
+	</dwr:configuration>
+	<dwr:controller id="dwrController" debug="false"/>
+	<dwr:annotation-config id="dwrAnnotationConfig" />
+  	<dwr:annotation-scan base-package="org.phoenix.web.dwr" scanDataTransferObject="true"/>
+	<aop:config>
+	    <aop:aspect id="myLogAspect" ref="logAspect">
+	    <!-- 在哪些位置加入, expression="execution(* org.mfy.dao.*.*(..))",表示所有方法都加-->
+	        <aop:pointcut id="logPointCut" expression="execution(* org.phoenix.web.controller.*.*(..))"/>
+	        <aop:before method="logStart" pointcut-ref="logPointCut"/>
+	        <aop:after method="logEnd" pointcut-ref="logPointCut"/>
+	    </aop:aspect>
+	</aop:config>
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	  <property value="true" name="alwaysUseFullPath"></property> 
+	  <property name="mappings">
+	    <props> 
+	      <prop key="/dwr/**/*">dwrController</prop>
+	    </props>
+	 </property> 
+	</bean>
+	
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.phoenix.web.exception.PhoenixException">public/error</prop>
+				<prop key="java.lang.Exception">public/error</prop>
+				<prop key="java.lang.NullPointerException">public/login</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		 <property name="defaultEncoding" value="utf-8" />  
+         <property name="maxUploadSize" value="10485760000" />  
+         <property name="maxInMemorySize" value="40960" /> 
+	</bean>
+	
+</beans>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="run" name="RunCheck">
+    <property name="src" value="${basedir}\src"/>
+    <property name="bin" value="${basedir}\bin" />
+    <property name="lib" value="${basedir}\lib" />
+    <property name="report" value="${basedir}\test-output" />
+    <property name="suite" value="${basedir}" />
+    <property name="debuglevel" value="source,lines,vars" />    
+    
+    <tstamp>
+        <format property="nowstamp" pattern="yyyy_MM_dd-HHmmss" locale="en"/>
+    </tstamp>
+    
+    <tstamp>
+        <format property="nowstamp_yyyy" pattern="yyyy" locale="en"/>
+    </tstamp>
+    <tstamp>
+        <format property="nowstamp_MM" pattern="MM" locale="en"/>
+    </tstamp>
+    <tstamp>
+        <format property="nowstamp_dd" pattern="dd" locale="en"/>
+    </tstamp>
+    
+    <path id="classpath">
+        <pathelement location="." />
+        <pathelement location="${bin}" />
+        <fileset dir="${lib}/">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+    
+    <path id="sourcepath">
+        <pathelement location="./src" />
+    </path>
+    
+    <target name="clean">
+        <delete dir="${bin}" failonerror="No" />
+        <mkdir dir="${bin}" /> 
+    </target>
+    
+    <target depends="clean" name="build">
+        <javac srcdir="${src}" includeantruntime="false" debug="true" sourcepathref="sourcepath" debuglevel="${debuglevel}" destdir="${bin}">
+            <compilerarg line="-encoding UTF-8 "/>
+            <classpath refid="classpath" />
+        </javac>
+    </target>
+    
+    <taskdef resource="testngtasks" classpath="${lib}/testng-6.8.13.jar" />
+    <target name="run" depends="build">
+        <testng classpathref="classpath"
+            outputdir="${report}/"
+            useDefaultListeners="false"
+            listeners="org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter"
+            failureproperty="test.failed"> 
+        	
+            <!-- ${nowstamp_yyyy}/${nowstamp_MM}/${nowstamp_dd}/report_${nowstamp} -->
+            <!-- may add listeners:org.uncommons.reportng.HTMLReporter -->  
+        	
+            <!-- xml test suite file -->
+            <xmlfileset dir="${suite}">
+                <include name="Suite.xml" />
+            </xmlfileset>
+            <jvmarg value="-ea"/> 
+            <sysproperty key="org.uncommons.reportng.locale" value="ch"/>
+        </testng>
+        <fail message="ERROR:One or more tests failed! Check test reports：${report}/html/" if="test.failed" />
+    </target>
+</project>

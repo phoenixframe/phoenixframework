@@ -1,0 +1,32 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	<!-- hibernate的方言，用来确定连接的数据库 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+	<!-- 数据库的连接类 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+	<!-- 数据库的连接字符串和用户名密码 -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/phoenix_gui?useUnicode=true&amp;characterEncoding=utf-8</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+	<!-- 在使用hibernate时会显示相应的SQL -->
+		<property name="show_sql">true</property>
+	<!-- 会自动完成类到数据表的转换 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+	<!-- 加入实体类的映射文件 -->	
+		<mapping class="org.phoenix.model.LocatorBean"/>
+		<mapping class="org.phoenix.model.DataBean"/>
+		<mapping class="org.phoenix.model.ScenarioBean"/>
+		<mapping class="org.phoenix.model.CaseBean"/>
+		<mapping class="org.phoenix.model.BatchLogBean"/>
+		<mapping class="org.phoenix.model.CaseLogBean"/>
+		<mapping class="org.phoenix.model.UnitLogBean"/>
+		<mapping class="org.phoenix.model.ScenarioLogBean"/>
+		<mapping class="org.phoenix.model.InterfaceBatchDataBean"/>
+		<mapping class="org.phoenix.model.InterfaceDataBean"/>
+		
+	</session-factory>
+</hibernate-configuration>

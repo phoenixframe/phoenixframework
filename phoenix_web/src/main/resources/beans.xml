@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd
+         http://www.springframework.org/schema/mvc 
+		 http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+         http://www.springframework.org/schema/tx 
+         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+         
+	<context:annotation-config />
+	<context:component-scan base-package="org.phoenix.web" />
+	<tx:annotation-driven transaction-manager="transactionManager" /> 
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	 <property name="host" value="smtp.163.com" />    
+     <property name="port" value="25" />
+     <property name="defaultEncoding" value="UTF-8"/>    
+     <property name="username" value="5156meng.feiyang" />    
+     <property name="password" value="xxxxx" /> 
+	  <property name="javaMailProperties">
+	  	<props>
+	  		<prop key="mail.smtp.auth">true</prop>
+	  		<prop key="mail.setFrom">5156meng.feiyang@163.com</prop>
+	  	</props>
+	  </property>
+	</bean>
+	
+	<bean id="InitMsg" class="org.phoenix.web.quartz.InitMsg"></bean>
+	<bean id="initMsgJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="InitMsg"/>
+		<property name="targetMethod" value="init"/>
+	</bean>
+	<bean id="initMsgTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="initMsgJob" />
+		<property name="cronExpression" value="0/30 * * * * ?" />
+	</bean>
+	<bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="initMsgTrigger" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	  <property name="corePoolSize" value="5" />
+	  <property name="maxPoolSize" value="10" />
+	  <property name="queueCapacity" value="25" />
+	</bean>
+	
+	<bean id="constants" class="org.springframework.beans.factory.config.MapFactoryBean">
+	   <property name="sourceMap">
+	     <map>
+	       <entry key="slave1" value="localhost"/>
+	       <entry key="slave2" value="127.0.0.1"/>
+	       <entry key="slave3" value="192.168.1.1"/>
+	     </map>
+	   </property>
+	</bean>
+
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 配置连接池的初始值 -->
+		<property name="initialSize" value="1" />
+		<!-- 连接池的最大值 -->
+		<!-- <property name="maxActive" value="500"/> -->
+		<!-- 最大空闲时，当经过一个高峰之后，连接池可以将一些用不到的连接释放，一直减少到maxIdle为止 -->
+		<!-- <property name="maxIdle" value="2"/> -->
+		<!-- 当最小空闲时，当连接少于minIdle时会自动去申请一些连接 -->
+		<property name="minIdle" value="1" />
+		<property name="maxActive" value="100" />
+		<property name="maxWait" value="1000" />
+	</bean>
+	
+	<!-- 导入Src目录下的jdbc.properties文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!--创建Spring的SessionFactory工厂 -->
+	<!-- 如果使用的是Annotation的方式，不能使用LocalSessionFactoryBean,而应该使用 org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+		   <list>
+			  <value>org.phoenix.web.model</value>
+			  <value>org.phoenix.model</value>
+			  <value>org.phoenix.jmeter.model</value>
+		   </list>
+		</property>
+		<property name="hibernateProperties">
+			<!-- <value> hibernate.dialect=org.hibernate.dialect.HSQLDialect </value> -->
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.format_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 配置Spring的事务处理 -->
+	<!-- 创建事务管理器-->
+    <bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+          <property name="sessionFactory" ref="sessionFactory"></property>
+     </bean>
+
+<!-- 配置AOP，Spring是通过AOP来进行事务管理的 -->
+	<aop:config>
+		<!-- 设置pointCut表示哪些方法要加入事务处理 -->
+		<aop:pointcut id="allMethods" expression="execution(* org.phoenix.web.service.*.*(..))" />
+		<!-- 通过advisor来确定具体要加入事务控制的方法 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="allMethods" />
+	</aop:config>
+<!-- 配置哪些方法要加入事务控制 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+		<!-- 让所有的方法都加入事务管理，为了提高效率，可以把一些查询之类的方法设置为只读的事务 -->
+			<tx:method name="*" propagation="REQUIRED" read-only="true"/>
+			<!-- 以下方法都是可能设计修改的方法，就无法设置为只读 -->
+			<tx:method name="add*" propagation="REQUIRED"/>
+			<tx:method name="del*" propagation="REQUIRED"/>
+			<tx:method name="update*" propagation="REQUIRED"/>
+			<tx:method name="save*" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+</beans>

@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.phoenixframe</groupId>
+    <artifactId>phoenix_parent</artifactId>
+    <version>1.4.6</version>
+    <relativePath>../phoenix_parent/pom.xml</relativePath>
+  </parent>
+  
+  <artifactId>phoenix_interface</artifactId>
+  <description>增加对cookie，host，proxy等设置</description>
+  <packaging>jar</packaging>
+
+  <name>phoenix_interface</name>
+  <url>http://www.cewan.la</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- 需将此引用放到 httpunit 之前，否则xml无法解析-->
+    <dependency>
+		<groupId>xml-apis</groupId>
+		<artifactId>xml-apis</artifactId>
+		<version>1.3.04</version>
+	</dependency>
+	<dependency>
+		<!-- jsoup HTML parser library @ http://jsoup.org/ -->
+		<groupId>org.jsoup</groupId>
+		<artifactId>jsoup</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>commons-discovery</groupId>
+		<artifactId>commons-discovery</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>axis</groupId>
+		<artifactId>axis-wsdl4j</artifactId>
+		<version>1.5.1</version>
+	</dependency>
+	<dependency>
+		<groupId>axis</groupId>
+		<artifactId>axis-jaxrpc</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.axis</groupId>
+		<artifactId>axis</artifactId>
+	</dependency>
+    <dependency>
+		<groupId>org.httpunit</groupId>
+		<artifactId>httpunit</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+	</dependency>
+	<dependency>
+		  <groupId>org.json</groupId>
+		  <artifactId>json</artifactId>
+	</dependency>
+	
+  </dependencies>
+</project>

@@ -1,0 +1,32 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	<!-- hibernate的方言，用来确定连接的数据库 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+	<!-- 数据库的连接类 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+	<!-- 数据库的连接字符串和用户名密码 -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mfy_test</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<!-- 设置二级缓存为true -->
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<!--设置相应的查询缓存 -->
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<!-- 设置二级缓存所提供的类 -->
+		<property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property>
+		<!-- 在hibernate4.0之后需要设置facotory_class -->
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<!-- 说明ehcache的配置文件路径 -->
+		<property name="hibernate.cache.provider_configuration_file_resource_path">ehcache.xml</property>
+	<!-- 在使用hibernate时会显示相应的SQL -->
+		<property name="show_sql">true</property>
+	<!-- 会自动完成类到数据表的转换 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+	<!-- 加入实体类的映射文件 -->	
+		<mapping class="org.phoenix.bean.DataBean"/>
+	</session-factory>
+</hibernate-configuration>

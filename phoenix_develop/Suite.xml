@@ -1,0 +1,15 @@
+<suite name="phoenixframe_jenkins">  
+
+    <test name="webUI测试用例">
+        <classes>
+              <class>org.phoenix.cases.cases.aggregate.TestCase1</class>
+        </classes>
+    </test>
+    
+    <test name="接口测试">
+        <classes>
+              <class name="org.phoenix.cases.webservice.ContactJieKou" />
+        </classes>
+    </test>
+   
+</suite>
