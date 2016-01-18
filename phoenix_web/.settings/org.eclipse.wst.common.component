@@ -10,9 +10,6 @@
         <dependent-module archiveName="phoenix_webdriver-1.4.6.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_webdriver/phoenix_webdriver">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="phoenix_mobiledriver-1.4.6.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_mobiledriver/phoenix_mobiledriver">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="phoenix_interface-1.4.6.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_interface/phoenix_interface">
             <dependency-type>uses</dependency-type>
         </dependent-module>

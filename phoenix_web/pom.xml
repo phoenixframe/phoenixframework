@@ -206,6 +206,10 @@
     </dependency>
     <dependency>
 		<groupId>${project.groupId}</groupId>
+		<artifactId>phoenix_common</artifactId>
+	</dependency>
+    <dependency>
+		<groupId>${project.groupId}</groupId>
 		<artifactId>phoenix_db</artifactId>
 	</dependency>
 	<dependency>

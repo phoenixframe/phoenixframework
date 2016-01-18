@@ -38,19 +38,24 @@
 		<groupId>${project.groupId}</groupId>
 		<artifactId>phoenix_interface</artifactId>
 		<scope>compile</scope>
+	</dependency> 
+	<dependency>
+		<groupId>${project.groupId}</groupId>
+		<artifactId>phoenix_common</artifactId>
+		<scope>compile</scope>
 	</dependency>
 	<dependency>
 		<groupId>${project.groupId}</groupId>
 		<artifactId>phoenix_mobiledriver</artifactId>
 		<scope>compile</scope>
 	</dependency>
-	
 	<dependency>
-		<groupId>org.phoenixframe</groupId>
-		<artifactId>phoenix-ftpclient</artifactId>
-		<version>1.1.1</version>
+		<groupId>${project.groupId}</groupId>
+		<artifactId>phoenix_ftpclient</artifactId>
 		<scope>compile</scope>
 	</dependency>
+	
+	
 	<dependency>
 		<groupId>org.phoenixframe</groupId>
 		<artifactId>phoenix-imgreader</artifactId>

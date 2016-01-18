@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.phoenixframe</groupId>
+    <artifactId>phoenix_parent</artifactId>
+    <version>1.4.6</version>
+    <relativePath>../phoenix_parent/pom.xml</relativePath>
+  </parent>
+  
+  <artifactId>phoenix_common</artifactId>
+  <packaging>jar</packaging>
+
+  <name>phoenix_common</name>
+  <url>http://www.cewan.la</url>
+  <description>phoenixframework自动化平台公共model模块</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+	<dependency>
+		<groupId>javax.persistence</groupId>
+		<artifactId>persistence-api</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-annotations</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-validator</artifactId>
+	</dependency>
+  </dependencies>
+</project>
