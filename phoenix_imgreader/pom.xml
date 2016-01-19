@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.phoenixframe</groupId>
+    <artifactId>phoenix_parent</artifactId>
+    <version>1.4.6</version>
+    <relativePath>../phoenix_parent/pom.xml</relativePath>
+  </parent>
+  
+  <artifactId>phoenix_imgreader</artifactId>
+  <packaging>jar</packaging>
+
+  <name>phoenix_imgreader</name>
+  <url>http://www.cewan.la</url>
+  <description>phoenixframework自动化平台用于图像文字识别的一个模块</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+	<dependency>
+		<groupId>org.swinglabs</groupId>
+		<artifactId>swingx</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>com.github.jai-imageio</groupId>
+		<artifactId>jai-imageio-core</artifactId>
+	</dependency>
+<dependency>
+	<groupId>com.github.jai-imageio</groupId>
+	<artifactId>jai-imageio-jpeg2000</artifactId>
+</dependency>
+
+	
+  </dependencies>
+</project>

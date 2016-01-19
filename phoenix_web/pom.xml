@@ -214,10 +214,6 @@
 	</dependency>
 	<dependency>
 		<groupId>${project.groupId}</groupId>
-		<artifactId>phoenix_webdriver</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>${project.groupId}</groupId>
 		<artifactId>phoenix_interface</artifactId>
 	</dependency>
   </dependencies>

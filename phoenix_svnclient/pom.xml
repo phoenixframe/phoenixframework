@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.phoenixframe</groupId>
+    <artifactId>phoenix_parent</artifactId>
+    <version>1.4.6</version>
+    <relativePath>../phoenix_parent/pom.xml</relativePath>
+  </parent>
+  
+  <artifactId>phoenix_svnclient</artifactId>
+  <packaging>jar</packaging>
+
+  <name>phoenix_svnclient</name>
+  <url>http://www.cewan.la</url>
+  <description>phoenixframework自动化平台操作svnserver的一个模块</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+	<dependency>
+		<groupId>org.tmatesoft.svnkit</groupId>
+		<artifactId>svnkit</artifactId>
+	</dependency>
+	
+  </dependencies>
+</project>

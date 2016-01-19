@@ -10,7 +10,7 @@
   </parent>
   
   <artifactId>phoenix_webdriver</artifactId>
-  <description>接口测试增加了加载批量数据以参数化功能;增加对Socket服务器连接的支持;删除了原自带的驱动，使体积减小到了64kb，方便引入</description>
+  <description>修复部分webUI操作无效bug,增加启动url时的host支持,增加了HTMLunit驱动,webCase增加了多批次数据的支持</description>
   <packaging>jar</packaging>
 
   <name>phoenix_webdriver</name>
@@ -42,44 +42,28 @@
 	<dependency>
 		<groupId>${project.groupId}</groupId>
 		<artifactId>phoenix_common</artifactId>
-		<scope>compile</scope>
 	</dependency>
 	<dependency>
 		<groupId>${project.groupId}</groupId>
 		<artifactId>phoenix_mobiledriver</artifactId>
-		<scope>compile</scope>
 	</dependency>
 	<dependency>
 		<groupId>${project.groupId}</groupId>
 		<artifactId>phoenix_ftpclient</artifactId>
-		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>${project.groupId}</groupId>
+		<artifactId>phoenix_telnetclient</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.phoenixframe</groupId>
+		<artifactId>phoenix_svnclient</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.phoenixframe</groupId>
+		<artifactId>phoenix_imgreader</artifactId>
 	</dependency>
 	
-	
-	<dependency>
-		<groupId>org.phoenixframe</groupId>
-		<artifactId>phoenix-imgreader</artifactId>
-		<version>1.1.1</version>
-		<scope>compile</scope>
-	</dependency>
-	<dependency>
-		<groupId>org.phoenixframe</groupId>
-		<artifactId>phoenix-svnclient</artifactId>
-		<version>1.1.1</version>
-		<scope>compile</scope>
-	</dependency>
-	<dependency>
-		<groupId>org.phoenixframe</groupId>
-		<artifactId>phoenix-telnetclient</artifactId>
-		<version>1.1.1</version>
-		<scope>compile</scope>
-	</dependency>
-	<dependency>
-		<groupId>org.phoenixframe</groupId>
-		<artifactId>phoenix-jmeter</artifactId>
-		<version>1.1.1</version>
-		<scope>compile</scope>
-	</dependency>
 	<dependency>
 		<groupId>io.selendroid</groupId>
 		<artifactId>selendroid-client</artifactId>

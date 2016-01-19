@@ -10,7 +10,7 @@
   </parent>
   
   <artifactId>phoenix_interface</artifactId>
-  <description>增加对cookie，host，proxy等设置</description>
+  <description>增加对xml，随机字符，加密解密，list分割等工具类,增加对host 的配置,增加post请求时添加附件字段或文件方法</description>
   <packaging>jar</packaging>
 
   <name>phoenix_interface</name>

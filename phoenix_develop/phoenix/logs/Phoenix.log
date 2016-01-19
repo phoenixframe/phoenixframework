@@ -1,0 +1,64 @@
+2016-01-19 11:43:06 [ main:0 ] - [ INFO ] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2016-01-19 11:43:06 [ main:17 ] - [ INFO ] HHH000412: Hibernate Core {4.1.7.Final}
+2016-01-19 11:43:06 [ main:17 ] - [ INFO ] HHH000206: hibernate.properties not found
+2016-01-19 11:43:06 [ main:17 ] - [ INFO ] HHH000021: Bytecode provider name : javassist
+2016-01-19 11:43:06 [ main:48 ] - [ INFO ] HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-01-19 11:43:06 [ main:48 ] - [ INFO ] HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-01-19 11:43:06 [ main:392 ] - [ INFO ] HHH000041: Configured SessionFactory: null
+2016-01-19 11:43:06 [ main:689 ] - [ INFO ] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-01-19 11:43:07 [ main:861 ] - [ INFO ] HHH000115: Hibernate connection pool size: 20
+2016-01-19 11:43:07 [ main:861 ] - [ INFO ] HHH000006: Autocommit mode: false
+2016-01-19 11:43:07 [ main:861 ] - [ INFO ] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/phoenix_gui?useUnicode=true&characterEncoding=utf-8]
+2016-01-19 11:43:07 [ main:861 ] - [ INFO ] HHH000046: Connection properties: {user=root, password=****}
+2016-01-19 11:43:07 [ main:1267 ] - [ INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2016-01-19 11:43:07 [ main:1299 ] - [ INFO ] HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-01-19 11:43:07 [ main:1315 ] - [ INFO ] HHH000397: Using ASTQueryTranslatorFactory
+2016-01-19 11:43:07 [ main:1737 ] - [ INFO ] HHH000228: Running hbm2ddl schema update
+2016-01-19 11:43:07 [ main:1737 ] - [ INFO ] HHH000102: Fetching database metadata
+2016-01-19 11:43:07 [ main:1737 ] - [ INFO ] HHH000396: Updating schema
+2016-01-19 11:43:07 [ main:1768 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_batch
+2016-01-19 11:43:07 [ main:1768 ] - [ INFO ] HHH000037: Columns: [uid, tasktype, createdate, id, batchid]
+2016-01-19 11:43:07 [ main:1768 ] - [ INFO ] HHH000108: Foreign keys: []
+2016-01-19 11:43:07 [ main:1768 ] - [ INFO ] HHH000126: Indexes: [primary]
+2016-01-19 11:43:07 [ main:1784 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_case
+2016-01-19 11:43:07 [ main:1784 ] - [ INFO ] HHH000037: Columns: [actor, duration, attachpath, clientip, endtime, scenariologbeanid, id, casename, starttime, enginetype, status, batchlogid]
+2016-01-19 11:43:07 [ main:1784 ] - [ INFO ] HHH000108: Foreign keys: [fke98647aeda1e53ad]
+2016-01-19 11:43:07 [ main:1784 ] - [ INFO ] HHH000126: Indexes: [fke98647aeda1e53ad, primary]
+2016-01-19 11:43:08 [ main:1799 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_scenario
+2016-01-19 11:43:08 [ main:1799 ] - [ INFO ] HHH000037: Columns: [uid, id, message, taskstatustype, scenarioname, batchlogid]
+2016-01-19 11:43:08 [ main:1799 ] - [ INFO ] HHH000108: Foreign keys: [fk7946d10eda1e53ad]
+2016-01-19 11:43:08 [ main:1799 ] - [ INFO ] HHH000126: Indexes: [fk7946d10eda1e53ad, primary]
+2016-01-19 11:43:08 [ main:1815 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_unit
+2016-01-19 11:43:08 [ main:1815 ] - [ INFO ] HHH000037: Columns: [steptype, stepname, id, screenshot, caselogid, content, status]
+2016-01-19 11:43:08 [ main:1815 ] - [ INFO ] HHH000108: Foreign keys: [fke98ea602411c9d65]
+2016-01-19 11:43:08 [ main:1815 ] - [ INFO ] HHH000126: Indexes: [fke98ea602411c9d65, primary]
+2016-01-19 11:43:08 [ main:1831 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_interface_batchdata
+2016-01-19 11:43:08 [ main:1831 ] - [ INFO ] HHH000037: Columns: [caseid, remark, id, expectdata]
+2016-01-19 11:43:08 [ main:1831 ] - [ INFO ] HHH000108: Foreign keys: [fk8dfcce331b32d119]
+2016-01-19 11:43:08 [ main:1831 ] - [ INFO ] HHH000126: Indexes: [fk8dfcce331b32d119, primary]
+2016-01-19 11:43:08 [ main:1846 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_interface_data
+2016-01-19 11:43:08 [ main:1846 ] - [ INFO ] HHH000037: Columns: [interfacebatchdataid, datacontent, id, dataname]
+2016-01-19 11:43:08 [ main:1846 ] - [ INFO ] HHH000108: Foreign keys: [fk48998e1bddb6e78f]
+2016-01-19 11:43:08 [ main:1846 ] - [ INFO ] HHH000126: Indexes: [fk48998e1bddb6e78f, primary]
+2016-01-19 11:43:08 [ main:1846 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_case
+2016-01-19 11:43:08 [ main:1862 ] - [ INFO ] HHH000037: Columns: [classname, deletemsg, casetype, remark, id, casename, create_date, msgsendtype, userid, scenarioid, codecontent, status]
+2016-01-19 11:43:08 [ main:1862 ] - [ INFO ] HHH000108: Foreign keys: [fk8bd1d0a6140b62d9]
+2016-01-19 11:43:08 [ main:1862 ] - [ INFO ] HHH000126: Indexes: [casename, primary, fk8bd1d0a6140b62d9]
+2016-01-19 11:43:08 [ main:1877 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_data
+2016-01-19 11:43:08 [ main:1877 ] - [ INFO ] HHH000037: Columns: [caseid, datacontent, id, dataname]
+2016-01-19 11:43:08 [ main:1893 ] - [ INFO ] HHH000108: Foreign keys: [fk8bd245201b32d119]
+2016-01-19 11:43:08 [ main:1893 ] - [ INFO ] HHH000126: Indexes: [dataname, primary, fk8bd245201b32d119]
+2016-01-19 11:43:08 [ main:1898 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_scenario
+2016-01-19 11:43:08 [ main:1898 ] - [ INFO ] HHH000037: Columns: [remark, id, create_date, userid, scenarioname]
+2016-01-19 11:43:08 [ main:1898 ] - [ INFO ] HHH000108: Foreign keys: []
+2016-01-19 11:43:08 [ main:1898 ] - [ INFO ] HHH000126: Indexes: [primary, scenarioname]
+2016-01-19 11:43:08 [ main:1914 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_unit
+2016-01-19 11:43:08 [ main:1914 ] - [ INFO ] HHH000037: Columns: [locatortype, caseid, id, locatordataname, locatordata]
+2016-01-19 11:43:08 [ main:1914 ] - [ INFO ] HHH000108: Foreign keys: [fk8bda2efa1b32d119]
+2016-01-19 11:43:08 [ main:1914 ] - [ INFO ] HHH000126: Indexes: [fk8bda2efa1b32d119, locatordataname, primary]
+2016-01-19 11:43:08 [ main:1914 ] - [ INFO ] HHH000232: Schema update complete
+2016-01-19 11:43:08 [ main:2179 ] - [ INFO ] 步骤 [ addLocator ]执行成功，参数值：[, org.phoenix.model.CaseLogBean@6ad59d92],执行结果返回值：null
+2016-01-19 11:43:08 [ main:2179 ] - [ INFO ] 步骤 [ setWebProxy ]执行成功，参数值：[org.phoenix.action.WebElementAction@56f0cc85],执行结果返回值：null
+2016-01-19 11:43:08 [ main:2179 ] - [ INFO ] 步骤 [ svnClient ]执行成功，参数值：null,执行结果返回值：org.phoenix.svn.action.SvnClient@2cc44ad
+2016-01-19 11:43:10 [ main:4617 ] - [ INFO ] 检查点 [checkNotNull] 执行通过，相关参数：[M /trunk/svnkit/src/main/java/org/tmatesoft/svn/core/internal/wc17/SVNWCContext.java]
+2016-01-19 11:43:10 [ main:4617 ] - [ INFO ] 检查点 [checkNotNull] 执行通过，相关参数：[R /trunk (from /trunk revision 9336)]
