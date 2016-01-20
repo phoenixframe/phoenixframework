@@ -150,7 +150,7 @@ public class CaseController {
 		scenBean.setId(caseDTO.getScenId());
 		String className = "";
 		try{
-			className = MethodPattern.result(caseDTO.getCodeContent(), "public\\sclass\\s(.*)extends\\sWebElementActionProxy").trim();
+			className = MethodPattern.result(caseDTO.getCodeContent(), "public\\s+class\\s+(.*)extends\\s+WebElementActionProxy").trim();
 		}catch(NullPointerException e){}
 		CaseBean caseBean = caseService.getCaseBean(caseDTO.getId());
 		caseBean.setCaseName(caseDTO.getCaseName());

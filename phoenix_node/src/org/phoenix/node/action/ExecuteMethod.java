@@ -26,7 +26,7 @@ public class ExecuteMethod {
 	public LinkedList<UnitLogBean> runByJavaCode(String codeContent,CaseLogBean caseLogBean) throws Exception{		
 		//"public\\sclass(.*)(?=\\{)").split("\\{")[0]
 		String packageName = MethodPattern.result(codeContent, "package(.*);").trim();
-		String className = MethodPattern.result(codeContent, "public\\sclass\\s(.*)extends\\sWebElementActionProxy").trim();
+		String className = MethodPattern.result(codeContent, "public\\s+class\\s+(.*)extends\\s+WebElementActionProxy").trim();
         DynamicEngine de = DynamicEngine.getInstance();
         Class<?> clazz =  de.javaCodeToClass(packageName+"."+className,codeContent);
     	Method method = clazz.getDeclaredMethod("run",CaseLogBean.class);
