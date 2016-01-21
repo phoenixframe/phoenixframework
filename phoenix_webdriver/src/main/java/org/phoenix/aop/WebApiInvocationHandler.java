@@ -30,7 +30,8 @@ public class WebApiInvocationHandler implements InvocationHandler {
 		Object result = null;
 		Object returnObj = null;
 		try{
-			returnObj = result = method.invoke(this.target, args);
+			result = method.invoke(this.target, args);
+			returnObj = result;
 			if(returnObj!=null && !returnObj.equals("null"))returnObj = returnObj.toString().length()>100?returnObj.toString().substring(0, 100)+"...":returnObj.toString();
 			unitLog.add(new UnitLogBean("接口方法 ["+method.getName()+"] 执行通过，相关参数："+Arrays.toString(args),method.getName(),"WEBAPI","SUCCESS","",caseLogBean));
 			PhoenixLogger.info("接口方法 ["+method.getName()+"] 执行通过，相关参数："+Arrays.toString(args)+"，返回结果值："+returnObj);

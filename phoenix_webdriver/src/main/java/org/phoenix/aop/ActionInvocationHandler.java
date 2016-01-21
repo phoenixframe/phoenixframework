@@ -37,7 +37,8 @@ public class ActionInvocationHandler implements InvocationHandler {
 		Object result = null;
 		Object returnObj = null;
 		try{
-			returnObj = result = method.invoke(this.target, args);
+			result = method.invoke(this.target, args);
+			returnObj = result;
 			if(returnObj!=null && !returnObj.equals("null"))returnObj = returnObj.toString().length()>200?returnObj.toString().substring(0, 200)+"...":returnObj.toString();
 			if(!otherOpers.contains(method.getName())){
 				unitLog.add(new UnitLogBean("步骤 [ "+method.getName()+" ]执行成功，参数值："+Arrays.toString(args)+",执行结果返回值："+returnObj,method.getName(),"STEP","SUCCESS","",caseLogBean));
