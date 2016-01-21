@@ -28,10 +28,10 @@ public class WebApiInvocationHandler implements InvocationHandler {
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) {
 		Object result = null;
-		String param = args.length>20?"info:参数值过多，不予显示...":Arrays.toString(args);
+		String param = args==null?"":args.length>20?"info:参数值过多，不予显示...":Arrays.toString(args);
 		try{
 			result = method.invoke(this.target, args);
-			result = result.toString().length()>100?result.toString().substring(0, 100)+"...":result;
+			if(result!=null)result = result.toString().length()>100?result.toString().substring(0, 100)+"...":result.toString();
 			unitLog.add(new UnitLogBean("接口方法 ["+method.getName()+"] 执行通过，相关参数："+param,method.getName(),"WEBAPI","SUCCESS","",caseLogBean));
 			PhoenixLogger.info("接口方法 ["+method.getName()+"] 执行通过，相关参数："+param+"，返回结果值："+result);
 		}catch(Exception e){
