@@ -6,11 +6,14 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
 import org.phoenix.utils.ScreenShot;
 import org.phoenix.utils.SystemInfo;
+
+import com.beust.jcommander.internal.Lists;
 
 /**
  * @author mengfeiyang
@@ -34,12 +37,25 @@ public class CheckPointInvocationHandler implements InvocationHandler {
 		Object result = null;
 		String picPath = null;
 		String picWebPath = null;
-		try{
-			result = method.invoke(this.target, args);
-			if(result == null){
-				unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 执行通过，相关参数："+Arrays.toString(args),method.getName(),"CHECKPOINT","SUCCESS","",caseLogBean));
-				PhoenixLogger.info("检查点 ["+method.getName()+"] 执行通过，相关参数："+Arrays.toString(args));
-			} else {
+		List<String> list = Lists.newArrayList("equals","toString");
+		if(!list.contains(method.getName())){
+			try{
+				result = method.invoke(this.target, args);
+				if(result == null){
+					unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 执行通过，相关参数："+Arrays.toString(args),method.getName(),"CHECKPOINT","SUCCESS","",caseLogBean));
+					PhoenixLogger.info("检查点 ["+method.getName()+"] 执行通过，相关参数："+Arrays.toString(args));
+				} else {
+					if(SystemInfo.isWindows()){
+						picName = new Date().getTime();
+						picPath = ScreenShot.TakeScreenshot(caseLogBean.getAttachPath()+"/screenshot/"+picName+".jpg");
+						picWebPath = "<a href='http://"+caseLogBean.getClientIP()+"/phoenix_node/screenshot/"+picName+".jpg' target='_blank'>点击查看</a>";
+					}else{
+						picWebPath = picPath = "linux不支持截图";
+					}
+					unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 校验失败，相关参数："+Arrays.toString(args)+",校验结果："+result,method.getName(),"CHECKPOINT","FAIL",picWebPath,caseLogBean));
+					PhoenixLogger.warn("检查点 ["+method.getName()+"] 校验失败，相关参数："+Arrays.toString(args)+",校验结果："+result);
+				}
+			}catch(Exception e){
 				if(SystemInfo.isWindows()){
 					picName = new Date().getTime();
 					picPath = ScreenShot.TakeScreenshot(caseLogBean.getAttachPath()+"/screenshot/"+picName+".jpg");
@@ -47,19 +63,9 @@ public class CheckPointInvocationHandler implements InvocationHandler {
 				}else{
 					picWebPath = picPath = "linux不支持截图";
 				}
-				unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 校验失败，相关参数："+Arrays.toString(args)+",校验结果："+result,method.getName(),"CHECKPOINT","FAIL",picWebPath,caseLogBean));
-				PhoenixLogger.warn("检查点 ["+method.getName()+"] 校验失败，相关参数："+Arrays.toString(args)+",校验结果："+result);
+				unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 方法执行失败，相关参数："+Arrays.toString(args)+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString(),method.getName(),"CHECKPOINT","FAIL",picWebPath,caseLogBean));
+				PhoenixLogger.error("检查点 ["+method.getName()+"] 方法执行失败，相关参数："+Arrays.toString(args)+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString()+",截图路径："+picPath);
 			}
-		}catch(Exception e){
-			if(SystemInfo.isWindows()){
-				picName = new Date().getTime();
-				picPath = ScreenShot.TakeScreenshot(caseLogBean.getAttachPath()+"/screenshot/"+picName+".jpg");
-				picWebPath = "<a href='http://"+caseLogBean.getClientIP()+"/phoenix_node/screenshot/"+picName+".jpg' target='_blank'>点击查看</a>";
-			}else{
-				picWebPath = picPath = "linux不支持截图";
-			}
-			unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 方法执行失败，相关参数："+Arrays.toString(args)+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString(),method.getName(),"CHECKPOINT","FAIL",picWebPath,caseLogBean));
-			PhoenixLogger.error("检查点 ["+method.getName()+"] 方法执行失败，相关参数："+Arrays.toString(args)+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString()+",截图路径："+picPath);
 		}
 		return result;
 	}
