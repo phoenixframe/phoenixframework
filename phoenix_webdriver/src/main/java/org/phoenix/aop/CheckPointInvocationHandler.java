@@ -34,11 +34,12 @@ public class CheckPointInvocationHandler implements InvocationHandler {
 		Object result = null;
 		String picPath = null;
 		String picWebPath = null;
+		String param = args.length>20?"info:参数值过多，不予显示...":Arrays.toString(args);
 		try{
 			result = method.invoke(this.target, args);
 			if(result == null){
-				unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 执行通过，相关参数："+Arrays.toString(args),method.getName(),"CHECKPOINT","SUCCESS","",caseLogBean));
-				PhoenixLogger.info("检查点 ["+method.getName()+"] 执行通过，相关参数："+Arrays.toString(args));
+				unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 执行通过，相关参数："+param,method.getName(),"CHECKPOINT","SUCCESS","",caseLogBean));
+				PhoenixLogger.info("检查点 ["+method.getName()+"] 执行通过，相关参数："+param);
 			} else {
 				if(SystemInfo.isWindows()){
 					picName = new Date().getTime();
@@ -47,8 +48,8 @@ public class CheckPointInvocationHandler implements InvocationHandler {
 				}else{
 					picWebPath = picPath = "linux不支持截图";
 				}
-				unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 校验失败，相关参数："+Arrays.toString(args)+",校验结果："+result,method.getName(),"CHECKPOINT","FAIL",picWebPath,caseLogBean));
-				PhoenixLogger.warn("检查点 ["+method.getName()+"] 校验失败，相关参数："+Arrays.toString(args)+",校验结果："+result);
+				unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 校验失败，相关参数："+param+",校验结果："+result,method.getName(),"CHECKPOINT","FAIL",picWebPath,caseLogBean));
+				PhoenixLogger.warn("检查点 ["+method.getName()+"] 校验失败，相关参数："+param+",校验结果："+result);
 			}
 		}catch(Exception e){
 			if(SystemInfo.isWindows()){
@@ -58,8 +59,8 @@ public class CheckPointInvocationHandler implements InvocationHandler {
 			}else{
 				picWebPath = picPath = "linux不支持截图";
 			}
-			unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 方法执行失败，相关参数："+Arrays.toString(args)+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString(),method.getName(),"CHECKPOINT","FAIL",picWebPath,caseLogBean));
-			PhoenixLogger.error("检查点 ["+method.getName()+"] 方法执行失败，相关参数："+Arrays.toString(args)+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString()+",截图路径："+picPath);
+			unitLog.add(new UnitLogBean("检查点 ["+method.getName()+"] 方法执行失败，相关参数："+param+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString(),method.getName(),"CHECKPOINT","FAIL",picWebPath,caseLogBean));
+			PhoenixLogger.error("检查点 ["+method.getName()+"] 方法执行失败，相关参数："+param+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString()+",截图路径："+picPath);
 		}
 		return result;
 	}

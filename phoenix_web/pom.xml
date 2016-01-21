@@ -163,19 +163,6 @@
             <artifactId>struts2-spring-plugin</artifactId>
         </dependency>
         
-        <!-- hibernate4 -->
-         <dependency>
-             <groupId>org.hibernate</groupId>
-             <artifactId>hibernate-core</artifactId>
-         </dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
