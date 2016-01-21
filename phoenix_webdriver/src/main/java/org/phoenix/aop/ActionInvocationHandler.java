@@ -38,7 +38,7 @@ public class ActionInvocationHandler implements InvocationHandler {
 		String param = args.length>20?"info:参数值过多，不予显示...":Arrays.toString(args);
 		try{
 			result = method.invoke(this.target, args);
-			result = result.toString().length()>100?result.toString().substring(0, 100)+"...":result;
+			if(result!=null)result = result.toString().length()>100?result.toString().substring(0, 100)+"...":result;
 			if(!otherOpers.contains(method.getName())){
 				unitLog.add(new UnitLogBean("步骤 [ "+method.getName()+" ]执行成功，参数值："+param+",执行结果返回值："+result,method.getName(),"STEP","SUCCESS","",caseLogBean));
 				PhoenixLogger.info("步骤 [ "+method.getName()+" ]执行成功，参数值："+param+",执行结果返回值："+result);
