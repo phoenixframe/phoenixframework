@@ -37,7 +37,7 @@ public class ActionInvocationHandler implements InvocationHandler {
 		Object result = null;
 		try{
 			result = method.invoke(this.target, args);
-			if(result!=null)result = result.toString().length()>100?result.toString().substring(0, 100)+"...":result.toString();
+			if(result!=null)result = result.toString().length()>200?result.toString().substring(0, 200)+"...":result.toString();
 			if(!otherOpers.contains(method.getName())){
 				unitLog.add(new UnitLogBean("步骤 [ "+method.getName()+" ]执行成功，参数值："+Arrays.toString(args)+",执行结果返回值："+result,method.getName(),"STEP","SUCCESS","",caseLogBean));
 				PhoenixLogger.info("步骤 [ "+method.getName()+" ]执行成功，参数值："+Arrays.toString(args)+",执行结果返回值："+result);

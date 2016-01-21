@@ -102,7 +102,7 @@
 	<classpathentry kind="lib" path="lib/phoenix_db-1.4.6.jar"/>
 	<classpathentry kind="lib" path="lib/phoenix_interface-1.4.6.jar"/>
 	<classpathentry kind="lib" path="lib/phoenix_mobiledriver-1.4.6.jar"/>
-	<classpathentry kind="lib" path="lib/phoenix_webdriver-1.4.6.jar"/>
 	<classpathentry kind="lib" path="lib/phoenix_common-1.4.6.jar"/>
+	<classpathentry kind="lib" path="lib/phoenix_webdriver-1.4.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

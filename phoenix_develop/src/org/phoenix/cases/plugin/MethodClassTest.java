@@ -28,4 +28,11 @@ public class MethodClassTest extends WebElementActionProxy   {
 		
 		return getUnitLog(); 
 	}
+	public static void main(String[] args) {
+		MethodClassTest m = new MethodClassTest();
+		LinkedList<UnitLogBean> ls = m.run(new CaseLogBean());
+		for(UnitLogBean u : ls){
+			System.out.println(u.getContent());
+		}
+	}
 }
