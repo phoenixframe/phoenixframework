@@ -167,5 +167,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_interface-1.4.6.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_mobiledriver-1.4.6.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_webdriver-1.4.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_common-1.4.6.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
