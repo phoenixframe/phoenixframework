@@ -35,13 +35,12 @@ public class ActionInvocationHandler implements InvocationHandler {
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) {
 		Object result = null;
-		String param = args == null?"":args.length>20?"info:参数值过多，不予显示...":Arrays.toString(args);
 		try{
 			result = method.invoke(this.target, args);
 			if(result!=null)result = result.toString().length()>100?result.toString().substring(0, 100)+"...":result.toString();
 			if(!otherOpers.contains(method.getName())){
-				unitLog.add(new UnitLogBean("步骤 [ "+method.getName()+" ]执行成功，参数值："+param+",执行结果返回值："+result,method.getName(),"STEP","SUCCESS","",caseLogBean));
-				PhoenixLogger.info("步骤 [ "+method.getName()+" ]执行成功，参数值："+param+",执行结果返回值："+result);
+				unitLog.add(new UnitLogBean("步骤 [ "+method.getName()+" ]执行成功，参数值："+Arrays.toString(args)+",执行结果返回值："+result,method.getName(),"STEP","SUCCESS","",caseLogBean));
+				PhoenixLogger.info("步骤 [ "+method.getName()+" ]执行成功，参数值："+Arrays.toString(args)+",执行结果返回值："+result);
 			}
 		}catch(Exception e){
 			String picPath = null;
@@ -53,8 +52,8 @@ public class ActionInvocationHandler implements InvocationHandler {
 			} else {
 				picPath = picWebPath = "Linux系统下不支持截图";
 			}
-			unitLog.add(new UnitLogBean("步骤 [ "+method.getName()+" ]执行失败，参数值："+param+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString(),method.getName(),"STEP","FAIL",picWebPath,caseLogBean));
-			PhoenixLogger.info("步骤 [ "+method.getName()+" ]执行失败，参数值："+param+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString()+",截图路径："+picPath);
+			unitLog.add(new UnitLogBean("步骤 [ "+method.getName()+" ]执行失败，参数值："+Arrays.toString(args)+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString(),method.getName(),"STEP","FAIL",picWebPath,caseLogBean));
+			PhoenixLogger.info("步骤 [ "+method.getName()+" ]执行失败，参数值："+Arrays.toString(args)+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString()+",截图路径："+picPath);
 		}
 		return result;
 	}
