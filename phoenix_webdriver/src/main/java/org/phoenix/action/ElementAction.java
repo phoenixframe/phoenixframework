@@ -12,14 +12,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.phoenix.api.action.APIAction;
 import org.phoenix.enums.LocatorType;
-import org.phoenix.ftp.action.IFtpClient;
-import org.phoenix.imgreader.action.IImageReader;
 import org.phoenix.mobile.android.action.AndroidAction;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.InterfaceBatchDataBean;
 import org.phoenix.model.InterfaceDataBean;
-import org.phoenix.svn.action.ISvnClient;
-import org.phoenix.telnet.action.ITelnetClient;
+import org.phoenix.plugins.IFtpClient;
+import org.phoenix.plugins.IImageReader;
+import org.phoenix.plugins.ISvnClient;
+import org.phoenix.plugins.ITelnetClient;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;

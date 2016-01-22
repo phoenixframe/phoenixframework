@@ -7,9 +7,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.cases.plugin.SaveImgToLocal;
 import org.phoenix.enums.LocatorType;
-import org.phoenix.imgreader.action.IImageReader;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
+import org.phoenix.plugins.IImageReader;
 
 import com.codeborne.selenide.SelenideElement;
 import com.google.common.io.Files;

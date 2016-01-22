@@ -22,6 +22,10 @@
 
   <dependencies>
 	<dependency>
+		<groupId>${project.groupId}</groupId>
+		<artifactId>phoenix_common</artifactId>
+	</dependency>
+	<dependency>
 		<groupId>org.tmatesoft.svnkit</groupId>
 		<artifactId>svnkit</artifactId>
 	</dependency>

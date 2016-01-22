@@ -1,5 +1,6 @@
 package org.phoenix.telnet.action;
 
+import org.phoenix.plugins.ITelnetClient;
 import org.phoenix.telnet.telnetclient.NetTelnet;
 
 /**

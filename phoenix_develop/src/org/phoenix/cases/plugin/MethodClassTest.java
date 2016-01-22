@@ -22,7 +22,7 @@ public class MethodClassTest extends WebElementActionProxy   {
 		for(Entry<InterfaceBatchDataBean, HashMap<String, String>> d : datas.entrySet()){
 			InterfaceBatchDataBean key = d.getKey();
 			HashMap<String, String> value = d.getValue();
-			webProxy.checkPoint().checkIsEqual(value.get("2"), value.get("1"));
+			webProxy.checkPoint().checkIsEqual("1", value.get("21"));
 			System.out.println(key.getExpectData());
 		}
 		

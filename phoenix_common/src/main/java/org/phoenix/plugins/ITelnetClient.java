@@ -1,4 +1,4 @@
-package org.phoenix.telnet.action;
+package org.phoenix.plugins;
 
 /**
  * phoenixframe的socket客户端

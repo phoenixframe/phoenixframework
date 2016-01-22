@@ -1,4 +1,4 @@
-package org.phoenix.imgreader.action;
+package org.phoenix.plugins;
 
 /**
  * phoenixframe图片识别模块
@@ -10,7 +10,7 @@ public interface IImageReader {
 	 * 配置图片识别程序
 	 * @param tesseractPath
 	 */
-	ImageReader configImageReader(String tesseractPath);
+	IImageReader configImageReader(String tesseractPath);
 	/**
 	 * 识别网络图片，直接提供图片的url地址即可。如：http://xxx/img.jpg
 	 * @param url

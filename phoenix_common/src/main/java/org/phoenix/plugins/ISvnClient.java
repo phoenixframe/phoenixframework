@@ -1,9 +1,9 @@
-package org.phoenix.svn.action;
+package org.phoenix.plugins;
 
 import java.util.HashMap;
 import java.util.List;
 
-import org.phoenix.svn.client.SvnLogModel;
+import org.phoenix.plugin.model.SvnLogModel;
 
 /**
  * phoenixframe的svn客户端模块

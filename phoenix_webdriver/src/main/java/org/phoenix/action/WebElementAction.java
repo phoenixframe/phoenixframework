@@ -68,20 +68,16 @@ import org.phoenix.dao.InterfaceBatchDataDao;
 import org.phoenix.dao.InterfaceDataDao;
 import org.phoenix.dao.LocatorDao;
 import org.phoenix.enums.LocatorType;
-import org.phoenix.ftp.action.FtpClient;
-import org.phoenix.ftp.action.IFtpClient;
-import org.phoenix.imgreader.action.IImageReader;
-import org.phoenix.imgreader.action.ImageReader;
 import org.phoenix.mobile.powertools.GetXml;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.InterfaceBatchDataBean;
 import org.phoenix.model.InterfaceDataBean;
 import org.phoenix.model.LocatorBean;
 import org.phoenix.model.UnitLogBean;
-import org.phoenix.svn.action.ISvnClient;
-import org.phoenix.svn.action.SvnClient;
-import org.phoenix.telnet.action.ITelnetClient;
-import org.phoenix.telnet.action.TelnetClient;
+import org.phoenix.plugins.IFtpClient;
+import org.phoenix.plugins.IImageReader;
+import org.phoenix.plugins.ISvnClient;
+import org.phoenix.plugins.ITelnetClient;
 import org.phoenix.utils.SystemInfo;
 
 import com.codeborne.selenide.Condition;
@@ -111,10 +107,13 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	private CaseLogBean caseLogBean;
 	private String ChromeDriverPath;
 	private String FirefoxPath;
+	private ICheckPoint checkPoint;
 
 	public WebElementAction(LinkedList<UnitLogBean> unitLog) {
-		new PhoenixLogger();
 		this.unitLog = unitLog;
+		new PhoenixLogger();
+		new LoadPhoenixPlugins();
+		checkPoint = (ICheckPoint)new CheckPointInvocationHandler(new CheckPoint(),unitLog,caseLogBean).getProxy();
 	}
 	
 	/*
@@ -340,7 +339,6 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	 */
 	@Override
 	public ICheckPoint checkPoint(){
-		ICheckPoint checkPoint = (ICheckPoint)new CheckPointInvocationHandler(new CheckPoint(),unitLog,caseLogBean).getProxy();
 		return checkPoint;
 	}
 	/**
@@ -357,7 +355,7 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	 */
 	@Override
 	public ITelnetClient telnetClient(){
-		return new TelnetClient();
+		return (ITelnetClient) LoadPhoenixPlugins.getPlugin("TelnetClient");
 	}
 	/**
 	 * svn客户端，用于对svn做操作。如获取提交日志，提交文件，更新文件等等。
@@ -365,7 +363,7 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	 */
 	@Override
 	public ISvnClient svnClient(){
-		return new SvnClient();
+		return (ISvnClient) LoadPhoenixPlugins.getPlugin("SvnClient");
 	}
 	/**
 	 * 图片解析，用于识别图片上的字符。可直接对网络图片或本地图片进行读取
@@ -373,7 +371,7 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	 */
 	@Override
 	public IImageReader imageReader(){
-		return new ImageReader();
+		return (IImageReader) LoadPhoenixPlugins.getPlugin("ImgReader");
 	}
 	/**
 	 * ftp客户端，用于操作ftp服务器，如从ftp服务器下载文件和上传本地文件到服务器等操作。
@@ -381,7 +379,7 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	 */
 	@Override
 	public IFtpClient ftpClient(){
-		return new FtpClient();
+		return (IFtpClient) LoadPhoenixPlugins.getPlugin("FtpClient");
 	}
 
 	@Override

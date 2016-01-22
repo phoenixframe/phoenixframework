@@ -9,7 +9,7 @@
 	<!-- 数据库的连接类 -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 	<!-- 数据库的连接字符串和用户名密码 -->
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/phoenix_gui</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/phoenix_gui?useUnicode=true&amp;characterEncoding=utf-8</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">root</property>
 	<!-- 在使用hibernate时会显示相应的SQL -->

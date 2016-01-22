@@ -6,8 +6,8 @@ import java.util.List;
 import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
-import org.phoenix.svn.action.ISvnClient;
-import org.phoenix.svn.client.SvnLogModel;
+import org.phoenix.plugin.model.SvnLogModel;
+import org.phoenix.plugins.ISvnClient;
 
 /**
  * svn客户端测试

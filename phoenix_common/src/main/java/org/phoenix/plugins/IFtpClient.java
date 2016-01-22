@@ -1,4 +1,4 @@
-package org.phoenix.ftp.action;
+package org.phoenix.plugins;
 
 /**
  * phoenixframe的ftp操作模块，可对ftp服务器做文件的上传和下载

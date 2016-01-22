@@ -1,4 +1,4 @@
-package org.phoenix.svn.client;
+package org.phoenix.plugin.model;
 
 import java.util.Date;
 import java.util.List;

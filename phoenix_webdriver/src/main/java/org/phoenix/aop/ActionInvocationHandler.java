@@ -24,7 +24,7 @@ public class ActionInvocationHandler implements InvocationHandler {
 	private Object target = null;
 	private LinkedList<UnitLogBean> unitLog;
 	private CaseLogBean caseLogBean;
-	private List<String> otherOpers = Lists.newArrayList("appElement","webElement","webAPIAction","checkPoint","toString","getData");
+	private List<String> otherOpers = Lists.newArrayList("appElement","webElement","webAPIAction","checkPoint","toString","getData","equals");
 
 	public ActionInvocationHandler(Object target,LinkedList<UnitLogBean> unitLog,CaseLogBean caseLogBean) {
 		this.target = target;

@@ -1,6 +1,7 @@
 package org.phoenix.ftp.action;
 
 import org.phoenix.ftp.ftpclient.PhoenixFtpClient;
+import org.phoenix.plugins.IFtpClient;
 
 /**
  * 对ftp服务器上的文件做上传和下载

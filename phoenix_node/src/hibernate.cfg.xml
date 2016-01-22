@@ -21,7 +21,7 @@
 		<property name="hibernate.c3p0.acquire_increment">2</property>
 		<property name="hibernate.c3p0.validate">true</property>
 	<!-- 在使用hibernate时会显示相应的SQL -->
-		<property name="show_sql">true</property>
+		<property name="show_sql">false</property>
 	<!-- 会自动完成类到数据表的转换 -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 	<!-- 加入实体类的映射文件 -->	

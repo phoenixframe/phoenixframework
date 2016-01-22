@@ -21,6 +21,10 @@
   </properties>
 
   <dependencies>
+  	<dependency>
+		<groupId>${project.groupId}</groupId>
+		<artifactId>phoenix_common</artifactId>
+	</dependency>
 	<dependency>
 		<groupId>org.swinglabs</groupId>
 		<artifactId>swingx</artifactId>
@@ -29,11 +33,9 @@
 		<groupId>com.github.jai-imageio</groupId>
 		<artifactId>jai-imageio-core</artifactId>
 	</dependency>
-<dependency>
-	<groupId>com.github.jai-imageio</groupId>
-	<artifactId>jai-imageio-jpeg2000</artifactId>
-</dependency>
-
-	
+	<dependency>
+		<groupId>com.github.jai-imageio</groupId>
+		<artifactId>jai-imageio-jpeg2000</artifactId>
+	</dependency>
   </dependencies>
 </project>

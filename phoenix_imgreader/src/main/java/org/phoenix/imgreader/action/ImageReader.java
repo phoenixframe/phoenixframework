@@ -2,6 +2,7 @@ package org.phoenix.imgreader.action;
 
 import org.phoenix.imgreader.helper.ImageBase64Encoder;
 import org.phoenix.imgreader.ocr.OcrImgReader;
+import org.phoenix.plugins.IImageReader;
 
 /**
  * 图片识别实现类

@@ -131,7 +131,7 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@Column(unique=true,nullable=false)
+	@Column(nullable=false)
 	public String getNickname() {
 		return nickname;
 	}

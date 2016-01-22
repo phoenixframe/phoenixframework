@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
-import org.phoenix.telnet.action.ITelnetClient;
+import org.phoenix.plugins.ITelnetClient;
 
 /**
  * Telnet客户端测试

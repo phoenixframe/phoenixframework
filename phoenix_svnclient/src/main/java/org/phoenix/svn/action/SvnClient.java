@@ -3,7 +3,8 @@ package org.phoenix.svn.action;
 import java.util.HashMap;
 import java.util.List;
 
-import org.phoenix.svn.client.SvnLogModel;
+import org.phoenix.plugin.model.SvnLogModel;
+import org.phoenix.plugins.ISvnClient;
 import org.phoenix.svn.client.SvnOper;
 
 /**
