@@ -55,6 +55,7 @@
     	isShow('enableRendzvous');
     	isShow('enableProxy');
     	isShow('enableDataSet');
+    	isShow('useBodyString');
     });
       function isShow(val){
     	  if($("#"+val+"").is(":checked")){
@@ -105,6 +106,18 @@
 	           	 <div id="s2"> 登陆用户名:</div><div id="s3"><sf:input path="proxyUserName" type="text" value="${perfBean.proxyUserName}"/>如果不需要留空即可</div>
 	           	 <div id="s2">登陆密码:</div><div id="s3"><sf:input path="proxyPassword" type="text" value="${perfBean.proxyPassword}"/>如果不需要留空即可</div>
         		</div>
+        	</div>
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft">Body参数：</td>
+        <td>
+            <input type="checkbox" id="useBodyString" name="useBodyString" <c:if test="${perfBean.useBodyString eq 'on'}"> <% out.print("checked='checked'"); %> </c:if>  onclick="isShow(this.name)" />选中代表body参数将随url一起发送
+            <br>
+            <div id="isuseBodyStringDiv" style="display: none">
+	            <div class="table1">
+       				 <textarea rows="3" cols="5" id="bodyString" name="bodyString">${perfBean.bodyString}</textarea>
+	        	</div>
         	</div>
         </td>
     </tr>

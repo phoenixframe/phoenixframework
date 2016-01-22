@@ -28,7 +28,12 @@
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${caseName}" enabled="true">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="UserArguments" enabled="true">
+          <#if bodyString?exists>
+			    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          		<elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+		  </#if>
+			
+          <#if params?exists><elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="UserArguments" enabled="true"></#if>
             <collectionProp name="Arguments.arguments">
 		        <#if params?exists>
 					<#list params?keys as key>
@@ -41,6 +46,13 @@
 			            </elementProp>
 		            </#list>
 				</#if>
+				<#if bodyString?exists>
+						  <elementProp name="" elementType="HTTPArgument">
+			                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+			                <stringProp name="Argument.value">1111111111112333</stringProp>
+			                <stringProp name="Argument.metadata">=</stringProp>
+			              </elementProp>
+			    </#if>
 			</collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">${domainURL}</stringProp>

@@ -179,6 +179,15 @@ public interface APIAction {
 	 * @return
 	 */
 	HttpResponse getResponseByHttpClientWithPost(String url,String rawString);
+	
+	/**
+	 * 此方法适用于部分字段需要post提交的需求,且可以添加header
+	 * @param url
+	 * @param headers
+	 * @param rawString
+	 * @return
+	 */
+	HttpResponse getResponseByHttpClientWithPost(String url,HashMap<String,String> headers,String rawString);
 	/**
 	 * 此方法适用于需要post提交文件的需求
 	 * @param url url地址
@@ -186,6 +195,15 @@ public interface APIAction {
 	 * @return
 	 */
 	HttpResponse getResponseByHttpClientWithPost(String url,File filePath);
+	
+	/**
+	 * 此方法适用于需要post提交文件的需求
+	 * @param url
+	 * @param headers  需要添加的header值
+	 * @param filePath
+	 * @return
+	 */
+	HttpResponse getResponseByHttpClientWithPost(String url,HashMap<String,String> headers,File filePath);
 	/**
 	 * 此方法适用于需要post提交文件的需求
 	 * @param url

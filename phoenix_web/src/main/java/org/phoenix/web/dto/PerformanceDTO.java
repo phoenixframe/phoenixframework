@@ -68,6 +68,8 @@ public class PerformanceDTO {
 	private String requestHeaders = "";
 	
 	private String monitedSlaves = "";
+	private String useBodyString="false";
+	private String bodyString = "";
 	
 	public int getSlaveId() {
 		return slaveId;
@@ -363,5 +365,16 @@ public class PerformanceDTO {
 	public void setRequestHeaders(String requestHeaders) {
 		this.requestHeaders = requestHeaders;
 	}
-	
+	public String getUseBodyString() {
+		return useBodyString;
+	}
+	public void setUseBodyString(String useBodyString) {
+		this.useBodyString = useBodyString;
+	}
+	public String getBodyString() {
+		return bodyString;
+	}
+	public void setBodyString(String bodyString) {
+		this.bodyString = bodyString;
+	}
 }

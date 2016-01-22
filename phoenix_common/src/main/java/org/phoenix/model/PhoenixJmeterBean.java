@@ -107,6 +107,9 @@ public class PhoenixJmeterBean {
 	
 	private String monitedSlaves = "";
 	
+	private String useBodyString="false";
+	private String bodyString = "";
+	
 	private HashMap<String,String> analysisHeaders(){
 		if(!"".equals(requestHeaders.trim()) && !requestHeaders.equals("\n")){
 			HashMap<String,String> headMap = new HashMap<String,String>();
@@ -188,6 +191,8 @@ public class PhoenixJmeterBean {
 		hashMap.put("checkType", checkType);
 		hashMap.put("requestHeaders", analysisHeaders());
 		hashMap.put("enableHeaders", enableHeaders);
+		hashMap.put("useBodyString", useBodyString.equals("on")?"true":"false");
+		hashMap.put("bodyString", bodyString);
 		
 		return hashMap;
 	}
@@ -824,5 +829,20 @@ public class PhoenixJmeterBean {
 	public void setEnableHeaders(String enableHeaders) {
 		this.enableHeaders = enableHeaders;
 	}
+	@Column(columnDefinition="mediumtext",length=6500)
+	public String getBodyString() {
+		return bodyString;
+	}
+
+	public void setBodyString(String bodyString) {
+		this.bodyString = bodyString;
+	}
 	
+	public String getUseBodyString() {
+		return useBodyString;
+	}
+
+	public void setUseBodyString(String useBodyString) {
+		this.useBodyString = useBodyString;
+	}
 }

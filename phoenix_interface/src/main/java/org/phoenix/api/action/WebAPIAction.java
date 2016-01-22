@@ -223,8 +223,21 @@ public class WebAPIAction implements APIAction{
 	 */
 	@Override
 	public HttpResponse getResponseByHttpClientWithPost(String url,String rawString){
+		return getResponseByHttpClientWithPost(url,null,rawString);
+	}
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.api.action.APIAction#getResponseByHttpClientWithPost(java.lang.String, java.util.HashMap, java.lang.String)
+	 */
+	@Override
+	public HttpResponse getResponseByHttpClientWithPost(String url,HashMap<String,String> headers,String rawString){
 		HttpClient httpClient = HttpClientBuilder.create().build();
 		HttpPost request = new HttpPost(url);
+		if(headers != null){
+			for(Entry<String,String> e : headers.entrySet()){
+				request.addHeader(e.getKey(), e.getValue());
+			}
+		}
 		HttpResponse response = null;
 		try {
 			request.setEntity(new StringEntity(rawString));
@@ -242,8 +255,22 @@ public class WebAPIAction implements APIAction{
 	 */
 	@Override
 	public HttpResponse getResponseByHttpClientWithPost(String url,File filePath){
+		return getResponseByHttpClientWithPost(url,null,filePath);
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.api.action.APIAction#getResponseByHttpClientWithPost(java.lang.String, java.util.HashMap, java.io.File)
+	 */
+	@Override
+	public HttpResponse getResponseByHttpClientWithPost(String url,HashMap<String,String> headers,File filePath){
 		HttpClient httpClient = HttpClientBuilder.create().build();
 		HttpPost request = new HttpPost(url);
+		if(headers != null){
+			for(Entry<String,String> e : headers.entrySet()){
+				request.addHeader(e.getKey(), e.getValue());
+			}
+		}
 		HttpResponse response = null;
 		try {
 			request.setEntity(new FileEntity(filePath));
@@ -274,6 +301,7 @@ public class WebAPIAction implements APIAction{
 		}
 		return response;
 	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see org.phoenix.api.action.APIAction#getHttpClientWidthProxy(java.lang.String, int, java.lang.String, java.lang.String)
