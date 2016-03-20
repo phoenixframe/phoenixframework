@@ -1,8 +1,11 @@
 package org.phoenix.api.action;
 
 import java.io.File;
+import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -19,6 +22,40 @@ import com.meterware.httpunit.WebResponse;
  *
  */
 public interface APIAction {
+	
+	/**
+	 * 请求https的URL，并获得响应内容，响应码,响应头，响应时间等。如获取响应内容的方法：<br>
+	 * <code> String ls = IOUtils.toString(new InputStreamReader(httpsUrlConn.getInputStream()));</code>或：<br>
+     * <code> List<String> ls = IOUtils.readLines(new InputStreamReader(httpsUrlConn.getInputStream()));</code><br>
+     * 获取响应状态码：httpsUrlConn.getResponseCode();
+	 * @param httpsUrl https地址
+	 * @param keyStoreFile keyStoreFile文件地址
+	 * @param pass 验证密码
+	 * @return
+	 */
+	HttpsURLConnection getHttpsUrlResponse(String httpsUrl,String keyStoreFile,String pass);
+	/**
+	 * 请求https的URL，并获得响应内容，响应码,响应头，响应时间等。如获取响应内容的方法：<br>
+	 * <code> String ls = IOUtils.toString(new InputStreamReader(httpsUrlConn.getInputStream()));</code>或：<br>
+     * <code> List<String> ls = IOUtils.readLines(new InputStreamReader(httpsUrlConn.getInputStream()));</code><br>
+     * 获取响应状态码：httpsUrlConn.getResponseCode();
+	 * @param httpsUrl  https地址
+	 * @param keyStoreFile keyStore文件
+	 * @param pass
+	 * @return
+	 */
+	HttpsURLConnection getHttpsUrlResponse(String httpsUrl,File keyStoreFile,String pass);
+	/**
+	 * 请求https的URL，并获得响应内容，响应码,响应头，响应时间等。如获取响应内容的方法：<br>
+	 * <code> String ls = IOUtils.toString(new InputStreamReader(httpsUrlConn.getInputStream()));</code>或：<br>
+     * <code> List<String> ls = IOUtils.readLines(new InputStreamReader(httpsUrlConn.getInputStream()));</code><br>
+     * 获取响应状态码：httpsUrlConn.getResponseCode();
+	 * @param httpsUrl https地址
+	 * @param keyStoreFileUri  URI格式的keyStoreFile地址
+	 * @param pass 验证密码
+	 * @return
+	 */
+	HttpsURLConnection getHttpsUrlResponse(String httpsUrl,URI keyStoreFileUri,String pass);
 	/**
 	 * 获取WebConversation对象，通过这个对象可以设置cookie，host，代理等
 	 * @return

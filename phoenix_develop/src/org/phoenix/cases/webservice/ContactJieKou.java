@@ -50,4 +50,8 @@ public class ContactJieKou extends WebElementActionProxy{
 		}
 		return getUnitLog();
 	}
+	
+	public static void main(String[] args) {
+		
+	}
 }

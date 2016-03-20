@@ -80,55 +80,60 @@ public class JmeterHTTPAction implements Callable<AjaxObj>{
 			model.setEmailServerLoginPassword("");
 			model.setAuthType("SSL");*/
 			String WEB_INF = DynamicEngine.getInstance().getWebInfPath();
-			String uploadFile = "";
-			if(model.getEnableDataSet().equals("on") && !"".equals(model.getFilePath()) && model.getFullUrl().contains("[")){
-				HashMap<String,String> paramData = new HashMap<String,String>();
-				URI uri = URI.create(model.getFullUrl().replace("[", "").replace("]", ""));
-				uploadFile = model.getFilePath().endsWith("csv")?WEB_INF+"JmeterParams.csv":WEB_INF+"JmeterParams.data";
-				String variableNames = "";
-				if(uri.getQuery().contains("&")){
-					for(String var : uri.getQuery().split("&")){
-						if(var.contains("=")){
-							String variValue = "";
-							try{variValue = URLEncoder.encode(var.split("=")[1],"UTF-8");}catch(ArrayIndexOutOfBoundsException ex){}
-							variableNames += variValue+",";
-							paramData.put(var.split("=")[0], "${"+variValue+"}");
-						}
-					}
-					variableNames = variableNames.substring(0, variableNames.length()-1);
-				} else {
-					if(uri.getQuery().contains("=")){
-						try{variableNames = URLEncoder.encode(uri.getQuery().split("=")[1],"UTF-8");}catch(ArrayIndexOutOfBoundsException ee){};
-						paramData.put(uri.getQuery().split("=")[0], "${"+variableNames+"}");
-					}
-				}
-				model.setVariableNames(variableNames);
-				model.setParams(paramData);
-				File file = new File(uploadFile);
-				if(file.exists())file.delete();
-				FileUtils.copyURLToFile(new URL(model.getFilePath()), file);
-				model.setFileName(uploadFile);
-			} else {
+			if(model.getUseBodyString().equals("on")){
 				URI uri = URI.create(model.getFullUrl());
-				if(uri.getQuery()!=null){
+				model.setUrlPath(uri.getQuery()==null?uri.getPath():uri.getPath()+"?"+uri.getQuery().replace("&", "&amp;"));
+			}else{
+				String uploadFile = "";
+				if(model.getEnableDataSet().equals("on") && !"".equals(model.getFilePath()) && model.getFullUrl().contains("[")){
 					HashMap<String,String> paramData = new HashMap<String,String>();
+					URI uri = URI.create(model.getFullUrl().replace("[", "").replace("]", ""));
+					uploadFile = model.getFilePath().endsWith("csv")?WEB_INF+"JmeterParams.csv":WEB_INF+"JmeterParams.data";
+					String variableNames = "";
 					if(uri.getQuery().contains("&")){
-						String[] para = uri.getQuery().split("&");
-						for(String pa:para){
-							if(pa.contains("=")){
-								String varValue = "";
-								try{varValue = URLEncoder.encode(pa.split("=")[1],"UTF-8");}catch(ArrayIndexOutOfBoundsException e){}
-								paramData.put(pa.split("=")[0], varValue);
+						for(String var : uri.getQuery().split("&")){
+							if(var.contains("=")){
+								String variValue = "";
+								try{variValue = URLEncoder.encode(var.split("=")[1],"UTF-8");}catch(ArrayIndexOutOfBoundsException ex){}
+								variableNames += variValue+",";
+								paramData.put(var.split("=")[0], "${"+variValue+"}");
 							}
 						}
-					}else{
+						variableNames = variableNames.substring(0, variableNames.length()-1);
+					} else {
 						if(uri.getQuery().contains("=")){
-							String varValue = "";
-							try{varValue = URLEncoder.encode(uri.getQuery().split("=")[1],"UTF-8");}catch(ArrayIndexOutOfBoundsException e){}
-							paramData.put(uri.getQuery().split("=")[0], varValue);
+							try{variableNames = URLEncoder.encode(uri.getQuery().split("=")[1],"UTF-8");}catch(ArrayIndexOutOfBoundsException ee){};
+							paramData.put(uri.getQuery().split("=")[0], "${"+variableNames+"}");
 						}
 					}
+					model.setVariableNames(variableNames);
 					model.setParams(paramData);
+					File file = new File(uploadFile);
+					if(file.exists())file.delete();
+					FileUtils.copyURLToFile(new URL(model.getFilePath()), file);
+					model.setFileName(uploadFile);
+				} else {
+					URI uri = URI.create(model.getFullUrl());
+					if(uri.getQuery()!=null){
+						HashMap<String,String> paramData = new HashMap<String,String>();
+						if(uri.getQuery().contains("&")){
+							String[] para = uri.getQuery().split("&");
+							for(String pa:para){
+								if(pa.contains("=")){
+									String varValue = "";
+									try{varValue = URLEncoder.encode(pa.split("=")[1],"UTF-8");}catch(ArrayIndexOutOfBoundsException e){}
+									paramData.put(pa.split("=")[0], varValue);
+								}
+							}
+						}else{
+							if(uri.getQuery().contains("=")){
+								String varValue = "";
+								try{varValue = URLEncoder.encode(uri.getQuery().split("=")[1],"UTF-8");}catch(ArrayIndexOutOfBoundsException e){}
+								paramData.put(uri.getQuery().split("=")[0], varValue);
+							}
+						}
+						model.setParams(paramData);
+					}
 				}
 			}
 			

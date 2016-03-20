@@ -63,11 +63,13 @@ public class StateListener implements TestStateListener{
 	
 	public static String getSlaveMetrics(){
 		slaveMetrics = "";
-		for(PerfMonCollector pm:monitedList){
-			if(!pm.getMetricsResources().startsWith("hostName")){
-				monitedList.remove(pm);
-			}else{
-				slaveMetrics += pm.getMetricsResources()+"<br>";
+		if(monitedList !=null){
+			for(PerfMonCollector pm:monitedList){
+				if(!pm.getMetricsResources().startsWith("hostName")){
+					monitedList.remove(pm);
+				}else{
+					slaveMetrics += pm.getMetricsResources()+"<br>";
+				}
 			}
 		}
 		return slaveMetrics;

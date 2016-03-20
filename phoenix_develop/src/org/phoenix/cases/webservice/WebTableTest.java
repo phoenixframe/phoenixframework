@@ -10,10 +10,6 @@ import org.phoenix.enums.LocatorType;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
 
-import com.gargoylesoftware.htmlunit.BrowserVersion;
-import com.meterware.httpunit.HttpUnitOptions;
-import com.meterware.httpunit.parsing.HTMLParserFactory;
-
 /**
  * 获取webtable的内容
  * @author mengfeiyang

@@ -52,7 +52,7 @@
        <c:forEach items="${datas}" var="ss">
 	     <tr>
             <td>${ss.id }</td>
-            <td>${ss.slaveIP }
+            <td><a href="http://${ss.slaveIP }/phoenix_node" title="详细信息">${ss.slaveIP }</a></td>
             <td>${ss.remark }</td>
             <td>${ss.status }</td>
         </tr>

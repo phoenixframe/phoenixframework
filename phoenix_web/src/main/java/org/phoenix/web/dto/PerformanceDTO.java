@@ -14,6 +14,7 @@ public class PerformanceDTO {
 	private String rampTime = "0";
 	private String sampleErrorControl = "continue";
 	private String controllerLoops = "1";
+	private String requestImpl = "HttpClient4";
 	
 	private String taskAssort = "false";
 	private String startTime = GetNow.getCurrentTime();
@@ -376,5 +377,11 @@ public class PerformanceDTO {
 	}
 	public void setBodyString(String bodyString) {
 		this.bodyString = bodyString;
+	}
+	public String getRequestImpl() {
+		return requestImpl;
+	}
+	public void setRequestImpl(String requestImpl) {
+		this.requestImpl = requestImpl;
 	}
 }

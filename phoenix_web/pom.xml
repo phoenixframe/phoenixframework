@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.phoenixframe</groupId>
     <artifactId>phoenix_parent</artifactId>
-    <version>1.4.6</version>
+    <version>1.4.7</version>
     <relativePath>../phoenix_parent/pom.xml</relativePath>
   </parent>
   
   <artifactId>phoenix_web</artifactId>
   <packaging>war</packaging>
-  <description>引入了shiro并对jmeter进行了深度定制，支持WEB性能测试</description>
+  <description>引入了shiro并对jmeter进行了深度定制，支持WEB性能测试，增加了查看node节点信息的入口</description>
   <name>phoenix_web Maven Webapp</name>
   <url>http://www.cewan.la</url>
   

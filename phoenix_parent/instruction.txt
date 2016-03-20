@@ -10,9 +10,21 @@
 控制端通过指派多个phoenix_node端方式执行测试用例。
 通过使用phoenix_develop开发用例代码的示例，<br>
 用例如果在本地调试时没有问题，那么就可以放到控制端进行执行了。<br>
-平台网站：http://www.cewan.la，中文搜：测完啦<br>
+平台网站：http://www.cewan.la 或 http://www.phoenixframe.org<br>
+搜索：测完啦或phoenixframe会有更多关于平台的示例<br>
 <br>
-最新版本：1.4.6<br>
+最新版本：1.4.7<br>
+1、修复多个反人类的唯一性约束<br>
+2、phoenix_node:jmeter性能测试增加对body参数的支持
+3、对平台的各模块代码进行了部分重构，重构后的效果是插件可配置
+4、在phoenix_web端增加查看node详细信息的入口
+5、phoenix_interface增加对https地址的支持
+6、phoenix_develop中增加了一个自己写的并发测试工具
+7、抽离出了公共的phoenix_common模块
+8、重构了平台项目组织架构，使导入调试等更方便
+
+<br>
+上一版本：1.4.6<br>
 1、定制浏览器：phoenix-browser<br>
 2、行为驱动插件：phoenix-behave<br>
 3、FTP连接客户端：FTPClient<br>

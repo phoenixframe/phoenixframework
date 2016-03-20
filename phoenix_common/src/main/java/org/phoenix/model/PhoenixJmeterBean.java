@@ -42,6 +42,7 @@ public class PhoenixJmeterBean {
 	private String sampleErrorControl = "continue";
 	private String continueForever = "false";
 	private String controllerLoops = "1";
+	private String requestImpl = "HttpClient4";
 	
 	private String taskAssort = "false";
 	private String startTime = GetNow.getCurrentTime();
@@ -147,7 +148,8 @@ public class PhoenixJmeterBean {
 		hashMap.put("duration",duration);     
 		hashMap.put("delayTime",delayTime);   
 		hashMap.put("delayedStart",delayedStart);
-		hashMap.put("domainURL",domainURL);                          
+		hashMap.put("domainURL",domainURL);     
+		hashMap.put("requestImpl",requestImpl); 
 		hashMap.put("connectTimeOut",connectTimeOut);                     
 		hashMap.put("responseTimeOut",responseTimeOut);                    
 		hashMap.put("contentEncoding",contentEncoding);                    
@@ -844,5 +846,13 @@ public class PhoenixJmeterBean {
 
 	public void setUseBodyString(String useBodyString) {
 		this.useBodyString = useBodyString;
+	}
+
+	public String getRequestImpl() {
+		return requestImpl;
+	}
+
+	public void setRequestImpl(String requestImpl) {
+		this.requestImpl = requestImpl;
 	}
 }

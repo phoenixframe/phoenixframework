@@ -28,8 +28,8 @@
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${caseName}" enabled="true">
-          <#if bodyString?exists>
-			    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <#if useBodyString == "true">
+			    <boolProp name="HTTPSampler.postBodyRaw">${useBodyString}</boolProp>
           		<elementProp name="HTTPsampler.Arguments" elementType="Arguments">
 		  </#if>
 			
@@ -46,10 +46,10 @@
 			            </elementProp>
 		            </#list>
 				</#if>
-				<#if bodyString?exists>
+				<#if useBodyString == "true">
 						  <elementProp name="" elementType="HTTPArgument">
 			                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-			                <stringProp name="Argument.value">1111111111112333</stringProp>
+			                <stringProp name="Argument.value">${bodyString}</stringProp>
 			                <stringProp name="Argument.metadata">=</stringProp>
 			              </elementProp>
 			    </#if>
@@ -73,7 +73,7 @@
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <stringProp name="HTTPSampler.implementation">${requestImpl}</stringProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>

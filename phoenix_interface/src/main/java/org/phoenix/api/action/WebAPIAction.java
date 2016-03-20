@@ -2,9 +2,16 @@ package org.phoenix.api.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map.Entry;
+
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpHost;
@@ -28,6 +35,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.Connection.Response;
 import org.jsoup.nodes.Document;
 import org.phoenix.api.utils.JsonPaser;
+import org.phoenix.api.utils.MyX509TrustManager;
 import org.xml.sax.SAXException;
 
 import com.meterware.httpunit.GetMethodWebRequest;
@@ -464,6 +472,46 @@ public class WebAPIAction implements APIAction{
 			e.printStackTrace();
 		}
 		return null;
+	}
+	private HttpsURLConnection getURLConn(String httpsUrl,MyX509TrustManager trustManager){
+		try{
+	        TrustManager[] tm = {trustManager };
+	        SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
+	        sslContext.init(null, tm, new SecureRandom());
+	        SSLSocketFactory ssf = sslContext.getSocketFactory();
+	        URL myURL = new URL(httpsUrl);
+	        HttpsURLConnection httpsConn = (HttpsURLConnection) myURL.openConnection();
+	        httpsConn.setSSLSocketFactory(ssf);
+	        return httpsConn;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+        return null;
+	}
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.api.action.APIAction#getHttpsUrlResponse(java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public HttpsURLConnection getHttpsUrlResponse(String httpsUrl,String keyStoreFile,String pass) {
+		return getURLConn(httpsUrl,new MyX509TrustManager(keyStoreFile,pass));
+	}
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.api.action.APIAction#getHttpsUrlResponse(java.lang.String, java.io.File, java.lang.String)
+	 */
+	@Override
+	public HttpsURLConnection getHttpsUrlResponse(String httpsUrl, File keyStoreFile, String pass) {
+		return getURLConn(httpsUrl,new MyX509TrustManager(keyStoreFile,pass));
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.api.action.APIAction#getHttpsUrlResponse(java.lang.String, java.net.URI, java.lang.String)
+	 */
+	@Override
+	public HttpsURLConnection getHttpsUrlResponse(String httpsUrl, URI keyStoreFileUri, String pass) {
+		return getURLConn(httpsUrl,new MyX509TrustManager(keyStoreFileUri,pass));
 	}
 
 }

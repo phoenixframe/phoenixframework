@@ -22,7 +22,8 @@ public class TestPhoenixCaseUseData extends WebElementActionProxy{
 	@Override
 	public LinkedList<UnitLogBean> run(CaseLogBean caseLogBean) {
 		init(caseName,caseLogBean);
-		webProxy.openNewWindowByIE("http://www.baidu.com");
+		//webProxy.openNewWindowByIE("http://www.baidu.com");
+		webProxy.openNewWindowByPhantomJs("http://www.baidu.com");
 		webProxy.webElement("//*[@id=\"kw\"]",LocatorType.XPATH).setText("1");
 		//String s = webProxy.webElement("clickbutton").getAttrValue("value");
 		String s = webProxy.webElement("//*[@id=\"su\"]",LocatorType.XPATH).getAttrValue("value");
@@ -37,7 +38,6 @@ public class TestPhoenixCaseUseData extends WebElementActionProxy{
 		//使用数据库中的数据的方式。这种方式无需再指定定位类型，但在填写定位信息时无需指定标识符，比如，
 		//如果id是：#su,则录入时录su即可。但数据类型需要选择为：ID。
 		webProxy.webElement("clickbutton").click();
-		webProxy.checkPoint().checkIsFalse(s!=null);
 		webProxy.sleep(100);
 		webProxy.closeWindow();	
 		
