@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faceted-project>
-  <runtime name="Pivotal tc Server Developer Edition (Runtime) v3.0"/>
+  <runtime name="Pivotal tc Server v3.0 - v3.1"/>
   <installed facet="jst.utility" version="1.0"/>
   <installed facet="java" version="1.7"/>
 </faceted-project>

@@ -133,13 +133,7 @@ public class TaskController {
 		if(taskModelDTO.getTaskParameter().trim().equals("")){
 			taskModel.setJobStatus(JobStatus.NOT_JOB);
 		} else {
-			String r = JobFactory.addJob(TaskHandler.class, newTask);
-			if(r.equals("success")){
-				taskModel.setJobStatus(JobStatus.RUNNING);
-			}else{
-				taskModel.setJobStatus(JobStatus.ERROR);
-				taskModel.setMessage(r);
-			}
+			taskModel.setJobStatus(JobStatus.STOP);
 		}
 		taskService.update(newTask);
 		return "redirect:/task/list";
@@ -239,7 +233,6 @@ public class TaskController {
 		try {
 			return HttpRequestSender.getResponseByPost(url);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return JSON.toJSONString(new AjaxObj(0,"向执行机分配测试任务时发生异常，信息："+e.getMessage()));
 		}
 	}

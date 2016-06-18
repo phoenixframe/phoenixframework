@@ -34,15 +34,51 @@
         }
 
     </style>
+  <script type="text/javascript">
+	$(function () {       
+		$('#delAll').click(function(){
+			var chsub = $("input[name='subBox']:checked");
+			if(chsub.length === 0){alert("请至少勾选一条记录");return;}
+			else {
+				var inds = "";
+				for(var i=0;i<chsub.length;i++){
+					inds += chsub[i].value+",";
+				}
+				if($.trim(inds)!==""){
+					if(confirm("确定删除吗？")){
+						window.location.href="deletebatchs/"+inds;
+					}
+				}
+			}
+		 });
+	});
+	function allCheck(){
+		 if($("#selectAll").is(":checked"))$("input[name='subBox']").prop("checked",true); 
+		 else $("input[name='subBox']").prop("checked",false);
+	}
+	function subCheck(){
+		if($("input[name='subBox']:checked").length === 0){
+			$("#selectAll").prop("checked",false); 
+		}
+		if($("input[name='subBox']:checked").length == $("input[name='subBox']").length){
+			$("#selectAll").prop("checked",true);
+		}else{
+			$("#selectAll").prop("checked",false); 
+		}
+	}
+</script>
 </head>
 <body>
-<form class="form-inline definewidth m20" action="index.jsp" method="get">  
+<form class="form-inline definewidth m20" action="" method="get">  
     日志批次列表：<hr>
+    
+    <button type="button" class="btn btn-success" name="delAll" id="delAll">全部删除</button>
 </form>
 <table class="table table-bordered table-hover definewidth m10" >
     <thead>
     <tr>
-        <th>批次编号</th>
+    	<th><input type="checkbox" name="selectAll" value="全选" id="selectAll" onclick="allCheck()"></th>
+        <th><a href="javascript:sortTD();">批次编号</a></th>
         <th>批次值</th>
         <th>任务类型</th>
         <th>创建时间</th>
@@ -52,6 +88,7 @@
     <tbody>
        <c:forEach items="${datas.datas}" var="bs">
 	     <tr>
+	     	<td><input type="checkbox" name="subBox" id="sub_${bs.id }" value="${bs.id }" onclick="subCheck()"/></td>
             <td>${bs.id }</td>
             <td>${bs.batchId }
             <td>${bs.taskType }</td>
@@ -73,16 +110,3 @@
  </div>       
 </body>
 </html>
-<script>
-    $(function () {
-		$('#addnew').click(function(){
-			var scenarioId = $("#scenarioId").val();
-			if(scenarioId == ""){
-				window.location.href="add";
-			}else{
-				window.location.href="add/"+scenarioId;
-			}
-		 });
-    });
-
-</script>

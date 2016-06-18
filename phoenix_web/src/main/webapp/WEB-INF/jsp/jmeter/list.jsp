@@ -90,7 +90,7 @@
 		</tr>
 		<tr>
 			<td colspan="3">url:<c:choose><c:when test="${f:length(ps.fullUrl)>100 }"><a href="${ps.fullUrl }" title="${ps.fullUrl }" target='_blank'>${f:substring(ps.fullUrl ,0,100)} ...</a></c:when><c:otherwise><a href="${ps.fullUrl }" title="${ps.fullUrl }" target='_blank'>${ps.fullUrl }</a></c:otherwise></c:choose></td>
-			<td colspan="2" align="center"><font size="3"><a href="<%=request.getContextPath()%>/perf/update/${ps.id}">查看</a>&nbsp;&nbsp;<a href="javascript:start('${ps.id }');"><span id="controlValue${ps.id}"><c:choose><c:when test="${ps.status eq 'RUNNING'}">停止</c:when><c:otherwise>启动</c:otherwise></c:choose></span></a>&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/perf/delete/${ps.id}">删除</a>&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/perf/monitor/${ps.id}">监控</a>&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/perf/history/${ps.id}">历史</a></font></td>
+			<td colspan="2" align="center"><font size="3"><a href="<%=request.getContextPath()%>/perf/update/${ps.id}">查看</a>&nbsp;&nbsp;<a href="javascript:start('${ps.id }');"><span id="controlValue${ps.id}"><c:choose><c:when test="${ps.status eq 'RUNNING'}">停止</c:when><c:otherwise>启动</c:otherwise></c:choose></span></a>&nbsp;&nbsp;<a href="javascript:del('${ps.id}');">删除</a>&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/perf/monitor/${ps.id}">监控</a>&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/perf/history/${ps.id}">历史</a></font></td>
 		</tr>
 	  </c:forEach>
 	</table>
@@ -116,7 +116,7 @@
 	{
 		if(confirm("确定要删除吗？"))
 		{
-			var url = "index.jsp";
+			var url = "delete/"+id;
 			window.location.href=url;		
 		}
 	

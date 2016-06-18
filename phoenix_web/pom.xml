@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.phoenixframe</groupId>
     <artifactId>phoenix_parent</artifactId>
-    <version>1.4.7</version>
+    <version>1.4.8</version>
     <relativePath>../phoenix_parent/pom.xml</relativePath>
   </parent>
   
   <artifactId>phoenix_web</artifactId>
   <packaging>war</packaging>
-  <description>引入了shiro并对jmeter进行了深度定制，支持WEB性能测试，增加了查看node节点信息的入口</description>
+  <description>update：增加了ehcache缓存,数据库连接池查看,定时任务细节bug修复,修复接口测试结果统计bug,个别页面的js重构,日志批量管理方法</description>
   <name>phoenix_web Maven Webapp</name>
   <url>http://www.cewan.la</url>
   
@@ -64,6 +64,14 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
+		</dependency> 
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+		</dependency> 
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
 		</dependency> 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

@@ -38,6 +38,7 @@ import javax.imageio.ImageIO;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.Proxy;
@@ -113,7 +114,6 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 		this.unitLog = unitLog;
 		new PhoenixLogger();
 		new LoadPhoenixPlugins();
-		checkPoint = (ICheckPoint)new CheckPointInvocationHandler(new CheckPoint(),unitLog,caseLogBean).getProxy();
 	}
 	
 	/*
@@ -219,6 +219,26 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	public void addAggregateCase(int caseId){
 		
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.action.ElementAction#executeScript(java.lang.String, java.lang.Object[])
+	 */
+	public Object executeScript(String script, Object...args){
+		return Selenide.executeJavaScript(script, args);
+	}
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.action.ElementAction#executeAsyncScript(java.lang.String, java.lang.Object[])
+	 */
+	public Object executeAsyncScript(String script, Object...args){
+		if(getCurrentDriver() !=null ){
+			JavascriptExecutor je = (JavascriptExecutor)getCurrentDriver();
+			return je.executeAsyncScript(script, args);
+		}else {
+			return "Fail：js执行失败，currentDriver为null";
+		}
+	}
+	
 	public CaseLogBean getCaseLogBean() {
 		return caseLogBean;
 	}
@@ -339,6 +359,7 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	 */
 	@Override
 	public ICheckPoint checkPoint(){
+		if(checkPoint == null)return checkPoint = (ICheckPoint)new CheckPointInvocationHandler(new CheckPoint(),unitLog,caseLogBean).getProxy();
 		return checkPoint;
 	}
 	/**
@@ -581,7 +602,8 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 		WindowsUtils.tryToKillByName("phantomjs.exe");
 		WindowsUtils.tryToKillByName("IEDriverServer64.exe");
 		WindowsUtils.tryToKillByName("IEDriverServer32.exe");
-		WindowsUtils.tryToKillByName("chromedriver.exe");
+		WindowsUtils.tryToKillByName("chromedriver64.exe");
+		WindowsUtils.tryToKillByName("chromedriver32.exe");
 	}
 	/*
 	 * (non-Javadoc)
@@ -820,12 +842,12 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	
 	@Override
 	public void switchToWindow(String title) {
-		Selenide.switchToWindow(title);
+		Selenide.switchTo().window(title);
 	}
 
 	@Override
 	public void switchToWindow(int index) {
-		Selenide.switchToWindow(index);
+		Selenide.switchTo().window(index);
 	}
 	
 	@Override

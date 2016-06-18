@@ -18,8 +18,8 @@ public class TestPhoenixCaseDiv extends WebElementActionProxy{
 		init("",arg0);
 		webProxy.setFirefoxExePath("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
 		//webProxy.openNewWindowByFirefox("http://1.163.com");
-		//webProxy.openNewWindowByIE("http://1.163.com");
-		webProxy.openNewWindowByPhantomJs("http://1.163.com");
+		webProxy.openNewWindowByIE("http://1.163.com");
+		//webProxy.openNewWindowByPhantomJs("http://1.163.com");
 		if(webProxy.webElement(".w-msgbox-close", LocatorType.CSS).exists())webProxy.webElement(".w-msgbox-close", LocatorType.CSS).click();
 		webProxy.webElement("请登录", LocatorType.LINKTEXT).click();
 		

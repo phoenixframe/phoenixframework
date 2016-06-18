@@ -80,13 +80,12 @@ public class CommandExecutor {
 			LineIterator li = IOUtils.lineIterator(inStream,encoding);
 			while(li.hasNext()){
 				String line = li.next();
-				System.out.println(line);
 				stringBuilder.append(line+"\r\n");
 			}
 			stringBuilder.append("-------end\r\n");
 		}catch(Exception e){
-			e.printStackTrace();
 			stringBuilder.append(e.getClass().getName()+","+e.getMessage());
+			e.printStackTrace();
 		}
 		return stringBuilder.toString();
 	}

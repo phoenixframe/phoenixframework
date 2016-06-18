@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.phoenixframe</groupId>
     <artifactId>phoenix_parent</artifactId>
-    <version>1.4.7</version>
+    <version>1.4.8</version>
     <relativePath>../phoenix_parent/pom.xml</relativePath>
   </parent>
   
   <artifactId>phoenix_webdriver</artifactId>
-  <description>修复部分webUI操作无效bug,增加启动url时的host支持,增加了HTMLunit驱动,webCase增加了多批次数据的支持</description>
+  <description>update:检查点bug修复,增加js执行的驱动,commandExecutor方法bug修复,驱动更新支持最新Firefox47/chrome51/IE10/IE11/IE Edge</description>
   <packaging>jar</packaging>
 
   <name>phoenix_webdriver</name>
@@ -102,7 +102,7 @@
    <dependency>
 	   <groupId>com.codeborne</groupId>
 	   <artifactId>selenide</artifactId>
-	   <version>2.17</version>
+	   <version>3.6</version>
    </dependency>
    	<dependency>
 		<groupId>com.github.detro</groupId>

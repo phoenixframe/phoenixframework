@@ -30,12 +30,11 @@
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${caseName}" enabled="true">
           <#if useBodyString == "true">
 			    <boolProp name="HTTPSampler.postBodyRaw">${useBodyString}</boolProp>
-          		<elementProp name="HTTPsampler.Arguments" elementType="Arguments">
 		  </#if>
 			
           <#if params?exists><elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="UserArguments" enabled="true"></#if>
             <collectionProp name="Arguments.arguments">
-		        <#if params?exists>
+            	<#if params?exists>
 					<#list params?keys as key>
 			            <elementProp name="${key}" elementType="HTTPArgument">
 			              <boolProp name="HTTPArgument.always_encode">false</boolProp>
@@ -45,7 +44,7 @@
 			              <stringProp name="Argument.name">${key}</stringProp>
 			            </elementProp>
 		            </#list>
-				</#if>
+		        </#if>
 				<#if useBodyString == "true">
 						  <elementProp name="" elementType="HTTPArgument">
 			                <boolProp name="HTTPArgument.always_encode">false</boolProp>
@@ -54,7 +53,7 @@
 			              </elementProp>
 			    </#if>
 			</collectionProp>
-          </elementProp>
+          <#if params?exists></elementProp></#if>
           <stringProp name="HTTPSampler.domain">${domainURL}</stringProp>
           <stringProp name="HTTPSampler.port">${urlPort}</stringProp>
           <#if enableProxy == "true">

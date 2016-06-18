@@ -60,6 +60,19 @@ public interface ElementAction extends AndroidAction{
 	void addLocator(String caseName,CaseLogBean caseLogBean);
 	
 	/**
+	 * 执行js
+	 * @return
+	 */
+	Object executeScript(String script, Object...args);
+	/**
+	 * 执行js
+	 * @param script
+	 * @param args
+	 * @return
+	 */
+	Object executeAsyncScript(String script, Object...args);
+	
+	/**
 	 * 根据给定的用例的id，获取该用例下所有的数据
 	 * @param caseId
 	 */

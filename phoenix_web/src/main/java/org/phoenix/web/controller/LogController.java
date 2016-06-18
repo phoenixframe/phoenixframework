@@ -86,6 +86,21 @@ public class LogController {
 		return "redirect:/log/batchlist";
 	}
 	
+	@RequestMapping("/deletebatchs/{ids}")
+	public String deleteBatchLogs(@PathVariable String ids){
+		if(ids.contains(",")){
+			String[] idarray = ids.trim().split(",");
+			for(String id : idarray){
+				batchLogService.deleteBatchLog(Integer.parseInt(id));
+				taskService.updateBatchLogId(Integer.parseInt(id));
+			}
+		}else{
+			batchLogService.deleteBatchLog(Integer.parseInt(ids.trim()));
+			taskService.updateBatchLogId(Integer.parseInt(ids.trim()));
+		}
+		return "redirect:/log/batchlist";
+	}
+	
 	@RequestMapping("/WEB_CASE/{id}")
 	public String batchCaseList(@PathVariable Integer id,HttpSession session,Model model){
 		model.addAttribute("logId", id);

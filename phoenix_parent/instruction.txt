@@ -13,7 +13,24 @@
 平台网站：http://www.cewan.la 或 http://www.phoenixframe.org<br>
 搜索：测完啦或phoenixframe会有更多关于平台的示例<br>
 <br>
-最新版本：1.4.7<br>
+最新版本：1.4.8<br>
+phoenix_node:优化性能测试时，监控机的CPU及内存数据等的可读性<br>
+phoenix_web:增加了ehcache缓存<br>
+phoenix_web:增加数据库连接池查看<br>
+phoenix_webdriver:commandExecutor方法bug修复<br>
+phoenix_webdriver:检查点bug修复<br>
+phoenix_web:定时任务细节bug修复<br>
+phoenix_webdriver:增加js执行的驱动，再也无需手动强转<br>
+phoenix_web:修复接口测试结果统计bug<br>
+phoenix_web:个别页面的js重构<br>
+phoenix_node:性能测试相关模版细节bug修复<br>
+phoenix_web:多个地方增加删除确认提示<br>
+phoenix_web:日志增加批量管理方法<br>
+phoenix_webdriver:selenide更新到最新3.6,selenium更新到2.48稳定版（兼容safari），selendroid更新到最新0.17<br>
+phoenix_webdriver:支持最新的Firefox47/chrome50/IE10/IE11/IE Edge版本。IE驱动更新到2.53，chrome驱动更新到2.21<br>
+
+<br>
+上一版本：1.4.7<br>	
 1、修复多个反人类的唯一性约束<br>
 2、phoenix_node:jmeter性能测试增加对body参数的支持
 3、对平台的各模块代码进行了部分重构，重构后的效果是插件可配置
@@ -22,27 +39,6 @@
 6、phoenix_develop中增加了一个自己写的并发测试工具
 7、抽离出了公共的phoenix_common模块
 8、重构了平台项目组织架构，使导入调试等更方便
-
-<br>
-上一版本：1.4.6<br>
-1、定制浏览器：phoenix-browser<br>
-2、行为驱动插件：phoenix-behave<br>
-3、FTP连接客户端：FTPClient<br>
-4、直连socket服务器插件：SocketClient<br>
-5、图片文字识别插件：ImageReader<br>
-6、svn客户端插件：SVNClient<br>
-7、移动设备测试插件：phoneix-mobile,android/ios,MonkeyTest<br>
-8、接口测试插件：phoenix-interface<br>
-9、webUI自动化测试：phoneix-webdriver<br>
-10、录制回放插件：phoenix-recorder<br>
-11、phoenix_node:修复邮件发送相关的bug，增加对jmeter用例的执行<br>
-12、phoenix_db:修复Druid支持问题<br>
-13、phoenix_telnetclient:修复了读取响应流时可能引起的内存溢出问题	<br>	
-14、phoenix_interface：增加对xml，随机字符，加密解密，list分割等工具类,增加对host 的配置,增加post请求时添加附件字段或文件方法<br>
-15、phoenix_webdriver：修复webUI操作无效bug,增加启动url时的host支持,增加了HTMLunit驱动,webCase增加了多批次数据的支持<br>
-16、phoenix_web：批量添加数据更方便,增加任务列表中可直接查看最后一次的批次日志,在任务列表中可直接跳转到任务数据筛选界面。<br>
-17、phoenix_web：增加对jmeter任务的配置，jmeter任务监控，分机资源监控，以及监控图等。增加jmeter插件支持参数文件，支持csv和其他普通文本文件<br>
-18、phoenix_web:引入shiro作为认证、授权、加密和会话管理器。<br>	
 <br>
 系统名称：自动化测试平台<br> 
 系统介绍： <br>

@@ -161,7 +161,7 @@
             <td><fmt:formatDate value="${ts.endTime }" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td>
             <td>
                   <a href="update/${ts.id}">编辑</a>&nbsp;&nbsp;
-                  <a href="delete/${ts.id}">删除</a>&nbsp;&nbsp;
+                  <a href="javascript:del('${ts.id}')">删除</a>&nbsp;&nbsp;
                   <a href="javascript:start('${ts.id }');">启动</a>
                   <c:if test="${not empty ts.taskParameter }">
                   	  <br>
@@ -190,7 +190,7 @@
 	{
 		if(confirm("确定要删除吗？"))
 		{
-			var url = "index.jsp";
+			var url = "delete/"+id;
 			window.location.href=url;		
 		}
 	

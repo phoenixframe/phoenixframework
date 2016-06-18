@@ -41,6 +41,26 @@
            <th colspan="3" align="center">版本说明</th>
         </tr>
         <tr>
+            <td>版本1.4.8</td>
+            <td>
+1、phoenix_node:优化性能测试时，监控机的CPU及内存数据等的可读性<br>
+2、phoenix_web:增加了ehcache缓存<br>
+3、phoenix_web:增加数据库连接池查看<br>
+4、phoenix_webdriver:commandExecutor方法bug修复<br>
+5、phoenix_webdriver:检查点bug修复<br>
+6、phoenix_web:定时任务细节bug修复<br>
+7、phoenix_webdriver:增加js执行的驱动，再也无需手动强转<br>
+8、phoenix_web:修复接口测试结果统计bug<br>
+9、phoenix_web:个别页面的js重构<br>
+10、phoenix_node:性能测试相关模版细节bug修复<br>
+11、phoenix_web:多个地方增加删除确认提示<br>
+12、phoenix_web:日志增加批量删除方法<br>
+13、phoenix_webdriver:selenide更新到3.6,selenium更新到2.48稳定版（兼容safari），selendroid更新到0.17<br>
+14、phoenix_webdriver:支持最新的Firefox47/chrome50/IE10/IE11/IE Edge版本。IE驱动更新到2.53，chrome驱动更新到2.21（增加32位支持）<br>
+			</td>
+            <td>2016.06.18</td>
+        </tr>
+        <tr>
             <td>版本1.4.7</td>
             <td>
 1、修复多个反人类的唯一性约束<br>
@@ -50,33 +70,9 @@
 5、phoenix_interface增加对https地址的支持<br>
 6、phoenix_develop中增加了一个自己写的并发测试工具<br>
 7、抽离出了公共的phoenix_common模块<br>
-8、重构了平台项目组织架构，使导入调试等更方便<br>		
+8、重构了平台项目组织架构，使导入调试等更方便<br>	
 			</td>
             <td>2016.03.20</td>
-        </tr>
-        <tr>
-            <td>版本1.4.6</td>
-            <td>
-1、定制浏览器：phoenix-browser<br>
-2、行为驱动插件：phoenix-behave<br>
-3、FTP连接客户端：FTPClient<br>
-4、直连socket服务器插件：SocketClient<br>
-5、图片文字识别插件：ImageReader<br>
-6、svn客户端插件：SVNClient<br>
-7、移动设备测试插件：phoneix-mobile,android/ios,MonkeyTest<br>
-8、接口测试插件：phoenix-interface<br>
-9、webUI自动化测试：phoneix-webdriver<br>
-10、录制回放插件：phoenix-recorder<br>
-11、phoenix_node:修复邮件发送相关的bug，增加对jmeter用例的执行<br>
-12、phoenix_db:修复Druid支持问题<br>
-13、phoenix_telnetclient:修复了读取响应流时可能引起的内存溢出问题	<br>	
-14、phoenix_interface：增加对xml，随机字符，加密解密，list分割等工具类,增加对host 的配置,增加post请求时添加附件字段或文件方法<br>
-15、phoenix_webdriver：修复webUI操作无效bug,增加启动url时的host支持,增加了HTMLunit驱动,webCase增加了多批次数据的支持<br>
-16、phoenix_web：批量添加数据更方便,增加任务列表中可直接查看最后一次的批次日志,在任务列表中可直接跳转到任务数据筛选界面。<br>
-17、phoenix_web：增加对jmeter任务的配置，jmeter任务监控，分机资源监控，以及监控图等。增加jmeter插件支持参数文件，支持csv和其他普通文本文件<br>
-18、phoenix_web:引入shiro作为认证、授权、加密和会话管理器。<br>	
-			</td>
-            <td>2016.01.16</td>
         </tr>
         <tr><th colspan="3" align="center">联系方式</th></tr>
         <tr>
@@ -98,7 +94,7 @@
         </tr>
         <tr>
            <td>下一版本计划</td>
-           <td colspan="2">增加对redis数据库支持</td>
+           <td colspan="2">增加对redis数据库支持,phoenix_web增加测试报告汇总页面</td>
         </tr>
         <tr><th colspan="3" align="center">平台说明</th></tr>
         <tr>

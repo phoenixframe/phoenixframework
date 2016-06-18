@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<ehcache>  
+    <!--  
+        name:cache唯一标识   
+        eternal：缓存是否永久有效   
+        maxElementsInMemory：内存中最大缓存对象数  
+        overflowToDisk(true,false)：缓存对象达到最大数后，将缓存写到硬盘中  
+        diskPersistent：硬盘持久化  
+        timeToIdleSeconds：缓存清除时间   
+        timeToLiveSeconds：缓存存活时间  
+        memoryStoreEvictionPolicy：缓存清空策略  
+        1.FIFO：first in first out 先讲先出  
+        2.LFU： Less Frequently Used 一直以来最少被使用的  
+        3.LRU：Least Recently Used  最近最少使用的   
+    -->  
+    <defaultCache 
+    	maxElementsInMemory="1000" 
+    	eternal="false"  
+        timeToIdleSeconds="120" 
+        timeToLiveSeconds="120" 
+        overflowToDisk="false" />
+        
+          
+    <cache 
+    	name="dataCache" 
+    	eternal="false" 
+    	maxElementsInMemory="2000"  
+        overflowToDisk="false" 
+        diskPersistent="false" 
+        timeToIdleSeconds="3600"  
+        timeToLiveSeconds="3600" 
+        memoryStoreEvictionPolicy="LFU" />  
+</ehcache>

@@ -36,7 +36,8 @@
 </head>
 <body>
 <form class="form-inline definewidth m20" action="index.jsp" method="get">  
-<button type="button" class="btn btn-success" id="addnew">新增节点</button>
+<button type="button" class="btn btn-success" id="addnew">新增节点</button>&nbsp;&nbsp;
+<a href="<%=request.getContextPath()%>/druid" target="_blank">查看本机DB连接池信息</a>
 </form>
 <input type="hidden" id="scenarioId" value="${scenId }">
 <table class="table table-bordered table-hover definewidth m10" >
@@ -58,7 +59,7 @@
             <td>${ss.attachPath }</td>
             <td>
                   <a href="update/${ss.id}">编辑节点</a>&nbsp;&nbsp;
-                  <a href="delete/${ss.id}">删除节点</a>&nbsp;&nbsp;
+                  <a href="javascript:del('${ss.id}');">删除节点</a>&nbsp;&nbsp;
             </td>
         </tr>
         </c:forEach>
@@ -81,7 +82,7 @@
 	{
 		if(confirm("确定要删除吗？"))
 		{
-			var url = "index.jsp";
+			var url = "delete/"+id;
 			window.location.href=url;		
 		}
 	
