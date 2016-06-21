@@ -265,6 +265,24 @@ public interface ElementAction extends AndroidAction{
 	 * @param hostPort  host端口
 	 */
 	void openNewWindowByPhantomJs(String url,String hostIP,int hostPort);
+	/**
+	 * 使用Edge浏览器打开地址
+	 * @param url
+	 */
+	void openNewWindowByEdge(String url);
+	/**
+	 * 使用Edge浏览器打开地址
+	 * @param url
+	 * @param hostIP hostIP地址
+	 * @param hostPort host端口
+	 */
+	void openNewWindowByEdge(String url,String hostIP,int hostPort);
+	
+	/**
+	 * 使用Safari浏览器打开地址
+	 * @param url
+	 */
+	void openNewWindowBySafari(String url);
 	/*
 	 * 使用Ie打开被测的页面
 	 */

@@ -46,6 +46,7 @@ import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -59,6 +60,7 @@ import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.phoenix.aop.CheckPointInvocationHandler;
 import org.phoenix.aop.PhoenixLogger;
 import org.phoenix.aop.WebApiInvocationHandler;
@@ -579,7 +581,33 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 		setWebDriver(new FirefoxDriver());
 		open(url);
 	}
-
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.action.ElementAction#openNewWindowByEdge(java.lang.String)
+	 */
+	public void openNewWindowByEdge(String url){
+		caseLogBean.setEngineType("EdgeDriver");
+		setWebDriver(new EdgeDriver());
+		open(url);
+	}
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.action.ElementAction#openNewWindowByEdge(java.lang.String, java.lang.String, int)
+	 */
+	public void openNewWindowByEdge(String url,String hostIP,int hostPort){
+		caseLogBean.setEngineType("EdgeDriver with proxy "+hostIP+":"+hostPort);
+		setWebDriver(new EdgeDriver(getProxyCap(hostIP,hostPort)));
+		open(url);
+	}
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.action.ElementAction#openNewWindowBySafari(java.lang.String)
+	 */
+	public void openNewWindowBySafari(String url){
+		caseLogBean.setEngineType("SafariDriver");
+		setWebDriver(new SafariDriver());
+		open(url);
+	}
 	@Override
 	public void closeWindow() {
 		close();
