@@ -26,7 +26,6 @@ public class TestBrowserDriver extends WebElementActionProxy{
 		//https://ftp.mozilla.org/pub/firefox/releases
 		webProxy.setFirefoxExePath("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
 		webProxy.setChromeDriverExePath("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
-		
 		//webProxy.openNewWindowByFirefox("http://www.baidu.com");
 		//webProxy.openNewWindowByChrome("http://www.baidu.com");
 		//webProxy.openNewWindowByIE("http://www.baidu.com");

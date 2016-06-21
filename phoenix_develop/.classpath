@@ -43,12 +43,13 @@
 	<classpathentry kind="lib" path="lib/commons-exec-1.3.jar"/>
 	<classpathentry kind="lib" path="lib/selenide-3.6.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-api-2.48.2.jar"/>
-	<classpathentry kind="lib" path="lib/phoenix_webdriver-1.4.8.jar"/>
+	<classpathentry kind="lib" path="lib/phoenix_webdriver-1.4.8.jar" sourcepath="lib/phoenix_webdriver-1.4.8-sources.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-firefox-driver-2.48.0.jar" sourcepath="D:/Program Files/Java/maven/org/seleniumhq/selenium/selenium-firefox-driver/2.48.0/selenium-firefox-driver-2.48.0-sources.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-common-2.0b1.jar"/>
 	<classpathentry kind="lib" path="lib/phantomjsdriver-1.2.0.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-chrome-driver-2.45.0.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-remote-driver-2.45.0.jar"/>
+	<classpathentry kind="lib" path="lib/phoenix_webdriver-1.4.8-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="lib/aspectjweaver-1.8.5.jar"/>
 	<classpathentry kind="lib" path="lib/c3p0-0.9.1.jar"/>
