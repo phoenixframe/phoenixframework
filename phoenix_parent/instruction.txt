@@ -27,7 +27,7 @@ phoenix_node:性能测试相关模版细节bug修复<br>
 phoenix_web:多个地方增加删除确认提示<br>
 phoenix_web:日志增加批量管理方法<br>
 phoenix_webdriver:selenide更新到最新3.6,selenium更新到2.48稳定版（兼容safari），selendroid更新到最新0.17<br>
-phoenix_webdriver:支持最新的Firefox47/chrome50/IE10/IE11/IE Edge版本。IE驱动更新到2.53，chrome驱动更新到2.21<br>
+phoenix_webdriver:支持最新的Firefox41/chrome51/IE10/IE11/IE Edge/Safari版本。IE驱动更新到2.53，chrome驱动更新到2.21<br>
 
 <br>
 上一版本：1.4.7<br>	
