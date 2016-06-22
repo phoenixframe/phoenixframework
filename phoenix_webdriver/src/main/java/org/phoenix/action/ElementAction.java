@@ -25,6 +25,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.meterware.httpunit.HttpUnitOptions;
 
 /**
  * 元素操作的接口，该接口中的所有操作是web和mobile共有的，
@@ -237,14 +238,24 @@ public interface ElementAction extends AndroidAction{
 	 */
 	DesiredCapabilities getProxyCap(String hostIP,int hostPort);
 	/**
-	 * 通过htmlunit启动URL
+	 * 通过htmlunit启动URL<br>
+	 *  更多设置项：<br>
+	 * 	<em>设置页面默认编码:HttpUnitOptions.setDefaultCharacterSet("UTF-8"); </em><br>
+	 *	<em>禁用js语法检测:HttpUnitOptions.setExceptionsThrownOnScriptError(false); </em><br>
+	 *	<em>异常状态码是否抛异常：HttpUnitOptions.setExceptionsThrownOnErrorStatus(false);</em><br>
+	 *	<em>是否启用js：HttpUnitOptions.setScriptingEnabled(true);</em><br>
 	 * @param url
 	 * @param jsEnable 是否启用js
 	 * @param version 浏览器版本
 	 */
 	void openNewWindowByHtmlUnit(String url,boolean jsEnable,BrowserVersion version);
 	/**
-	 * 通过host启动URL
+	 * 通过htmlunit启动URL<br>
+	 *  更多设置项：<br>
+	 * 	<em>设置页面默认编码:HttpUnitOptions.setDefaultCharacterSet("UTF-8"); </em><br>
+	 *	<em>禁用js语法检测:HttpUnitOptions.setExceptionsThrownOnScriptError(false); </em><br>
+	 *	<em>异常状态码是否抛异常：HttpUnitOptions.setExceptionsThrownOnErrorStatus(false);</em><br>
+	 *	<em>是否启用js：HttpUnitOptions.setScriptingEnabled(true);</em><br>
 	 * @param url
 	 * @param jsEnable 是否启用js
 	 * @param version 浏览器版本

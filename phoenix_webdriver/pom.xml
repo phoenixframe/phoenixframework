@@ -29,6 +29,14 @@
 		<groupId>org.httpunit</groupId>
 		<artifactId>httpunit</artifactId>
 	</dependency>
+	<dependency>
+		<groupId>org.eclipse.jetty.websocket</groupId>
+		<artifactId>websocket-client</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>net.sourceforge.htmlunit</groupId>
+		<artifactId>neko-htmlunit</artifactId>
+	</dependency>
     <dependency>
 		<groupId>${project.groupId}</groupId>
 		<artifactId>phoenix_db</artifactId>

@@ -8,7 +8,7 @@ import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
 
 /**
- * 使用本地数据作参数化
+ * 浏览器驱动测试类
  * @author mengfeiyang
  *
  */
@@ -23,14 +23,14 @@ public class TestBrowserDriver extends WebElementActionProxy{
 	public LinkedList<UnitLogBean> run(CaseLogBean caseLogBean) {
 		init(caseName,caseLogBean);
 		
-		//https://ftp.mozilla.org/pub/firefox/releases
 		webProxy.setFirefoxExePath("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
 		webProxy.setChromeDriverExePath("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
 		//webProxy.openNewWindowByFirefox("http://www.baidu.com");
 		//webProxy.openNewWindowByChrome("http://www.baidu.com");
-		//webProxy.openNewWindowByIE("http://www.baidu.com");
-		webProxy.openNewWindowByPhantomJs("http://www.baidu.com");
-		webProxy.webElement("//*[@id=\"kw\"]",LocatorType.XPATH).setText("selenium");
+		webProxy.openNewWindowByIE("http://www.baidu.com");
+		//webProxy.openNewWindowByHtmlUnit("http://www.baidu.com", true, BrowserVersion.INTERNET_EXPLORER);
+		//webProxy.openNewWindowByPhantomJs("http://www.baidu.com");
+		webProxy.webElement("//*[@id=\"kw\"]",LocatorType.XPATH).setText("phoenixframe");
 		webProxy.webElement("//*[@id=\"su\"]", LocatorType.XPATH).click();
 		System.out.println(webProxy.webElement("//*[@id=\"su\"]", LocatorType.XPATH).getAttribute("value"));
 		webProxy.sleep(1000);

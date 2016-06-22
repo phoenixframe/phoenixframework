@@ -432,6 +432,10 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 		setWebDriver(htmlUnit);
 		open(url);
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.action.ElementAction#openNewWindowByPhantomJs(java.lang.String, java.lang.String, int)
+	 */
 	@Override
 	public void openNewWindowByPhantomJs(String url,String hostIP,int hostPort){
 		caseLogBean.setEngineType("PhantomJsDriver with proxy "+hostIP+":"+hostPort);
@@ -460,6 +464,10 @@ public class WebElementAction extends WebElementLocator implements ElementAction
         setWebDriver(new PhantomJSDriver(sCaps));
         open(url);
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see org.phoenix.action.ElementAction#openNewWindowByPhantomJs(java.lang.String)
+	 */
 	@Override
 	public void openNewWindowByPhantomJs(String url){
 		caseLogBean.setEngineType("PhantomJsDriver");

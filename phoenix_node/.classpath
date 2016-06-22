@@ -24,12 +24,9 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-core-4.1.7.Final.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-ehcache-4.1.7.Final.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpclient-4.3.4.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpcore-4.3.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javassist-3.15.0-GA.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jboss-logging-3.1.0.GA.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jna-3.4.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.16.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.17-bin.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/platform-3.4.0.jar"/>
@@ -44,7 +41,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/json-20080701.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix-jmeter.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsoup-1.8.3.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/nekohtml-1.9.21.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-exec-1.3.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/selenide-3.6.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/selenium-api-2.48.2.jar"/>
@@ -67,17 +63,10 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/common-23.0.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-compress-1.5.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cssparser-0.9.14.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ddmlib-23.0.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson-2.3.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/htmlunit-2.15.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/htmlunit-core-js-2.15.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpmime-4.3.3.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jcommander-1.30.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jetty-http-8.1.15.v20140411.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jetty-io-8.1.15.v20140411.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jetty-util-8.1.15.v20140411.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jetty-websocket-8.1.15.v20140411.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/kxml2-2.3.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/netty-3.5.2.Final.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/netty-all-4.0.21.Final.jar"/>
@@ -170,5 +159,18 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/selenium-safari-driver-2.48.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/selenium-support-2.48.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_webdriver-1.4.8.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cssparser-0.9.19.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/htmlunit-2.22.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/htmlunit-core-js-2.22.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpcore-4.4.5.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jetty-http-9.4.0.M0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jetty-io-9.4.0.M0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jetty-util-9.4.0.M0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/neko-htmlunit-2.21.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/nekohtml-1.9.22.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/websocket-api-9.4.0.M0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/websocket-client-9.4.0.M0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/websocket-common-9.4.0.M0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

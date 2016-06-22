@@ -122,7 +122,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.10</version>
+      <version>4.12</version>
       <scope>compile</scope>
     </dependency>
 	<dependency>
@@ -182,7 +182,7 @@
 	<dependency>
 		<groupId>org.apache.httpcomponents</groupId>
 		<artifactId>httpclient</artifactId>
-		<version>4.5</version>
+		<version>4.5.2</version>
 	</dependency>
 	
 	<dependency>
@@ -575,6 +575,17 @@
 		  <groupId>org.freemarker</groupId>
 		  <artifactId>freemarker</artifactId>
 		  <version>2.3.20</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>websocket-client</artifactId>
+			<version>9.4.0.M0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.htmlunit</groupId>
+			<artifactId>neko-htmlunit</artifactId>
+			<version>2.21</version>
 		</dependency>
 
 		<!-- svn专用依赖 -->

@@ -2,7 +2,7 @@ package org.phoenix.cases.webservice;
 
 import java.util.LinkedList;
 
-import org.apache.http.HttpResponse;
+import org.jsoup.Connection.Response;
 import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
@@ -17,11 +17,10 @@ public class ResoPageSource extends WebElementActionProxy{
 	@Override
 	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
 		init("",arg0);
-		//HttpUnitOptions.setDefaultCharacterSet("UTF-8"); //设置页面默认编码
-		//HttpUnitOptions.setExceptionsThrownOnScriptError(false); //禁用js语法检测
-		HttpResponse resp = webProxy.webAPIAction().getResponseByHttpClientWithGet("http://www.baidu.com");
-		int resCode = resp.getStatusLine().getStatusCode();
+		Response resp = webProxy.webAPIAction().getResponseByJsoupByGet("http://www.baidu.com");
+		int resCode = resp.statusCode();
 		webProxy.checkPoint().checkIsEqual(resCode, 201);
+		System.out.println(resp.body());
 		return getUnitLog();
 	}
 	public static void main(String[] args) {
