@@ -10,7 +10,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-
+/**
+ * 接口测试数据表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="t_interface_data")
 public class InterfaceDataBean {

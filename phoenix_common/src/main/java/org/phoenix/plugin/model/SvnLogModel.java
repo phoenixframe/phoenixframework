@@ -2,7 +2,11 @@ package org.phoenix.plugin.model;
 
 import java.util.Date;
 import java.util.List;
-
+/**
+ * 日志svn信息
+ * @author mengfeiyang
+ *
+ */
 public class SvnLogModel {
  
     public long getRevision() {

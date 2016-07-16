@@ -21,7 +21,11 @@ import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.phoenix.enums.MsgSendType;
-
+/**
+ * 测试用例表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="t_web_case")
 @BatchSize(size=30)

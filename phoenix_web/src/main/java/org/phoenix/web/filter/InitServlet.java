@@ -29,7 +29,7 @@ public class InitServlet extends HttpServlet {
 		Map<String,Set<String>> auths = AuthUtil.initAuth("org.phoenix.web.controller");
 		this.getServletContext().setAttribute("allAuths", auths);
 		new InitTask().init();
-		System.out.println("------------------------系统初始化成功:"+auths+"-----------------------------");
+		System.out.println("------------------------system init success:"+auths+"-----------------------------");
 	}
 	
 	public static WebApplicationContext getWc() {

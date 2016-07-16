@@ -237,6 +237,31 @@ public class BaseDao<T> implements IBaseDao<T> {
 	public Pager<T> findByAlias(String hql, Map<String, Object> alias) {
 		return this.find(hql,null, alias);
 	}
+	
+	public List<Object> listObj(String hql,Object ...args) {
+		return this.listObj(hql,null, args);
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public Object loadEntity(int id,Class clz) {
+		return (Object)getSession().load(clz, id);
+	}
+	
+	public void deleteEntity(Object entity) {
+		getSession().delete(entity);
+	}
+	
+	public void saveOrUpdateEntity(Object entity) {
+		this.getSession().saveOrUpdate(entity);
+	}
+	
+	public List<Object> listObj(String hql,Map<String,Object> alias,Object ...args) {
+		hql = initSort(hql);
+		Query query = getSession().createQuery(hql);
+		setAliasParameter(query, alias);
+		setParameter(query, args);
+		return query.list();
+	}
 
 	/* (non-Javadoc)
 	 * @see org.phoenix.baisc.dao.IBaseDao#queryObject(java.lang.String, java.lang.Object[])

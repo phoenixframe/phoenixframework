@@ -6,7 +6,7 @@
 <head>
     <title>用例列表</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/style.css" />
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.js"></script>
@@ -14,7 +14,8 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/bootstrap.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/ckform.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/common.js"></script>
-
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/layer/layer.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/TableSort.js"></script>
     <style type="text/css">
         body {
             padding-bottom: 40px;
@@ -43,10 +44,14 @@
     <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">新增用例</button>
 </form>
 <input type="hidden" id="scenarioId" value="${scenId }">
-<table class="table table-bordered table-hover definewidth m10" >
+<table  id="tblist" class="table table-bordered table-hover definewidth m10" >
     <thead>
-    <tr>
-        <th>ID</th>
+    <tr role="head">
+        <th width="3%" sort="true">
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-sort"></span> Sort
+        </button>
+        </th>
         <th>场景名称</th>
         <th>用例名称</th>
         <th>关联类名</th>
@@ -56,7 +61,7 @@
         <th>是否删除</th>
         <th>功能说明</th>
         <th>创建时间</th>
-        <th width="19%">管理操作</th>
+        <th width="24%">管理操作</th>
     </tr>
     </thead>
     <tbody>
@@ -86,10 +91,10 @@
             <td>${cs.remark }</td>
             <td><fmt:formatDate value="${cs.createDate }" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td>
             <td>
-                  <a href="update/${cs.id}">编辑脚本</a>&nbsp;&nbsp;
-                  <c:if test="${cs.caseType eq 'WEB_CASE' || cs.caseType eq 'MOBILE_CASE'}"><a href="<%=request.getContextPath()%>/locator/case/${cs.id}">定位信息</a>&nbsp;&nbsp;</c:if>
-                  <a href="<%=request.getContextPath()%>/data/INTERFACE_CASE/list/${cs.id}">数据</a>&nbsp;&nbsp;
-                  <a href="javascript:del('${cs.id}')">删除</a>&nbsp;&nbsp;
+                  <a href="update/${cs.id}"><span class="label label-primary"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑</span></a>
+                  <c:if test="${cs.caseType eq 'WEB_CASE' || cs.caseType eq 'MOBILE_CASE'}"><a href="<%=request.getContextPath()%>/locator/case/${cs.id}"><span class="label label-success"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;定位</span></a></c:if>
+                  <a href="<%=request.getContextPath()%>/data/INTERFACE_CASE/list/${cs.id}"><span class="label label-warning"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;数据</span></a>
+                  <a href="javascript:$.alerts.delconfirm('<%=request.getContextPath()%>/case/delete/${cs.id}');"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;删除</span></a>
             </td>
         </tr>
         </c:forEach>
@@ -114,14 +119,5 @@
 			}
 		 });
     });
-
-	function del(id)
-	{
-		if(confirm("确定要删除吗？"))
-		{
-			var url = "delete/"+id;
-			window.location.href=url;		
-		}
-	
-	}
+    $("#tblist").sorttable();
 </script>

@@ -4,13 +4,10 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-        <dependent-module archiveName="phoenix_common-1.4.8.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_common/phoenix_common">
+        <dependent-module archiveName="phoenix_common-1.5.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_common/phoenix_common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="phoenix_db-1.4.8.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_db/phoenix_db">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="phoenix_interface-1.4.8.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_interface/phoenix_interface">
+        <dependent-module archiveName="phoenix_interface-1.5.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/phoenix_interface/phoenix_interface">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="phoenix_web"/>

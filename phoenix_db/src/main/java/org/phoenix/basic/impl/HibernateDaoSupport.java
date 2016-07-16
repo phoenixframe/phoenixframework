@@ -8,7 +8,12 @@ import javax.persistence.EntityTransaction;
 
 import org.phoenix.basic.dao.IBaseDao;
 import org.phoenix.basic.utils.EntityManagerUtil;
-
+/**
+ * 通用的dao方法，基于Java的<code>EntityManager</code>实现
+ * @author mengfeiyang
+ *
+ * @param <T>
+ */
 public class HibernateDaoSupport<T> implements IBaseDao<T>{
 	private Class<?> clz;
 	public Class<?> getClz() {

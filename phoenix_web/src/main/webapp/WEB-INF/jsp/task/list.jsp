@@ -8,15 +8,16 @@
 <head>
     <title>任务列表</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/style.css" />
-    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.sorted.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/TableSort.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/bootstrap.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/ckform.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/common.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/JSer.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/layer/layer.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/artDialog/artDialog.js?skin=default"></script>
 
     <style type="text/css">
@@ -110,12 +111,16 @@
            </c:forEach>
         </select>
      &nbsp;&nbsp;
-    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">添加任务</button>
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" onClick="$.tools.add('<%=request.getContextPath()%>/task/add');">添加任务</button>
 </form>
-<table class="table table-bordered table-hover definewidth m10" >
+<table id="tblist" class="table table-bordered table-hover definewidth m10" >
     <thead>
-    <tr>
-        <th>ID</th>
+    <tr role="head">
+        <th width="4%" sort="true">
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-sort"></span> Sort
+        </button>
+        </th>
         <th>任务名称</th>
         <th>任务类型</th>
         <th>SlaveIP</th>
@@ -125,7 +130,7 @@
         <th width="12%">定时器状态</th>
         <th>开始时间</th>
         <th>结束时间</th>
-        <th width="11%">管理操作</th>
+        <th width="18%">管理操作</th>
     </tr>
     </thead>
     <tbody>
@@ -155,18 +160,18 @@
 				</c:otherwise>
 			</c:choose>
 			</td>
-			<td>${ts.taskParameter }</td>
+			<td><span class="label label-default">${ts.taskParameter }</span></td>
 			<td>${ts.jobStatus }<br><fmt:formatDate value="${ts.lastTime }" pattern="yyyy-MM-dd HH:mm:ss" /></td>
             <td><fmt:formatDate value="${ts.startTime }" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td>
             <td><fmt:formatDate value="${ts.endTime }" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td>
             <td>
-                  <a href="update/${ts.id}">编辑</a>&nbsp;&nbsp;
-                  <a href="javascript:del('${ts.id}')">删除</a>&nbsp;&nbsp;
-                  <a href="javascript:start('${ts.id }');">启动</a>
+                  <a href="update/${ts.id}"><span class="label label-primary"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑</span></a>
+                  <a href="javascript:$.alerts.delconfirm('delete/${ts.id}');"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;删除</span></a>
+                  <a href="javascript:start('${ts.id }');"><span class="label label-success"><span class="glyphicon glyphicon-play"></span>&nbsp;启动</span></a>
                   <c:if test="${not empty ts.taskParameter }">
-                  	  <br>
-	                  <c:if test="${ts.jobStatus eq 'STOP' }"><a href="startJob/${ts.id}">StartJob</a>&nbsp;&nbsp;</c:if>
-	                  <c:if test="${ts.jobStatus eq 'RUNNING' }"><a href="stopJob/${ts.id}">StopJob</a>&nbsp;&nbsp;</c:if>
+                  	  <br><br>
+	                  <c:if test="${ts.jobStatus eq 'STOP' }"><a href="startJob/${ts.id}"><span class="label label-success"><span class="glyphicon glyphicon-time"></span>&nbsp;StartJob</span></a></c:if>
+	                  <c:if test="${ts.jobStatus eq 'RUNNING' }"><a href="stopJob/${ts.id}"><span class="label label-danger"><span class="glyphicon glyphicon-stop"></span>&nbsp;StopJob</span></a></c:if>
                   </c:if>
             </td>
         </tr>
@@ -181,20 +186,8 @@
  </div>  
  <script>
     $(function () {
-		$('#addnew').click(function(){
-				window.location.href="add";
-		 });
+        $("#tblist").sorttable();
     });
-
-	function del(id)
-	{
-		if(confirm("确定要删除吗？"))
-		{
-			var url = "delete/"+id;
-			window.location.href=url;		
-		}
-	
-	}
 </script>     
 </body>
 </html>

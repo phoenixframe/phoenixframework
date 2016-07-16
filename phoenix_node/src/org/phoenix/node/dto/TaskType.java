@@ -1,5 +1,9 @@
 package org.phoenix.node.dto;
-
+/**
+ * 任务类型
+ * @author mengfeiyang
+ *
+ */
 public enum TaskType {
 	WEB_CASE("WEB_CASE"),
 	WEB_SCENARIO("WEB_SCENARIO"),

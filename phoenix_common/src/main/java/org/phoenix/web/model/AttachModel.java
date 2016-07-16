@@ -12,7 +12,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+/**
+ * 附件表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="t_attach")
 public class AttachModel {

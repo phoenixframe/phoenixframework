@@ -11,7 +11,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.phoenix.enums.TaskStatusType;
-
+/**
+ * 场景日志表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="l_web_scenario")
 public class ScenarioLogBean {

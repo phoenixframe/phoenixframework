@@ -3,7 +3,11 @@ package org.phoenix.web.dao;
 import org.phoenix.basic.dao.IBaseDao;
 import org.phoenix.basic.paging.Pager;
 import org.phoenix.web.model.User;
-
+/**
+ * 用户信息操作接口
+ * @author mengfeiyang
+ *
+ */
 public interface IUserDao extends IBaseDao<User>{
 	
 	/*

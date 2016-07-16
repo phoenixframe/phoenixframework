@@ -14,7 +14,11 @@ import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.phoenix.enums.LocatorType;
-
+/**
+ * 定位信息数据表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="t_web_unit")
 public class LocatorBean {

@@ -1,5 +1,9 @@
 package org.phoenix.enums;
-
+/**
+ * 定位信息类型
+ * @author mengfeiyang
+ *
+ */
 public enum LocatorType {
 	CSS("CSS"),
 	ID("ID"),

@@ -2,6 +2,11 @@ package org.phoenix.node.compiler;
 import java.net.URLClassLoader;
 import java.net.URL;
  
+/**
+ * 自定义的classloader
+ * @author mengfeiyang
+ *
+ */
 public class DynamicClassLoader extends URLClassLoader {
     public DynamicClassLoader(ClassLoader parent) {
         super(new URL[0], parent);

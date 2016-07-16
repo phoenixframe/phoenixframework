@@ -16,7 +16,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+/**
+ * 消息池控制器
+ * @author mengfeiyang
+ *
+ */
 @Controller
 @RequestMapping("/msg")
 @AuthClass("login")

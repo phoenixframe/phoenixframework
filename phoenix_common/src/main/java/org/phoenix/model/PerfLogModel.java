@@ -10,7 +10,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-
+/**
+ * 性能测试日志表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="l_performance")
 public class PerfLogModel {

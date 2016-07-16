@@ -13,7 +13,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.phoenix.enums.MsgStatusType;
-
+/**
+ * 消息池表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="t_msgpool")
 public class MsgBean {

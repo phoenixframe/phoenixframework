@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.phoenixframe</groupId>
     <artifactId>phoenix_parent</artifactId>
-    <version>1.4.8</version>
+    <version>1.5.0</version>
     <relativePath>../phoenix_parent/pom.xml</relativePath>
   </parent>
   
   <artifactId>phoenix_mobiledriver</artifactId>
   <packaging>jar</packaging>
-
+  <description>update：代码重构，独立出当前模块</description>
   <name>phoenix_mobiledriver</name>
   <url>http://www.cewan.la</url>
 
@@ -52,6 +52,10 @@
 			<groupId>io.selendroid</groupId>
 			<artifactId>selendroid-standalone</artifactId>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>phoenix_common</artifactId>
 		</dependency>
   </dependencies>
 </project>

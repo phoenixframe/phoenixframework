@@ -11,7 +11,24 @@
 通过使用phoenix_develop开发用例代码的示例，<br>
 用例如果在本地调试时没有问题，那么就可以放到控制端进行执行了。<br>
 平台网站：http://www.cewan.la 或 http://www.phoenixframe.org<br>
+环境搭建及使用说明书：http://my.oschina.net/u/2391658/blog/706055<br>
 搜索：测完啦或phoenixframe会有更多关于平台的示例<br>
+<br>
+最新版本：1.5.0<br>
+phoenix_web:各table增加了根据id排序功能<br>
+phoenix_web:增加部分样式，如字体调整，增删改的链接样式<br>
+phoenix_node:修复性能测试时必须开启监控页面才能收集被监控机数据的bug<br>
+phoenix_web:代码编辑页面引入新的代码编辑器<br>
+phoenix_web:页面js代码重构<br>
+phoenix_webdriver:代码重构，更易扩展<br>
+phoenix_webdriver：支持自定义插入步骤日志<br>
+phoenix_mobiledriver:代码重构<br>
+phoenix_db:增加了多个实用方法，如可以直接queryObject<br>
+phoenix_web:任务/性能测试列表增加自动更新任务状态功能<br>
+phoenix_web:shiro与spring做了集成<br>
+phoenix_web:为shiro增加了缓存支持<br>
+phoenix_webdriver:数据及定位信息数据由自动加载改为手动加载<br>
+phoenix_webdriver:各个模块的备注信息完善<br>
 <br>
 最新版本：1.4.8<br>
 phoenix_node:优化性能测试时，监控机的CPU及内存数据等的可读性<br>

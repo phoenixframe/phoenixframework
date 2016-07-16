@@ -14,7 +14,11 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-
+/**
+ * 日志批次model
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="l_web_batch")
 @BatchSize(size=30)

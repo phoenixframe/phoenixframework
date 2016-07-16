@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map.Entry;
 
-import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.extend.druid.DruidUtil;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.InterfaceBatchDataBean;
 import org.phoenix.model.UnitLogBean;
+import org.phoenix.proxy.ActionProxy;
 import org.phoenix.utils.CommandExecutor;
 
 /**
@@ -18,12 +18,12 @@ import org.phoenix.utils.CommandExecutor;
  * @author mengfeiyang
  *
  */
-public class DianJingSvnLog extends WebElementActionProxy{
+public class DianJingSvnLog extends ActionProxy{
 	@Override
-	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
-		init("SVNwebtest7",arg0);
+	public LinkedList<UnitLogBean> run(CaseLogBean caseLogBean) {
+		init(caseLogBean);
 		DruidUtil dr = new DruidUtil();
-		HashMap<InterfaceBatchDataBean, HashMap<String, String>> datas = webProxy.loadWebCaseDatas("SVNwebtest7");
+		HashMap<InterfaceBatchDataBean, HashMap<String, String>> datas = phoenix.commonAPI().loadWebCaseDatas("SVNwebtest7");
 		for(Entry<InterfaceBatchDataBean, HashMap<String, String>> data : datas.entrySet()){
 			HashMap<String,String> dataBlocks = data.getValue();
 			String insertSQL = "update t_web_data set dataContent = '?' where dataName='svnVersion'";
@@ -53,12 +53,12 @@ public class DianJingSvnLog extends WebElementActionProxy{
 	    			if(!lastVersion.equals(newVersion)){
 	    				System.out.println("lastVersion:"+lastVersion);
 	    				System.out.println("getVersion:"+s.split(":")[1]);
-	    				int resCode = webProxy.webAPIAction().getResponseByHttpClientWithGet("http://e.360.cn/").getStatusLine().getStatusCode();
+	    				int resCode = phoenix.interfaceAPI().getResponseByHttpClientWithGet("http://e.360.cn/").getStatusLine().getStatusCode();
 	    				System.out.println(resCode);
-	    				webProxy.checkPoint().checkIsEqual(200, resCode);
+	    				phoenix.checkPoint().checkIsEqual(200, resCode);
 	    				dr.executeSql(insertSQL.replace("?", newVersion));
 	    			} else {
-	    				webProxy.checkPoint().checkNotNull("代码最近无新版本更新");
+	    				phoenix.checkPoint().checkNotNull("代码最近无新版本更新");
 	    			}
 	    		}
 	    	}

@@ -11,7 +11,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-
+/**
+ * 单步日志表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="l_web_unit")
 public class UnitLogBean {

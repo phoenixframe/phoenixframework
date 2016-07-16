@@ -6,13 +6,15 @@
 <head>
     <title>附件列表</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/style.css" />
-    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.sorted.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/bootstrap.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/ckform.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/layer/layer.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/TableSort.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/common.js"></script>
 
     <style type="text/css">
@@ -38,17 +40,19 @@
 <form class="form-inline definewidth m20" action="select" method="post">  
     附件名称：
     <input type="text" name="keyWord" id="keyWord" class="abc input-default" placeholder="支持模糊查询..." value="${keyWord }"/>&nbsp;&nbsp;  
-    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">添加附件</button>
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" onClick="$.tools.add('<%=request.getContextPath()%>/attach/add');">添加附件</button>
 </form>
-<table class="table table-bordered table-hover definewidth m10" >
+<table id="tblist" width="98%" class="table table-bordered table-hover definewidth m10" >
     <thead>
-    <tr>
-        <th>附件编号</th>
+    <tr role="head">
+        <th sort="true"><button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-sort"></span> Sort
+        </button></th>
         <th>附件名称</th>
         <th>附件类型</th>
         <th>附件地址</th>
         <th>创建时间</th>
-        <th>管理操作</th>
+        <th width="5%">管理操作</th>
     </tr>
     </thead>
     <tbody>
@@ -60,7 +64,7 @@
             <td><a href="${cs.attachPath }" target="_blank" title="点击查看附件">${cs.attachPath }</a></td>
             <td><fmt:formatDate value="${cs.createDate }" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td>
             <td>
-                  <a href="delete/${cs.id}">删除附件</a>&nbsp;&nbsp;
+                  <a href="javascript:$.alerts.delconfirm('delete/${cs.id}');"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;删除附件</span></a>
             </td>
         </tr>
         </c:forEach>
@@ -71,23 +75,11 @@
 			<jsp:param value="${datas.total }" name="totalRecord"/>
 			<jsp:param value="list" name="url"/>
 		</jsp:include>
- </div>       
+ </div>  
+ <script>
+ $(function () {
+     $("#tblist").sorttable();
+ });
+</script>      
 </body>
 </html>
-<script>
-    $(function () {
-		$('#addnew').click(function(){
-				window.location.href="add";
-		 });
-    });
-
-	function del(id)
-	{
-		if(confirm("确定要删除吗？"))
-		{
-			var url = "index.jsp";
-			window.location.href=url;		
-		}
-	
-	}
-</script>

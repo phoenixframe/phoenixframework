@@ -2,17 +2,16 @@ package org.phoenix.cases.kafka;
 
 import java.util.LinkedList;
 
-import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
 import org.phoenix.plugins.ITelnetClient;
+import org.phoenix.proxy.ActionProxy;
 
-public class RemoteMonitor extends WebElementActionProxy{
+public class RemoteMonitor extends ActionProxy{
 
 	@Override
-	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
-		init("",arg0);
-		ITelnetClient tl = webProxy.telnetClient().configTelnetClient("10.16.57.106", 7777);
+	public LinkedList<UnitLogBean> run(CaseLogBean caseLogBean) {
+		ITelnetClient tl = phoenix.telnetClient().configTelnetClient("10.16.57.106", 7777);
 		for(int i=0;i<10;i++){
 			String r = tl.sendCommand("!runsh vmstat", "success!");
 			System.out.println(r);

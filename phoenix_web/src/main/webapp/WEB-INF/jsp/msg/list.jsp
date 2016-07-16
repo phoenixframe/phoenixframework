@@ -8,7 +8,7 @@
 <head>
     <title>消息列表</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/style.css" />
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.js"></script>
@@ -16,7 +16,9 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/bootstrap.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/ckform.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/common.js"></script>
-
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/layer/layer.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/layer/layer.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/TableSort.js"></script>
     <style type="text/css">
         body {
             padding-bottom: 40px;
@@ -55,16 +57,18 @@
     &nbsp;&nbsp;  
     <button type="submit" class="btn btn-primary">查询</button>
 </form>
-<table class="table table-bordered table-hover definewidth m10" >
+<table id="tblist" class="table table-bordered table-hover definewidth m10" >
     <thead>
-    <tr>
-        <th width="5%">id</th>
-        <th width="5%">任务Id</th>
-        <th width="7%">消息状态</th>
+    <tr role="head">
+        <th sort="true"><button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-sort"></span> Sort
+        </button></th>
+        <th>任务Id</th>
+        <th>消息状态</th>
         <th>消息内容</th>
-        <th width="8%">成功后删除</th>
+        <th>成功后删除</th>
         <th>消息备注</th>
-        <th width="7%">创建时间</th>
+        <th>创建时间</th>
         <th width="7%">管理操作</th>
     </tr>
     </thead>
@@ -83,7 +87,7 @@
             <td>${cs.remark }</td>
             <td><fmt:formatDate value="${cs.createData }" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td>
             <td>
-                  <a href="delete/${cs.id}">删除消息</a>&nbsp;&nbsp;
+                  <a href="javascript:$.alerts.delconfirm('delete/${cs.id}');"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;删除消息</span></a>
             </td>
         </tr>
         </c:forEach>
@@ -94,18 +98,11 @@
 			<jsp:param value="${datas.total }" name="totalRecord"/>
 			<jsp:param value="list" name="url"/>
 		</jsp:include>
- </div>       
+ </div>  
+ <script>
+ $(function () {
+     $("#tblist").sorttable();
+ });
+</script>       
 </body>
 </html>
-<script>
-
-	function del(id)
-	{
-		if(confirm("确定要删除吗？"))
-		{
-			var url = "index.jsp";
-			window.location.href=url;		
-		}
-	
-	}
-</script>

@@ -14,7 +14,7 @@ import org.phoenix.utils.MethodPattern;
  *
  */
 public class LoadAggregateCase extends CaseDao {
-	private final String AGGREGATESTEP = "webProxy.addAggregateCase";
+	private final String AGGREGATESTEP = "addAggregateCase";
 	private CaseBean caseBean;
 	
 	public String loadCase(String caseContent){
@@ -76,7 +76,7 @@ public class LoadAggregateCase extends CaseDao {
 	
 	public static void main(String[] args) {
 		LoadAggregateCase l = new LoadAggregateCase();
-		CaseBean c = l.loadModel(11);
+		CaseBean c = l.loadModel(32);
 		System.out.println(c.getCaseName());
 		System.out.println(l.loadCase(c.getCodeContent()));
 	}

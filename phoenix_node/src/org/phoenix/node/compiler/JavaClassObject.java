@@ -5,7 +5,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.ByteArrayOutputStream;
 import java.net.URI;
- 
+ /**
+  * 将字符串映射到内存，用于编译对象
+  * @author mengfeiyang
+  *
+  */
 public class JavaClassObject extends SimpleJavaFileObject {
  
     protected final ByteArrayOutputStream bos = new ByteArrayOutputStream();

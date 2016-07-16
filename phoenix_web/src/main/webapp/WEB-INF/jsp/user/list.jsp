@@ -7,14 +7,16 @@
 <head>
     <title>用户信息列表</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/style.css" />
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.sorted.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/layer/layer.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/bootstrap.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/ckform.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/common.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/TableSort.js"></script>
 
     <style type="text/css">
         body {
@@ -37,12 +39,16 @@
 </head>
 <body>
 <form class="form-inline definewidth m20" action="index.jsp" method="get">  
-<button type="button" class="btn btn-success" id="addnew">添加新用户</button>
+<button type="button" class="btn btn-success"  onClick="$.tools.add('<%=request.getContextPath()%>/user/add');" >添加新用户</button>
 </form>
-<table class="table table-bordered table-hover definewidth m10" >
+<table id="tblist" class="table table-bordered table-hover definewidth m10" >
     <thead>
-    <tr>
-        <th>id</th>
+    <tr role="head">
+        <th width="7%" sort="true">
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-sort"></span> Sort
+        </button>
+        </th>
         <th>用户名称</th>
         <th>用户角色</th>
         <th>用户昵称</th>
@@ -61,8 +67,8 @@
             <td>${us.email }</td>
             <td><fmt:formatDate value="${us.createDate }" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td>
             <td>
-                  <a href="<%=request.getContextPath()%>/user/update/${us.id}">编辑</a>&nbsp;&nbsp;
-                  <a href="<%=request.getContextPath()%>/user/delete/${us.id}">删除</a>&nbsp;&nbsp;
+                  <a href="<%=request.getContextPath()%>/user/update/${us.id}"><span class="label label-primary"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑</span></a>&nbsp;&nbsp;
+                  <a href="javascript:$.alerts.delconfirm('<%=request.getContextPath()%>/user/delete/${us.id}');"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;删除</span></a>&nbsp;&nbsp;
             </td>
         </tr>
         </c:forEach>
@@ -73,26 +79,11 @@
 			<jsp:param value="${datas.total }" name="totalRecord"/>
 			<jsp:param value="list" name="url"/>
 		</jsp:include>
- </div>   
- <script>
+ </div>
+<script>
     $(function () {
-		$('#addnew').click(function(){
-			var localObj = window.location;
-			var contextPath = localObj.pathname.split("/")[1];
-			var basePath = localObj.protocol+"//"+localObj.host+"/"+contextPath;
-			window.location.href=basePath+"/user/add/";
-		 });
+        $("#tblist").sorttable();
     });
-
-	function del(id)
-	{
-		if(confirm("确定要删除吗？"))
-		{
-			var url = "index.jsp";
-			window.location.href=url;		
-		}
-	
-	}
-</script>    
+</script>       
 </body>
 </html>

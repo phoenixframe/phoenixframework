@@ -19,7 +19,11 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.phoenix.enums.TaskStatusType;
 import org.phoenix.web.enums.JobStatus;
 import org.phoenix.web.enums.TaskType;
-
+/**
+ * 任务表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="t_task")
 public class TaskModel {

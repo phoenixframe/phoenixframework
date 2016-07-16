@@ -12,6 +12,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Node信息自检</title>
+<style type="text/css">
+body {
+	font-size: 16px;
+	font-family: Courier New,Microsoft YaHei;
+}
+
+</style>
 </head>
 <body>
 <h2>Node Server Info:</h2>

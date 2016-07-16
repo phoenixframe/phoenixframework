@@ -1,9 +1,11 @@
 @charset "utf-8";
 body{
     font-size: 13px;
+    font-family: Courier New,Microsoft YaHei;
 }
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
     padding: 1px;
+    font-family: Courier New,Microsoft YaHei;
 }
 
 select {
@@ -76,7 +78,7 @@ form{
 }
 
 
-/*formValidator表单验证*/
+/*formValidator锟斤拷锟斤拷证*/
 .onShow,.onFocus,.onError,.onCorrect,.onLoad,.onTime{display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline; vertical-align:middle;background:url(../Images/msg_bg.png) no-repeat;	color:#444;line-height:18px;padding:2px 10px 2px 23px; margin-left:10px;_margin-left:5px}
 .onShow{background-position:3px -147px;border-color:#40B3FF;color:#959595}
 .onFocus{background-position:3px -147px;border-color:#40B3FF;}

@@ -15,7 +15,11 @@ import org.phoenix.web.model.User;
 import org.phoenix.web.service.ICaseService;
 import org.phoenix.web.service.IScenarioService;
 import org.phoenix.web.service.IStatService;
-
+/**
+ * dwr服务，可与前端直接交互数据
+ * @author mengfeiyang
+ *
+ */
 @RemoteProxy(name="dwrService")
 public class DwrService implements IDwrService{
 	private IStatService statService;

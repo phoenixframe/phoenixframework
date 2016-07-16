@@ -1,0 +1,16 @@
+2016-07-15 15:00:47 [ main:0 ] - [ INFO ] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2016-07-15 15:00:47 [ main:11 ] - [ INFO ] HHH000412: Hibernate Core {4.1.7.Final}
+2016-07-15 15:00:47 [ main:16 ] - [ INFO ] HHH000206: hibernate.properties not found
+2016-07-15 15:00:47 [ main:18 ] - [ INFO ] HHH000021: Bytecode provider name : javassist
+2016-07-15 15:00:47 [ main:56 ] - [ INFO ] HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-07-15 15:00:47 [ main:56 ] - [ INFO ] HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-07-15 15:05:15 [ main:0 ] - [ INFO ] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2016-07-15 15:05:15 [ main:10 ] - [ INFO ] HHH000412: Hibernate Core {4.1.7.Final}
+2016-07-15 15:05:15 [ main:14 ] - [ INFO ] HHH000206: hibernate.properties not found
+2016-07-15 15:05:15 [ main:16 ] - [ INFO ] HHH000021: Bytecode provider name : javassist
+2016-07-15 15:05:15 [ main:47 ] - [ INFO ] HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-07-15 15:05:15 [ main:47 ] - [ INFO ] HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-07-15 15:05:15 [ main:303 ] - [ INFO ] HHH000041: Configured SessionFactory: null
+2016-07-15 16:52:49 [ main:0 ] - [ INFO ] 步骤 [ setWebProxy ]执行成功，参数值：[org.phoenix.api.impl.WebAPI@566776ad],执行结果返回值：null
+2016-07-15 16:52:49 [ main:5 ] - [ INFO ] Android方法 [setAndroidAPIProxy] 执行通过，相关参数：[org.phoenix.api.impl.AndroidAppAPI@22f71333]，返回结果值：null
+2016-07-15 16:52:50 [ main:625 ] - [ INFO ] 步骤 [ openNewWindowByIE ]执行失败，参数值：[http://www.baidu.com],异常信息：InvocationTargetException,msg:null,caused by:java.lang.NoClassDefFoundError: org/openqa/selenium/remote/service/DriverService$Builder,截图路径：D:\git_phoenix\phoenix_webdriver\phoenix\screenshot\1468572769552.jpg

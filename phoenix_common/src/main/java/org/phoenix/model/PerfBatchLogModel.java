@@ -16,7 +16,11 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-
+/**
+ * 性能测试日志批次表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="l_perfbatch")
 @BatchSize(size=30)

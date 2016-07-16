@@ -16,7 +16,11 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-
+/**
+ * 接口测试批次数据表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="t_interface_batchdata")
 @BatchSize(size=30)

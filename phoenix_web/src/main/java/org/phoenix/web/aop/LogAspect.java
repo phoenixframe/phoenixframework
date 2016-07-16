@@ -5,7 +5,11 @@ import java.util.Arrays;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.stereotype.Component;
-
+/**
+ * controller中的每一步操作，在此步都会得到收集
+ * @author mengfeiyang
+ *
+ */
 @Component("logAspect")
 public class LogAspect {
     public void logStart(JoinPoint jp){

@@ -58,9 +58,9 @@ public class UserService implements IUserService {
 	@Override
 	public User login(String username, String password) {
 		User user = userDao.loadByUserName(username);
-		if(user==null) throw new UnknownAccountException("用户名或者密码出错");
+		if(user==null) throw new UnknownAccountException("用户不存在，请检查用户名");
 		if(!user.getPassword().equals(ShiroKit.md5(password, username)))
-			throw new IncorrectCredentialsException("用户名或者密码出错");
+			throw new IncorrectCredentialsException("密码不正确，请重新输入");
 		return user;
 	}
 	@Override

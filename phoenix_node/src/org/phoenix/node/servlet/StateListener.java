@@ -21,11 +21,16 @@ import org.phoenix.model.PerfLogModel;
 import org.phoenix.model.PhoenixJmeterBean;
 import org.phoenix.utils.GetNow;
 
+/**
+ * jmeter执行过程监听
+ * @author mengfeiyang
+ *
+ */
 public class StateListener implements TestStateListener{
 	private static boolean isRunning;
 	private static String endTime; 
 	private static String startTime;
-	private static String slaveMetrics = "<br>";
+	private static String slaveMetrics = "";
 	private Timer addLogTimer = new Timer();
 	private int taskId;
 	private PerfBatchLogModel perfBatchLogModel;
@@ -59,6 +64,10 @@ public class StateListener implements TestStateListener{
 	}
 	private String rs(String r){
 		return r.split(":")[1];
+	}
+	
+	public static String getSlaveMetricsString(){
+		return slaveMetrics;
 	}
 	
 	public static String getSlaveMetrics(){
@@ -97,7 +106,7 @@ public class StateListener implements TestStateListener{
 		perfLogModel.setTotalBytes(rs(datas[10]));
 		perfLogModel.setSummary(Summariser.getSummary());
 		perfLogModel.setPerfBatchLogModel(perfBatchLogModel);
-		perfLogModel.setMonitedSlaveMetrics(slaveMetrics);
+		perfLogModel.setMonitedSlaveMetrics(getSlaveMetrics());
 		
 		perfLogDao.add(perfLogModel);
 	}

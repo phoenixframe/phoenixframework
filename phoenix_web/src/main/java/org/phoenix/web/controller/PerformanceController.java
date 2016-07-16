@@ -37,7 +37,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
-
+/**
+ * 性能测试任务配置控制器
+ * @author mengfeiyang
+ *
+ */
 @Controller
 @RequestMapping("/perf")
 @AuthClass("login")

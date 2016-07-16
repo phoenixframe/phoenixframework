@@ -3,6 +3,11 @@ import javax.tools.*;
 
 import java.io.IOException;
  
+/**
+ * 文件管理器
+ * @author mengfeiyang
+ *
+ */
 @SuppressWarnings("rawtypes")
 public class ClassFileManager extends ForwardingJavaFileManager {
     private JavaClassObject jclassObject;

@@ -11,7 +11,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-
+/**
+ * 测试数据表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="t_web_data")
 public class DataBean {

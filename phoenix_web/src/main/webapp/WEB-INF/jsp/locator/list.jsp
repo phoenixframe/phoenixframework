@@ -13,6 +13,7 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.sorted.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/bootstrap.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/ckform.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/layer/layer.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/common.js"></script>
 
     <style type="text/css">
@@ -57,8 +58,8 @@
             <td>${ls.locatorData }</td>
             <td>${ls.locatorType }</td>
             <td>
-                  <a href="<%=request.getContextPath()%>/locator/update/${ls.id}">编辑</a>&nbsp;&nbsp;
-                  <a href="<%=request.getContextPath()%>/locator/delete/${ls.id}">删除</a>&nbsp;&nbsp;
+                  <a href="<%=request.getContextPath()%>/locator/update/${ls.id}"><span class="label label-primary"><span class="glyphicon glyphicon-edit"></span>&nbsp;编辑</span></a>&nbsp;&nbsp;
+                  <a href="javascript:$.alerts.delconfirm('<%=request.getContextPath()%>/locator/delete/${ls.id}');"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;删除</span></a>&nbsp;&nbsp;
             </td>
         </tr>
         </c:forEach>

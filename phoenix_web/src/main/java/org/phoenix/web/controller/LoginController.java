@@ -11,7 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+/**
+ * 用户登录控制器
+ * @author mengfeiyang
+ *
+ */
 @Controller
 public class LoginController {
 	private IUserService userService;
@@ -38,6 +42,8 @@ public class LoginController {
 			subject.login(token);
 			return "redirect:/index";
 		} catch (AuthenticationException e) {
+			model.addAttribute("username", username);
+			model.addAttribute("password", password);
 			model.addAttribute("emsg", e.getMessage());
 			return "public/login";
 		}

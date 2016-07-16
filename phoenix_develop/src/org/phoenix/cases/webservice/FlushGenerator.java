@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.phoenix.api.action.APIAction;
-import org.phoenix.api.action.WebAPIAction;
+import org.phoenix.api.action.IInterfaceAPI;
+import org.phoenix.api.action.InterfaceAPI;
 
 import com.meterware.httpunit.WebResponse;
  
@@ -132,7 +132,7 @@ public class FlushGenerator {
         public String call() throws Exception{
             startedCount.getAndIncrement();
             runCount.getAndIncrement();
-            APIAction webAPI = new WebAPIAction();
+            IInterfaceAPI webAPI = new InterfaceAPI();
             while(RUNFLAG && iterCount<iteration){
                 if(iteration != 0)iterCount++;
                 try{

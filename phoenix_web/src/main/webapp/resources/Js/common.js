@@ -28,4 +28,52 @@ function U() {
     return _APP_+'?'+arr.join('&');
 }
 
+jQuery.alerts = {
+		alert:function(msg){
+			layer.alert(msg);
+		},
+		success:function(msg){
+			layer.alert(msg+'操作成功', {icon: 1});
+		},
+		warn:function (msg){
+			layer.alert(msg, {icon: 0});
+		},
+		fail:function (msg){
+			layer.alert(msg+'操作失败', {icon: 2})
+		},
+		smile:function (msg){
+			layer.alert(msg+'操作完成', {icon: 6});
+		},
+		sad:function(msg){
+			layer.alert(msg+'操作未成功', {icon: 5});
+		},
+		noauth:function (msg){
+			layer.alert(msg+'无权进行此操作', {icon: 4});
+		},
+		ask:function (msg){
+			layer.confirm(msg, {
+				icon: 3,
+				btn: ['确定','取消']
+				}, function(index){
+					
+				  layer.close(index);
+				}, function(){});			
+		},
+		delconfirm:function (url){
+			layer.confirm('确认删除吗？',{
+				icon: 3,
+				btn:['确定','取消']
+			},function(index){
+				window.location.href=url;
+				layer.close(index);
+			},function(){})
+		}
+}
+
+jQuery.tools = {
+		add:function(url){
+			window.location.href=url;
+		}
+}
+
 

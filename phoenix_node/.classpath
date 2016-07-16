@@ -136,14 +136,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xmlpull-1.1.3.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xpp3_min-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xstream-1.4.8.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_common-1.4.7.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_db-1.4.7.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_ftpclient-1.4.7.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_imgreader-1.4.7.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_interface-1.4.7.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_mobiledriver-1.4.7.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_svnclient-1.4.7.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_telnetclient-1.4.7.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpunit-1.7.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/selendroid-client-0.17.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/selendroid-common-0.17.0.jar"/>
@@ -158,7 +150,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/selenium-leg-rc-2.48.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/selenium-safari-driver-2.48.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/selenium-support-2.48.0.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_webdriver-1.4.8.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cssparser-0.9.19.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/htmlunit-2.22.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/htmlunit-core-js-2.22.jar"/>
@@ -172,5 +163,14 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/websocket-api-9.4.0.M0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/websocket-client-9.4.0.M0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/websocket-common-9.4.0.M0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_common-1.5.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_db-1.5.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_ftpclient-1.5.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_imgreader-1.5.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_interface-1.5.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_mobiledriver-1.5.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_svnclient-1.5.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_telnetclient-1.5.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/phoenix_webdriver-1.5.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -1,7 +1,11 @@
 package org.phoenix.node.dao;
 
 import org.phoenix.basic.impl.HibernateDaoImpl;
-
+/**
+ * 用户表操作
+ * @author mengfeiyang
+ *
+ */
 public class UserDao extends HibernateDaoImpl {
 	
 	public boolean getUser(String userName,String password){

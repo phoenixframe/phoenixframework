@@ -4,9 +4,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>场景日志列表</title>
+    <title>详细步骤日志列表</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/style.css" />
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.js"></script>
@@ -14,7 +14,7 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/bootstrap.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/ckform.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/common.js"></script>
-
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/TableSort.js"></script>
     <style type="text/css">
         body {
             padding-bottom: 40px;
@@ -39,10 +39,14 @@
     Step详细日志：
     <hr>
 </form>
-<table class="table table-bordered table-hover definewidth m10" >
+<table id="tblist" class="table table-bordered table-hover definewidth m10" >
     <thead>
-    <tr>
-        <th width="7%">Step编号</th>
+    <tr role="head">
+        <th sort="true">
+	        <button type="button" class="btn btn-default btn-sm">
+	          <span class="glyphicon glyphicon-sort"></span> Sort
+	        </button>
+        </th>
         <th width="10%">步骤名称</th>
         <th width="36%">步骤内容</th>
         <th width="10%">步骤类型</th>
@@ -72,26 +76,9 @@
 		</jsp:include>
  </div>  
  <script>
-    $(function () {
-		$('#addnew').click(function(){
-			var scenarioId = $("#scenarioId").val();
-			if(scenarioId == ""){
-				window.location.href="add";
-			}else{
-				window.location.href="add/"+scenarioId;
-			}
-		 });
-    });
-
-	function del(id)
-	{
-		if(confirm("确定要删除吗？"))
-		{
-			var url = "index.jsp";
-			window.location.href=url;		
-		}
-	
-	}
+ $(function () {
+     $("#tblist").sorttable();
+ });
 </script>     
 </body>
 </html>

@@ -10,7 +10,12 @@ import org.phoenix.model.CaseBean;
 import org.phoenix.model.ScenarioLogBean;
 import org.phoenix.node.dto.AjaxObj;
 import org.phoenix.node.model.TaskModel;
-
+/**
+ * 测试场景任务执行类，场景中可组合webUI，接口，mobile的测试任务。<br>
+ * 通过循环调用{@link CaseAction}类完成任务的执行
+ * @author mengfeiyang
+ *
+ */
 public class ScenarioAction implements RunAction{
 	private TaskModel taskModel;
 	private ScenarioLogBean scenarioLogBean;

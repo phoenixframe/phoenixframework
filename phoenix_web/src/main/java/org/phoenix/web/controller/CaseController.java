@@ -23,7 +23,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+/**
+ * 用例页面控制器
+ * @author mengfeiyang
+ *
+ */
 @Controller
 @RequestMapping("/case")
 @AuthClass("login") 
@@ -150,7 +154,7 @@ public class CaseController {
 		scenBean.setId(caseDTO.getScenId());
 		String className = "";
 		try{
-			className = MethodPattern.result(caseDTO.getCodeContent(), "public\\s+class\\s+(.*)extends\\s+WebElementActionProxy").trim();
+			className = MethodPattern.result(caseDTO.getCodeContent(), "public\\s+class\\s+(.*)extends\\s+ActionProxy").trim();
 		}catch(NullPointerException e){}
 		CaseBean caseBean = caseService.getCaseBean(caseDTO.getId());
 		caseBean.setCaseName(caseDTO.getCaseName());

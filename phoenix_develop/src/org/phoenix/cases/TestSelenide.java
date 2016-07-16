@@ -13,9 +13,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.phoenix.action.WebElementAction;
+import org.phoenix.proxy.ActionProxy;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 public class TestSelenide {
@@ -23,7 +22,7 @@ public class TestSelenide {
 	@Before
 	public void before(){
 		System.setProperty("webdriver.ie.driver", 
-				WebElementAction.class.getResource("/").getPath()+"drivers/IEDriverServer64.exe");
+				ActionProxy.class.getResource("/").getPath()+"drivers/IEDriverServer64.exe");
 		setWebDriver(new InternetExplorerDriver());
 	}
 	

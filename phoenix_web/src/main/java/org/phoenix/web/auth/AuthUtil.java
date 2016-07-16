@@ -10,7 +10,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
+/**
+ * 扫描控制器包，获取含有特定注解的方法
+ * @author mengfeiyang
+ *
+ */
 public class AuthUtil {
 	/*
 	 * 初始化系统的角色所访问的功能信息

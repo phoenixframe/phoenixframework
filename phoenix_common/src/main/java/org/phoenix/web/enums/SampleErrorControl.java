@@ -1,5 +1,9 @@
 package org.phoenix.web.enums;
-
+/**
+ * 性能测试状态类型
+ * @author mengfeiyang
+ *
+ */
 public enum SampleErrorControl {
 	CONTINUE("continue"),
 	STOPTHREAD("stopthread"),

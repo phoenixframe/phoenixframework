@@ -3,42 +3,42 @@ package org.phoenix.cases.android;
 import java.util.LinkedList;
 
 import org.openqa.selenium.WebElement;
-import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.enums.LocatorType;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
+import org.phoenix.proxy.ActionProxy;
 
 /**
  * android基本操作测试
  * @author mengfeiyang
  *
  */
-public class AndroidBaseTest extends WebElementActionProxy{
+public class AndroidBaseTest extends ActionProxy{
 	@Override
-	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
-		init("",arg0);
-		webProxy.openAndroidAppBySelendroidWithEmulator("F:\\baozhanggl.apk");//apk的物理路径
-		WebElement el = webProxy.appElementLinkFinder("#TextField1", null);
+	public LinkedList<UnitLogBean> run(CaseLogBean caseLogBean) {
+		init(caseLogBean);
+		phoenix.androidAPI().openAndroidAppBySelendroidWithEmulator("F:\\baozhanggl.apk");//apk的物理路径
+		WebElement el = phoenix.androidAPI().linkFinder("#TextField1", null);
 		String tagN = el.getTagName();
 		String valN = el.getText();
 		System.out.println("TagName:"+tagN+"    value:"+valN);
 		//webProxy.checkPoint().checkIsNull(tagN);
 		//webProxy.checkPoint().checkIsEqual("Hello", valN);
-		webProxy.appElement("#TextField2", null).appElementSetText("shuruceshi");
-		webProxy.appElement("#gaoji", null).appElementClick();
-		webProxy.appElement("#chushimima", LocatorType.ID).appElementSetText("test123");
+		phoenix.androidAPI().element("#TextField2", null).setText("shuruceshi");
+		phoenix.androidAPI().element("#gaoji", null).click();
+		phoenix.androidAPI().element("#chushimima", LocatorType.ID).setText("test123");
 		//根据XPath定位app元素，XPath无需手写，用例编写过程中可通过录制方式获取
-		webProxy.appElement("(//TextView[@id='text1'])[1]", LocatorType.XPATH).appElementClick();
-		webProxy.appElement("(//CheckedTextView[@id='text1'])[2]", LocatorType.XPATH).appElementClick();
-		WebElement v = webProxy.appElementLinkFinder("//Button[@id='button1']", LocatorType.XPATH);
+		phoenix.androidAPI().element("(//TextView[@id='text1'])[1]", LocatorType.XPATH).click();
+		phoenix.androidAPI().element("(//CheckedTextView[@id='text1'])[2]", LocatorType.XPATH).click();
+		WebElement v = phoenix.androidAPI().linkFinder("//Button[@id='button1']", LocatorType.XPATH);
 		System.out.println(v.getText());
-		webProxy.checkPoint().checkIsEqual("查询", v.getText());
-		webProxy.appElement("//Button[@id='button1']", LocatorType.XPATH).appElementClick();
-		webProxy.pressKeyByKeyboard("\uE100");//操作Android硬件，本次点击的是返回键
-		webProxy.checkPoint().checkNotNull(webProxy.getSelendroidDriver().getBrightness());
-		webProxy.setBrightness(80);//调整Android屏幕的亮度为80
-		webProxy.setBrightness(40);
-		webProxy.closeSelendroidServer();//关闭本次与Android设备上server的连接
+		phoenix.checkPoint().checkIsEqual("查询", v.getText());
+		phoenix.androidAPI().element("//Button[@id='button1']", LocatorType.XPATH).click();
+		phoenix.androidAPI().pressKeyByKeyboard("\uE100");//操作Android硬件，本次点击的是返回键
+		phoenix.checkPoint().checkNotNull(phoenix.androidAPI().getSelendroidDriver().getBrightness());
+		phoenix.androidAPI().setBrightness(80);//调整Android屏幕的亮度为80
+		phoenix.androidAPI().setBrightness(40);
+		phoenix.androidAPI().closeSelendroidServer();//关闭本次与Android设备上server的连接
 		
 		return getUnitLog(); 
 	}

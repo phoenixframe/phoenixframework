@@ -18,7 +18,11 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-
+/**
+ * 测试场景表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="t_web_scenario")
 @BatchSize(size=30)

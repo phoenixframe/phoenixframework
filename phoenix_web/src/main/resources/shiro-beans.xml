@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+         http://www.springframework.org/schema/tx 
+         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	 
+	 <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager"/>
+	 <bean id="urlPermissionResolver" class="org.phoenix.web.shiro.permission.UrlPermissionResovler"/>
+	 <bean id="hashMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+	 	<property name="hashAlgorithmName" value="md5"/>
+	 </bean>
+	 <bean id="userRealm" class="org.phoenix.web.shiro.UserRealm">
+	 	<property name="cachingEnabled" value="true"/>
+	 	<property name="authenticationCachingEnabled" value="true"/>
+	 	<property name="authenticationCacheName" value="shiro-authenticationCache"/>
+	 	<property name="authorizationCachingEnabled" value="true"/>
+	 	<property name="authorizationCacheName" value="shiro-authorizationCache"/>
+	 	<property name="credentialsMatcher" ref="hashMatcher"/>
+	 </bean>
+	 
+	 <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+	    <property name="realm" ref="userRealm"/>
+	    <property name="cacheManager" ref="cacheManager"/>
+	    <property name="authorizer.permissionResolver" ref="urlPermissionResolver"/>
+	</bean>
+	
+	<bean id="resourceCheckFilter" class="org.phoenix.web.filter.ResourceCheckFilter">
+		<property name="errorUrl" value="unauth.jsp"/>
+	</bean>	
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+	    <property name="securityManager" ref="securityManager"/>
+	    <property name="loginUrl" value="/login"/>
+	    <!-- override these for application-specific URLs if you like:
+	    <property name="loginUrl" value="/login.jsp"/>
+	    <property name="successUrl" value="/index.jsp"/>
+	    <property name="unauthorizedUrl" value="/unauthorized.jsp"/> -->
+	    <!-- The 'filters' property is not necessary since any declared javax.servlet.Filter bean  -->
+	    <!-- defined will be automatically acquired and available via its beanName in chain        -->
+	    <!-- definitions, but you can perform instance overrides or name aliases here if you like: -->
+	    <!-- <property name="filters">
+	        <util:map>
+	            <entry key="anAlias" value-ref="someFilter"/>
+	        </util:map>
+	    </property> -->
+	    <property name="filterChainDefinitions">
+	        <value>
+	        	/user/list/**=authc,resourceCheckFilter
+	        	/user/update/**=authc,resourceCheckFilter
+	        	/user/delete/**=authc,resourceCheckFilter
+	        	/user/add/**=authc,resourceCheckFilter
+				/login=anon
+				/logout = logout
+	        </value>
+	    </property>
+	</bean>
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+	    <property name="securityManager" ref="securityManager"/>
+	</bean>
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+</beans>

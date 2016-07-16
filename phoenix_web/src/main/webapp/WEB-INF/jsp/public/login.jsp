@@ -6,7 +6,7 @@
 <head>
     <title>登录系统</title>
 	<meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/style.css" />
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.js"></script>
@@ -22,7 +22,7 @@
         }
 
         .form-signin {
-            max-width: 300px;
+            max-width: 500px;
             padding: 19px 29px 29px;
             margin: 0 auto 20px;
             background-color: #fff;
@@ -43,6 +43,7 @@
         .form-signin input[type="text"],
         .form-signin input[type="password"] {
             font-size: 16px;
+            font-family:Courier New,Microsoft YaHei;
             height: auto;
             margin-bottom: 15px;
             padding: 7px 9px;
@@ -55,10 +56,10 @@
 
     <form class="form-signin" method="post" action="<%=request.getContextPath()%>/login">
         <h2 class="form-signin-heading">登录系统</h2>
-        <input type="text" name="username" class="input-block-level" placeholder="账号">
-        <input type="password" name="password" class="input-block-level" placeholder="密码">
+        <input type="text" name="username" class="input-block-level" value="${username}" placeholder="账号">
+        <input type="password" name="password" class="input-block-level" value="${password}" placeholder="密码">
         <span style="color: red;">${emsg }</span>       
-        <p><button class="btn btn-large btn-primary" type="submit">登录</button></p>
+        <p align="center"><button class="btn btn-large btn-primary" type="submit">&nbsp;&nbsp;登录&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;<button class="btn btn-large btn-primary" type="reset">&nbsp;&nbsp;重填&nbsp;&nbsp;</button></p>
     </form>
 
 </div>

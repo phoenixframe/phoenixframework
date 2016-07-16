@@ -4,11 +4,11 @@ import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.interactions.Actions;
-import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.enums.LocatorType;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
 import org.phoenix.plugins.IImageReader;
+import org.phoenix.proxy.ActionProxy;
 
 import com.codeborne.selenide.SelenideElement;
 import com.google.common.io.Files;
@@ -19,36 +19,35 @@ import com.google.common.io.Files;
  * @author mengfeiyang
  *
  */
-public class ImageReaderPluginTest extends WebElementActionProxy {
-	private static String caseName = "test";
+public class ImageReaderPluginTest extends ActionProxy {
 	private String localFile = "E:\\testcode.jpg";
 	@Override
-	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
-		init(caseName, arg0);
+	public LinkedList<UnitLogBean> run(CaseLogBean caseLogBean) {
+		init(caseLogBean);
 		try {
-			webProxy.setFirefoxExePath("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
-			webProxy.openNewWindowByFirefox("https://passport.csdn.net/account/fpwd?action=forgotpassword&service=http%3A%2F%2Fmy.csdn.net%2Fmy%2Fmycsdn");
-			webProxy.getCurrentDriver().manage().timeouts().pageLoadTimeout(2, TimeUnit.SECONDS);
-			webProxy.getCurrentDriver().manage().window().maximize();
-			webProxy.sleep(2000);			
-			String engine = arg0.getEngineType();
-			webProxy.webElement(".user-name", null).setText("11111");
+			phoenix.webAPI().setFirefoxExePath("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+			phoenix.webAPI().openNewWindowByFirefox("https://passport.csdn.net/account/fpwd?action=forgotpassword&service=http%3A%2F%2Fmy.csdn.net%2Fmy%2Fmycsdn");
+			phoenix.webAPI().getCurrentDriver().manage().timeouts().pageLoadTimeout(2, TimeUnit.SECONDS);
+			phoenix.webAPI().getCurrentDriver().manage().window().maximize();
+			phoenix.webAPI().sleep(2000);			
+			String engine = phoenix.webAPI().getCaseLogBean().getEngineType();
+			phoenix.webAPI().webElement(".user-name", null).setText("11111");
 			for(int i=0;i<10;i++){
-			SelenideElement element = webProxy.webElementLinkFinder("#yanzheng", null);
-			webProxy.saveImgToLocal(element, engine, localFile);
-			IImageReader imageReader = webProxy.imageReader().configImageReader("D://Program Files (x86)//Tesseract-OCR");
+			SelenideElement element = phoenix.webAPI().webElementLinkFinder("#yanzheng", null);
+			phoenix.webAPI().saveImgToLocal(element, engine, localFile);
+			IImageReader imageReader = phoenix.imageReader().configImageReader("D://Program Files (x86)//Tesseract-OCR");
 			String oos = imageReader.readLocalImage(localFile, Files.getFileExtension(localFile));
 			System.out.println("-----"+oos+"------");
-			webProxy.webElement(".code", null).setText(oos);
-			webProxy.webElement("//input[@type='submit']", LocatorType.XPATH).click();
-				if(!webProxy.webElement(".email-address", null).exists()){
-					new Actions(webProxy.getCurrentDriver()).doubleClick(element).perform();
+			phoenix.webAPI().webElement(".code", null).setText(oos);
+			phoenix.webAPI().webElement("//input[@type='submit']", LocatorType.XPATH).click();
+				if(!phoenix.webAPI().webElement(".email-address", null).exists()){
+					new Actions(phoenix.webAPI().getCurrentDriver()).doubleClick(element).perform();
 				}else break;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		webProxy.closeWindow();
+		phoenix.webAPI().closeWindow();
 		return getUnitLog();
 	}
 

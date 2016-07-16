@@ -4,7 +4,7 @@
 
   <groupId>org.phoenixframe</groupId>
   <artifactId>phoenix_parent</artifactId>
-  <version>1.4.8</version>
+  <version>1.5.0</version>
   <packaging>pom</packaging>
 
   <name>phoenixframe</name>
@@ -323,6 +323,16 @@
 	        <artifactId>shiro-web</artifactId>
 	        <version>${shiro.version}</version>
 	    </dependency>
+	    <dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
 		<!-- spring3 -->
 		<dependency>
 			<groupId>org.springframework</groupId>

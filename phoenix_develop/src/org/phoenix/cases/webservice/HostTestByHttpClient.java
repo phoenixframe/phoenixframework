@@ -7,9 +7,9 @@ import java.util.LinkedList;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
-import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
+import org.phoenix.proxy.ActionProxy;
 
 /**
  * 使用phoenix做接口测试的案例,：<br>
@@ -18,19 +18,18 @@ import org.phoenix.model.UnitLogBean;
  * @author mengfeiyang
  *
  */
-public class HostTestByHttpClient extends WebElementActionProxy{
-	private static String caseName = "接口测试用例";
+public class HostTestByHttpClient extends ActionProxy{
 	public HostTestByHttpClient() {
 	}
 	@Override
-	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
-		init(caseName,arg0);
+	public LinkedList<UnitLogBean> run(CaseLogBean caseLogBean) {
+		init(caseLogBean);
 		HashMap<String,String> headers = new HashMap<String,String>();
 		headers.put("Accept-Language", "Accept-Language: en,zh");
 		headers.put("Accept-Charset", "Accept-Charset: iso-8859-1");
 
-		HttpClient httpClient = webProxy.webAPIAction().getHttpClientWithProxy("10.138.65.213", 80, "", "");
-		HttpResponse response = webProxy.webAPIAction().getResponseByHttpClient(httpClient, "http://trunk.dianjing.e.360.cn", "get", headers);
+		HttpClient httpClient = phoenix.interfaceAPI().getHttpClientWithProxy("10.138.65.213", 80, "", "");
+		HttpResponse response = phoenix.interfaceAPI().getResponseByHttpClient(httpClient, "http://trunk.dianjing.e.360.cn", "get", headers);
 		try {			
 			System.out.println(Arrays.toString(response.getAllHeaders()));
 			System.out.println(IOUtils.toString(response.getEntity().getContent()));

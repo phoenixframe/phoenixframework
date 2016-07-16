@@ -3,22 +3,22 @@ package org.phoenix.cases.plugin;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
 import org.phoenix.plugin.model.SvnLogModel;
 import org.phoenix.plugins.ISvnClient;
+import org.phoenix.proxy.ActionProxy;
 
 /**
  * svn客户端测试
  * @author mengfeiyang
  *
  */
-public class SvnPluginTest extends WebElementActionProxy{
+public class SvnPluginTest extends ActionProxy{
 	@Override
-	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
-		init("",arg0);
-		ISvnClient svnClient = webProxy.svnClient().configSvnClient(
+	public LinkedList<UnitLogBean> run(CaseLogBean caseLogBean) {
+		init(caseLogBean);
+		ISvnClient svnClient = phoenix.svnClient().configSvnClient(
 				"http://svn.svnkit.com/repos/svnkit/trunk/gradlew", 
 				"anonymous", 
 				"anonymous", 
@@ -30,7 +30,7 @@ public class SvnPluginTest extends WebElementActionProxy{
 			System.out.println(s.getMessage());
 			for(String sl : s.getChangedPaths()){
 				System.out.println(sl);
-				webProxy.checkPoint().checkNotNull(sl);
+				phoenix.checkPoint().checkNotNull(sl);
 			}
 		}
 		return getUnitLog(); 

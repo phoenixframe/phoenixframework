@@ -2,9 +2,9 @@ package org.phoenix.cases.webservice;
 
 import java.util.LinkedList;
 
-import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
+import org.phoenix.proxy.ActionProxy;
 
 import com.meterware.httpunit.HttpUnitOptions;
 import com.meterware.httpunit.WebResponse;
@@ -16,13 +16,13 @@ import com.meterware.httpunit.WebResponse;
  * @author mengfeiyang
  *
  */
-public class HostTestByHttpUnit extends WebElementActionProxy{
+public class HostTestByHttpUnit extends ActionProxy{
 	private static String caseName = "接口测试用例";
 	public HostTestByHttpUnit() {
 	}
 	@Override
-	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
-		init(caseName,arg0);
+	public LinkedList<UnitLogBean> run(CaseLogBean caseLogBean) {
+		init(caseLogBean);
 		HttpUnitOptions.setScriptingEnabled(false); //禁用js
 		HttpUnitOptions.setDefaultCharacterSet("UTF-8"); //设置页面默认编码
 		HttpUnitOptions.setExceptionsThrownOnScriptError(false); //禁用js语法检测
@@ -33,7 +33,7 @@ public class HostTestByHttpUnit extends WebElementActionProxy{
 		WebResponse resp = webProxy.webAPIAction().getResponseByHost("http://trunk.dianjing.e.360.cn","get",webConveration);*/
 		
 		//方法二
-		WebResponse resp = webProxy.webAPIAction().getResponseByHost("http://trunk.dianjing.e.360.cn","get","10.138.65.213",80);
+		WebResponse resp = phoenix.interfaceAPI().getResponseByHost("http://trunk.dianjing.e.360.cn","get","10.138.65.213",80);
 		try {
 			System.out.println("==="+resp.getElementWithID("province").getText());
 			System.out.println(resp.getText());

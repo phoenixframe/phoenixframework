@@ -18,7 +18,11 @@ import org.phoenix.node.compiler.DynamicEngine;
 import org.phoenix.node.dto.AjaxObj;
 import org.phoenix.node.model.TaskModel;
 import org.phoenix.utils.GetNow;
-
+/**
+ * 测试用例任务执行类
+ * @author mengfeiyang
+ *
+ */
 public class CaseAction implements RunAction{
 	private CaseBean caseBean;
 	private TaskModel taskModel;
@@ -62,8 +66,9 @@ public class CaseAction implements RunAction{
 				scenarioLogBean.setTaskStatusType(TaskStatusType.SUCCESS);
 				scenarioLogBean.setMessage("用例全部执行完成");
 			}
-			caseLogBean.setStatus(TaskStatusType.SUCCESS.getName());			
+			caseLogBean.setStatus(TaskStatusType.SUCCESS.getName());				
 		} catch (Exception e){
+			e.printStackTrace();
         	UnitLogBean unitLog = new UnitLogBean();
         	unitLog.setCaseLogBean(caseLogBean);
         	unitLog.setContent("Compile Fail!"+e.getClass().getSimpleName()+","+e.getMessage()+",detail:"+DynamicEngine.getInstance().getCompileError());

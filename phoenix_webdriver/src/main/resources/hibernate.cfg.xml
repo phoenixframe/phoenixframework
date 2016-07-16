@@ -17,7 +17,16 @@
 	<!-- 会自动完成类到数据表的转换 -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 	<!-- 加入实体类的映射文件 -->	
-		<mapping class="org.phoenix.model.*"/>
+		<mapping class="org.phoenix.model.LocatorBean"/>
+		<mapping class="org.phoenix.model.DataBean"/>
+		<mapping class="org.phoenix.model.ScenarioBean"/>
+		<mapping class="org.phoenix.model.CaseBean"/>
+		<mapping class="org.phoenix.model.BatchLogBean"/>
+		<mapping class="org.phoenix.model.CaseLogBean"/>
+		<mapping class="org.phoenix.model.UnitLogBean"/>
+		<mapping class="org.phoenix.model.ScenarioLogBean"/>
+		<mapping class="org.phoenix.model.InterfaceBatchDataBean"/>
+		<mapping class="org.phoenix.model.InterfaceDataBean"/>
 		
 	</session-factory>
 </hibernate-configuration>

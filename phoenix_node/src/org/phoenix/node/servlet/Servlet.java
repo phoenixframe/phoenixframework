@@ -37,6 +37,11 @@ import org.phoenix.node.util.WriteResponse;
 
 import com.alibaba.fastjson.JSON;
 
+/**
+ * 用于接收任务，分发任务，结果反馈
+ * @author mengfeiyang
+ *
+ */
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ExecutorService executorService;
@@ -101,7 +106,7 @@ public class Servlet extends HttpServlet {
 				lisModel.setStartTime(StateListener.getStartTime());
 				lisModel.setEndTime(StateListener.getEndTime());
 				lisModel.setSummary(Summariser.getSummary());
-				lisModel.setMonitedSlaves(StateListener.getSlaveMetrics()==null?"":StateListener.getSlaveMetrics());
+				lisModel.setMonitedSlaves(StateListener.getSlaveMetricsString());
 				lisModel.setResultCal(ResultCollector.getRESULT_CAL().replace(",", "<br>"));
 				WriteResponse.writeXml(response, JSON.toJSONString(new AjaxObj(1,"JmeterStatus:",lisModel)));
 			} else {

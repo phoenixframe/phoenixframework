@@ -1,6 +1,10 @@
 package org.phoenix.basic.paging;
 
-
+/**
+ * 请求上下文控制器
+ * @author mengfeiyang
+ *
+ */
 public class SystemRequestHolder {
 	private final static ThreadLocal<SystemRequest> systemRequesthreadLocal = new ThreadLocal<SystemRequest>();
 	

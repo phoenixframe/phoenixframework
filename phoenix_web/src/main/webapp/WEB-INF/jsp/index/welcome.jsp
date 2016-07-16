@@ -41,6 +41,24 @@
            <th colspan="3" align="center">版本说明</th>
         </tr>
         <tr>
+            <td>版本1.5.0</td>
+            <td>
+1、phoenix_web:各table增加了根据id排序功能<br>
+2、phoenix_web:增加部分样式，如字体调整，增删改的链接样式<br>
+3、phoenix_node:修复性能测试时必须开启监控页面才能收集被监控机数据的bug<br>
+4、phoenix_web:代码编辑页面引入新的代码编辑器<br>
+5、phoenix_web:页面js代码重构<br>
+6、phoenix_webdriver:代码重构，更易扩展<br>
+7、phoenix_webdriver：支持自定义插入步骤日志<br>
+8、phoenix_mobiledriver:代码重构<br>
+9、phoenix_db:增加了多个实用方法，如可以直接queryObject<br>
+10、phoenix_web:shiro与spring做了集成<br>
+11、phoenix_web:为shiro增加了缓存支持<br>
+12、phoenix_webdriver:数据及定位信息数据由自动加载改为手动加载<br>
+			</td>
+            <td>2016.07.16</td>
+        </tr>
+        <tr>
             <td>版本1.4.8</td>
             <td>
 1、phoenix_node:优化性能测试时，监控机的CPU及内存数据等的可读性<br>
@@ -59,20 +77,6 @@
 14、phoenix_webdriver:支持最新的Firefox47/chrome50/IE10/IE11/IE Edge版本。IE驱动更新到2.53，chrome驱动更新到2.21（增加32位支持）<br>
 			</td>
             <td>2016.06.18</td>
-        </tr>
-        <tr>
-            <td>版本1.4.7</td>
-            <td>
-1、修复多个反人类的唯一性约束<br>
-2、phoenix_node:jmeter性能测试增加对body参数的支持<br>
-3、对平台的各模块代码进行了部分重构，重构后的效果是插件可配置<br>
-4、在phoenix_web端增加查看node详细信息的入口<br>
-5、phoenix_interface增加对https地址的支持<br>
-6、phoenix_develop中增加了一个自己写的并发测试工具<br>
-7、抽离出了公共的phoenix_common模块<br>
-8、重构了平台项目组织架构，使导入调试等更方便<br>	
-			</td>
-            <td>2016.03.20</td>
         </tr>
         <tr><th colspan="3" align="center">联系方式</th></tr>
         <tr>
@@ -94,7 +98,7 @@
         </tr>
         <tr>
            <td>下一版本计划</td>
-           <td colspan="2">增加对redis数据库支持,phoenix_web增加测试报告汇总页面</td>
+           <td colspan="2">phoenix_web增加测试报告汇总页面,任务/性能测试列表增加自动更新任务状态功能</td>
         </tr>
         <tr><th colspan="3" align="center">平台说明</th></tr>
         <tr>

@@ -1,5 +1,9 @@
 package org.phoenix.node.dto;
-
+/**
+ * 任务状态类
+ * @author mengfeiyang
+ *
+ */
 public enum JobStatus {
 	NOT_JOB("NOT_JOB"),
 	RUNNING("RUNNING"),

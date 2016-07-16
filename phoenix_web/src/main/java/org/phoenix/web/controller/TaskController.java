@@ -32,7 +32,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
-
+/**
+ * 测试任务控制器
+ * @author mengfeiyang
+ *
+ */
 @Controller
 @RequestMapping("/task")
 public class TaskController {

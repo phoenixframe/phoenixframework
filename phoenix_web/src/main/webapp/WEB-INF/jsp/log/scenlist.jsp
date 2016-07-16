@@ -6,15 +6,16 @@
 <head>
     <title>场景日志列表</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/style.css" />
-    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery.sorted.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/bootstrap.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/ckform.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/common.js"></script>
-
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/layer/layer.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/TableSort.js"></script>
     <style type="text/css">
         body {
             padding-bottom: 40px;
@@ -39,10 +40,14 @@
     场景日志详细：
     <hr>
 </form>
-<table class="table table-bordered table-hover definewidth m10" >
+<table id="tblist" class="table table-bordered table-hover definewidth m10" >
     <thead>
-    <tr>
-        <th>日志编号</th>
+    <tr role="head">
+        <th sort="true">
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-sort"></span> Sort
+        </button>
+        </th>
         <th>批次Id</th>
         <th>场景名称</th>
         <th>状态</th>
@@ -60,8 +65,8 @@
             <td>${ss.message }</td>
             <%-- <td><fmt:formatDate value="${cs.createDate }" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td> --%>
             <td>
-                  <a href="<%=request.getContextPath()%>/log/scenCaseList/${ss.id}">详细信息</a>&nbsp;&nbsp;
-                  <a href="<%=request.getContextPath()%>/log/deletebatch/${batchLogId}">删除日志</a>&nbsp;&nbsp;
+                  <a href="<%=request.getContextPath()%>/log/scenCaseList/${ss.id}"><span class="label label-primary"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;详细信息</span></a>
+                  <a href="javascript:$.alerts.delconfirm('<%=request.getContextPath()%>/log/deletebatch/${batchLogId}');"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;删除日志</span></a>
             </td>
         </tr>
         </c:forEach>
@@ -72,28 +77,11 @@
 			<jsp:param value="${datas.total }" name="totalRecord"/>
 			<jsp:param value="${ss.id }" name="url"/>
 		</jsp:include>
- </div>       
+ </div>    
+ <script>
+ $(function () {
+     $("#tblist").sorttable();
+ });
+</script>    
 </body>
 </html>
-<script>
-    $(function () {
-		$('#addnew').click(function(){
-			var scenarioId = $("#scenarioId").val();
-			if(scenarioId == ""){
-				window.location.href="add";
-			}else{
-				window.location.href="add/"+scenarioId;
-			}
-		 });
-    });
-
-	function del(id)
-	{
-		if(confirm("确定要删除吗？"))
-		{
-			var url = "index.jsp";
-			window.location.href=url;		
-		}
-	
-	}
-</script>

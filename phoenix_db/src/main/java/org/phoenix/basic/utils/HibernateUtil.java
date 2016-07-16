@@ -5,7 +5,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
-
+/**
+ * hibernate工具类
+ * @author mengfeiyang
+ *
+ */
 public class HibernateUtil {
 	private final static SessionFactory FACTORY = buildSessionFactory();
     //new File("c:\\phoenix\\hibernate.cfg.xml")

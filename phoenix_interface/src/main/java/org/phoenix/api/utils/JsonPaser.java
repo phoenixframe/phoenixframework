@@ -5,7 +5,11 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+/**
+ * json解析工具类
+ * @author mengfeiyang
+ *
+ */
 public class JsonPaser {
 	private static HashMap<String,String> hm = new HashMap<String,String>();
 	

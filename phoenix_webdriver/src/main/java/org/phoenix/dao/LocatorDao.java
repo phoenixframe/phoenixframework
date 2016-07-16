@@ -1,5 +1,6 @@
 package org.phoenix.dao;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.phoenix.basic.impl.HibernateDaoImpl;
@@ -54,6 +55,11 @@ public class LocatorDao extends HibernateDaoImpl<LocatorBean> implements IModelD
 	 */
 	public LocatorBean loadModel(String locatorName,String caseId){
 		return super.load("from LocatorBean l where l.locatorDataName="+locatorName+" and l.caseBean.id="+caseId);
+	}
+	
+	public static void main(String[] args) {
+		LocatorDao ld = new LocatorDao();
+		Arrays.toString(ld.getModelList(5).toArray());
 	}
 
 }

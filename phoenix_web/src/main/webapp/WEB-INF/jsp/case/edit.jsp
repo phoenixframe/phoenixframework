@@ -9,6 +9,23 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/style.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Css/chosen.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/codemirror/addon/fold/foldgutter.css">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/codemirror/addon/dialog/dialog.css">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/codemirror/theme/monokai.css">
+	
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/lib/codemirror.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/addon/search/searchcursor.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/addon/search/search.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/addon/dialog/dialog.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/addon/edit/matchbrackets.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/addon/edit/closebrackets.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/addon/comment/comment.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/addon/wrap/hardwrap.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/addon/fold/foldcode.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/addon/fold/brace-fold.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/mode/javascript/javascript.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/codemirror/keymap/sublime.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/xheditor/xheditor-1.2.1.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/xheditor/xheditor_lang/zh-cn.js"></script>
@@ -18,6 +35,8 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/ckform.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/common.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/Js/chosen.jquery.js"></script>
+    
+    
     <style type="text/css">
         body {
             padding-bottom: 40px;
@@ -25,6 +44,8 @@
         .sidebar-nav {
             padding: 9px 0;
         }
+        .CodeMirror {border-top: 1px solid #eee; border-bottom: 1px solid #eee; line-height: 1.3; height: 500px}
+  		.CodeMirror-linenumbers { padding: 0 8px; }
 
         @media (max-width: 980px) {
             /* Enable use of floated navbar text */
@@ -38,6 +59,7 @@
 </head>
 <sf:form method="post" action="editor" modelAttribute="caseDTO">
 <sf:hidden path="id" value="${caseBean.id }"/>
+<textarea id="code" style="display:none">${caseBean.codeContent }</textarea>
 <table class="table table-bordered table-hover definewidth m10">
     <tr>
         <td width="10%" class="tableleft">所属场景</td>
@@ -107,7 +129,7 @@
         <td class="tableleft">脚本内容</td>
         <td>
             <!-- cssClass="xheditor-simple" -->
-            <textarea name="codeContent" style="height:500px;width:100%;">${caseBean.codeContent }</textarea>
+            <textarea id="codeContent" name="codeContent" style="height:500px;width:100%;"></textarea>
         </td>
     </tr>
     <tr>
@@ -120,13 +142,23 @@
 </sf:form>
 <script type="text/javascript">
     $(function () {       
+		var editor = CodeMirror.fromTextArea(document.getElementById("codeContent"), {
+		    lineNumbers: true,
+		    mode: "javascript",
+		    keyMap: "sublime",
+		    autoCloseBrackets: true,
+		    matchBrackets: true,
+		    showCursorWhenSelecting: true,
+		    theme: "monokai",
+		    tabSize: 2
+		  });
 		$('#backid').click(function(){
 			var localObj = window.location;
 			var contextPath = localObj.pathname.split("/")[1];
 			var basePath = localObj.protocol+"//"+localObj.host+"/"+contextPath;
 			window.location.href=basePath+"/case/list";
 		 });
-
+		editor.setValue($("#code").val());
     });
 </script>
   <script type="text/javascript">

@@ -13,7 +13,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-
+/**
+ * 用例日志表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="l_web_case")
 public class CaseLogBean {

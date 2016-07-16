@@ -6,7 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
-
+/**
+ * 执行机表
+ * @author mengfeiyang
+ *
+ */
 @Entity
 @Table(name="t_slave")
 public class SlaveModel {

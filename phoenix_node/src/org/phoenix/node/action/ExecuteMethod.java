@@ -26,12 +26,11 @@ public class ExecuteMethod {
 	public LinkedList<UnitLogBean> runByJavaCode(String codeContent,CaseLogBean caseLogBean) throws Exception{		
 		//"public\\sclass(.*)(?=\\{)").split("\\{")[0]
 		String packageName = MethodPattern.result(codeContent, "package(.*);").trim();
-		String className = MethodPattern.result(codeContent, "public\\s+class\\s+(.*)extends\\s+WebElementActionProxy").trim();
+		String className = MethodPattern.result(codeContent, "public\\s+class\\s+(.*)extends\\s+ActionProxy").trim();
         DynamicEngine de = DynamicEngine.getInstance();
         Class<?> clazz =  de.javaCodeToClass(packageName+"."+className,codeContent);
-    	Method method = clazz.getDeclaredMethod("run",CaseLogBean.class);
+        Method method = clazz.getDeclaredMethod("run",CaseLogBean.class);
     	LinkedList<UnitLogBean> unitLogs = (LinkedList<UnitLogBean>) method.invoke(clazz.newInstance(),caseLogBean); 
-    	
     	return unitLogs;	    
 	}
 }

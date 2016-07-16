@@ -13,7 +13,11 @@ import org.phoenix.web.service.ITaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+/**
+ * 业务结构树控制器
+ * @author mengfeiyang
+ *
+ */
 @Controller
 @RequestMapping("/tree")
 public class TreeController {
