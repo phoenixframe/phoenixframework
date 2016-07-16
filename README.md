@@ -15,7 +15,7 @@
 搜索：测完啦或phoenixframe会有更多关于平台的示例<br>
 <br>
 最新版本：1.5.0<br>
-<font color=blue><b>这是一个全新的版本</b></font><br>
+<b>这是一个全新的版本,对几个关键功能代码做了重构，重构后易用性和后续的功能扩展都有重要作用。</b><br>
 phoenix_web:各table增加了根据id排序功能<br>
 phoenix_web:增加部分样式，如字体调整，增删改的链接样式<br>
 phoenix_node:修复性能测试时必须开启监控页面才能收集被监控机数据的bug<br>
@@ -73,3 +73,9 @@ phoenix_recorder：用于对执行过程录制回放<br>
 phoenix_tcpserver：可独立部署在Windows和Linux，用于特殊场景下的操作。如生成或执行shell	<br>
 phoenix_jbehave：行为驱动支持	<br>
 phoenix_jmeter：基于jmeter定制的专门用于web系统性能测试的模块<br>
+<br>
+页面截图：
+![测试用例管理界面](http://www.cewan.la/images/case.jpg) 
+![测试任务管理界面](http://www.cewan.la/images/task.jpg) 
+![性能测试结果界面](http://www.cewan.la/images/perf.jpg)
+![业务树结构界面](http://www.cewan.la/images/tree.jpg)
