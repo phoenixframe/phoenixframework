@@ -15,7 +15,7 @@
 搜索：测完啦或phoenixframe会有更多关于平台的示例<br>
 <br>
 最新版本：1.5.0<br>
-<font color=blue><b>这是一个全新的版本</b></font>
+<font color=blue><b>这是一个全新的版本</b></font><br>
 phoenix_web:各table增加了根据id排序功能<br>
 phoenix_web:增加部分样式，如字体调整，增删改的链接样式<br>
 phoenix_node:修复性能测试时必须开启监控页面才能收集被监控机数据的bug<br>
@@ -46,8 +46,6 @@ phoenix_web:多个地方增加删除确认提示<br>
 phoenix_web:日志增加批量管理方法<br>
 phoenix_webdriver:selenide更新到最新3.6,selenium更新到2.48稳定版（兼容safari），selendroid更新到最新0.17<br>
 phoenix_webdriver:支持最新的Firefox41/chrome51/IE10/IE11/IE Edge/Safari版本。IE驱动更新到2.53，chrome驱动更新到2.21<br>
-
-<br>
 系统名称：自动化测试平台<br> 
 系统介绍： <br>
 【支持的部署方式】：J2EE，Jenkins，maven，J2SE，分布式部署，Jetty部署 <br>
