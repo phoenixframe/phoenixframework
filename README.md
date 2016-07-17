@@ -31,7 +31,7 @@ phoenix_web:为shiro增加了缓存支持<br>
 phoenix_webdriver:数据及定位信息数据由自动加载改为手动加载<br>
 phoenix_webdriver:各个模块的备注信息完善<br>
 <br>
-最新版本：1.4.8<br>
+上一版本：1.4.8<br>
 phoenix_node:优化性能测试时，监控机的CPU及内存数据等的可读性<br>
 phoenix_web:增加了ehcache缓存<br>
 phoenix_web:增加数据库连接池查看<br>
